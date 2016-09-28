@@ -1,0 +1,341 @@
+.ibm-blog__article-date{
+	a:visited{
+		text-transform: capitalize;
+		color:#959595;
+
+		&:hover{
+			color:#3b6caa;
+			text-decoration: underline;
+		}
+	}
+}
+
+.nh-social-share-icon-count{
+	.nh-social-icon{
+		padding-right: 1.75rem;
+		font-size:1.2rem;
+		color : #000;
+		padding-left: 1em;
+		span {
+			font-size:1rem;
+		}
+	}
+
+}
+
+/* This is to make sure the size of the social icons are correctly aligned , overriding the www.css*/
+a.ibm-inlinelink[class*="-link"]::before {
+	font-size: 1.4rem;
+}
+a.ibm-inlinelink[class*="-link"] {
+    padding-left: 1.2em;
+}
+
+
+/* this is to override www.css class to not to show dots for li */
+ul > li::before, ol > li::before {
+	content: none;
+}
+/*.ccre_widget{
+	min-height: 50px;
+	background-color: #562F72;
+	color: #fff;
+    padding: 40px 30px 30px;
+    .ccre_widget_head{
+    	display: block;
+		.postgrid-title{
+			width: 65%;
+			display: inline-block;
+			float: left;
+			font-size: 24px;
+		}
+		div{
+			padding: 0 0 0 5px; 
+			display: inline-block;
+			width: 32%;
+			img {
+				max-width: 100%;
+			}
+		}
+    }
+
+	.ccre_widget_entries {
+          margin-top: 20px;
+          li {
+          	font-size: 14px;
+			content: none;
+			padding-left:0;          
+            p.ibm-ind-link {
+              display:flex;
+              a {
+              	font-size: 14px;
+                color: #fff;  
+                width: 66%;
+              }
+            }
+          } 
+	}
+}
+*/
+body.single-post{
+	
+	#ibm-content-main {
+    .nh-single-related-wrap {
+      .ibm-columns {
+        &.ibm-widget-processed {
+          padding:0;
+          @media screen and (max-width: 579px){
+            padding: 0 0 10px;
+          }
+        }
+      }
+    }
+		.nh-card-article-container{
+			.nh-tags {
+				.nh-article-categories{
+					.nh-article-category.ibm-small {
+						color: #5A5A5A;
+						&:HOVER {
+							color: #959595;
+						}
+					}
+				}
+			}
+			.nh-card-author{
+				margin-bottom:1em;
+			}
+
+			.nh-card-article-body{
+				padding-right:2em;
+        div {
+          @media screen and (max-width: 579px){
+            iframe {
+              &.embedly-embed {
+                width: 100%;
+              }
+            }
+          }
+        }
+			}
+		}
+
+		.ibm-blog__article{
+
+			.ibm-blog__article-main{
+
+				.ibm-blog__article-date{
+
+					a, a:visited{
+						color:#888;
+
+						&:hover, &:active{
+							color:#4178BE;
+						}
+					}
+				}
+
+				.nh-social-share-icon-count{
+					margin:0.5em 0 1em;
+
+					.nh-social-icon{
+						
+					}
+
+				}
+
+				.ibm-blog__article-content{
+					padding-right:20px;
+				}
+			}
+
+			.ibm-blog__article-side{
+				margin:0;
+
+				.ibm-blog__article-
+
+				.data.nh-sidebar{
+					margin-top:100px;
+					padding:0;
+					background-color:white;
+
+					.nh-subscription-box{
+
+						.nh-subscription-header{
+
+							.icon-wrap:before{
+								left:0;
+							}
+						}
+					}
+
+					.ibm-link-list{
+						background-color:#17B4A0;
+						color:white;
+
+						h3{
+							font-size:1.4em;
+							color:white;
+							margin-top: 2em;
+							padding-bottom: 0;
+							margin-bottom: 0.5em;
+						}
+					}
+
+					.ccre_widget{
+						padding:20px;
+
+						h3{
+							font-size:1.4em;
+							padding-bottom:0;
+							margin-bottom:1em;
+						}
+					}
+				}
+			}
+
+			
+		}
+	}
+}
+
+ul.nh-render-list, 
+	ol.nh-render-list {
+    padding: 0 0 15px 15px;
+    margin: 0;
+    list-style: decimal;
+    list-style-position: outside;
+    font-size: 1rem;
+    line-height: 1.625rem;
+}
+
+#ibm-content {
+
+	a.nh-link-color-restore:link,
+	a.nh-link-color-restore:visited {
+		color:#3b6caa;
+	}
+
+
+
+	
+
+	#ibm-content-main {
+
+		.nh-card-article-title{
+			.ibm-h2{
+				font-size:2.5rem;
+				line-height: 110%;
+			}
+		}
+
+		.nh-single-related-wrap{
+			background-color:#f4f4f4;
+		}
+		.ibm-band {
+			&.nh-card-article-container {
+				background-color: #fff;
+				.ibm-columns {
+					@media screen and (max-width: 579px) {
+						min-width: 260px;
+						width: auto;
+					}
+					@media screen and (min-width: 580px) and (max-width: 759px){
+						width: 540px;
+					}
+					@media screen and (min-width: 760px) and (max-width: 999px){
+						width: 720px;
+					}
+					@media screen and (min-width: 1000px) and (max-width: 1239px){
+						width: 960px;
+					}
+					@media screen and (min-width: 1240px) and (max-width: 1479px){
+						width: 1200px;					
+					}
+					.ibm-col-6-4 {
+						&.nh-card-article-body {
+							img {
+								object-fit: contain;
+								/*width: 100%;*/
+							}
+
+							a:not(.nh-social-icon){
+								color:#4178BE;
+
+								&:hover, &:active{
+									color:#325C80;
+								}
+							}
+						}
+					}
+					.ibm-col-1-1 {
+						
+            .nh-card-author {
+            	margin-bottom:1em;
+
+              span {
+                font-size: 0.85rem;
+                &:last-child {
+                  &:after {
+                    content: "";
+                  }
+                }
+                &:after {
+                  content: ",";
+                }
+              }
+            }
+            .nh-content {
+              a {
+                color: #444;
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+            
+            &.search-card-content {
+              .logo-mark-wrap {
+                background-color: #000;
+                .logo-mark {
+                  color: #fff;
+                }
+              }
+            }
+            .nh-card-categories {
+              display: flex;
+              flex-direction: row;
+              align-items: flex-start;
+              margin-top: 1em;
+              opacity: 0;
+              transform: translateY(0%);
+              transition: all 0.5s 0.2s;
+              &.search-card-content {
+                opacity: 1;
+                .content-wrap {
+                  a.nh-tag {
+                  	text-decoration: underline;
+                  	&:hover {
+                  		color: #4178BE;
+                  	}
+                    &:after {
+                      content: ",";
+                    }
+                    &:last-child {
+                      &:after {
+                        content: "";
+                      }
+                    }
+                  }
+                }
+              }
+              .icon-wrap {
+                line-height: 0;
+                margin-right: 0.2em;
+              }
+            }
+					}
+				}
+			}
+		}
+	}
+}

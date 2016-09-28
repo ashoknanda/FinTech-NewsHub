@@ -1,0 +1,348 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: ibmNorthstar\n"
+"POT-Creation-Date: 2016-06-29 09:43+0200\n"
+"PO-Revision-Date: 2016-06-29 09:42+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:7
+msgid "Page Not Found"
+msgstr ""
+
+#: 404.php:8
+msgid "The page you were looking for was not found."
+msgstr ""
+
+#: 404.php:9
+msgid "Back"
+msgstr ""
+
+#: _includes/post_featured.php:75
+msgid "Read More"
+msgstr ""
+
+#: _includes/post_listing_grid.php:69
+msgid "Continue reading"
+msgstr ""
+
+#: _includes/post_listing_grid.php:72
+msgid "Facebook"
+msgstr ""
+
+#: _includes/post_listing_grid.php:73
+msgid "Twitter"
+msgstr ""
+
+#: _includes/post_listing_grid.php:74 _includes/post_listing_grid.php:75
+msgid "LinkedIn"
+msgstr ""
+
+#: _includes/post_listing_stack.php:94
+msgid "read more"
+msgstr ""
+
+#: _includes/post_nextprev.php:6
+msgid "Previous Post"
+msgstr ""
+
+#: _includes/post_nextprev.php:15
+msgid "Next Post"
+msgstr ""
+
+#: _library/comments.php:25 _library/comments.php:75
+msgid "F jS, Y"
+msgstr ""
+
+#: _library/comments.php:34 _library/comments.php:84
+msgid "Your comment is awaiting moderation."
+msgstr ""
+
+#: _library/comments.php:40 _library/comments.php:90
+msgid "(Edit)"
+msgstr ""
+
+#: _library/site.php:122
+#, php-format
+msgid "Required fields are marked %s"
+msgstr ""
+
+#: _library/site.php:157
+#, php-format
+msgid "Page %s"
+msgstr ""
+
+#: archive.php:18
+msgid "Archives by Month:"
+msgstr ""
+
+#: archive.php:23
+msgid "Archives by Subject:"
+msgstr ""
+
+#: author.php:123
+msgid "Sorry"
+msgstr ""
+
+#: author.php:126
+msgid "Author has no posts."
+msgstr ""
+
+#: category.php:139 home.php:104 page-archive.php:110 tag.php:131
+msgid "Sorry, no posts matched your criteria."
+msgstr ""
+
+#: category.php:155 home.php:121 page-archive.php:124 tag.php:146
+msgid "<p>Sorry, no posts matched your criteria.</p>"
+msgstr ""
+
+#: comments-full-width.php:18
+msgid "Add Comment"
+msgstr ""
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>No</span> Comments"
+msgstr ""
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>One</span> Comment"
+msgstr ""
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>%</span> Comments"
+msgstr ""
+
+#: comments-full-width.php:29 comments.php:29
+msgctxt "noun"
+msgid "Comment"
+msgstr ""
+
+#: comments-full-width.php:54 comments.php:54
+msgid "Reply"
+msgstr ""
+
+#: comments-full-width.php:64 comments.php:64
+msgid "&larr; Previous Comments"
+msgstr ""
+
+#: comments-full-width.php:65 comments.php:65
+msgid "More Comments &rarr;"
+msgstr ""
+
+#: comments-full-width.php:70 comments.php:70
+msgid "Comments are closed."
+msgstr ""
+
+#: functions.php:68
+#, php-format
+msgid "Welcome, %1$s"
+msgstr ""
+
+#: functions.php:156
+msgid "Post Listing Design"
+msgstr ""
+
+#: functions.php:163
+msgid "Post listing style for homepage"
+msgstr ""
+
+#: functions.php:170 functions.php:186
+msgid "Grid"
+msgstr ""
+
+#: functions.php:171 functions.php:187
+msgid "Stack"
+msgstr ""
+
+#: functions.php:179
+msgid "Post listing style for other pages"
+msgstr ""
+
+#: functions.php:195
+msgid "Post Listing Image Visibility"
+msgstr ""
+
+#: functions.php:202
+msgid "Always show post images"
+msgstr ""
+
+#: functions.php:203
+msgid "Show post images if available"
+msgstr ""
+
+#: functions.php:204
+msgid "Never show post images"
+msgstr ""
+
+#: functions.php:212
+msgid "For each article in listing, show"
+msgstr ""
+
+#: functions.php:219
+msgid "Full text"
+msgstr ""
+
+#: functions.php:220
+msgid "Summary"
+msgstr ""
+
+#: functions.php:228
+msgid "Miscellaneous Overrides"
+msgstr ""
+
+#: functions.php:240
+msgid "Force all posts to full width"
+msgstr ""
+
+#: functions.php:246 functions.php:257 functions.php:269 functions.php:292
+msgid "Enable"
+msgstr ""
+
+#: functions.php:251
+msgid "Display social share icons on all posts"
+msgstr ""
+
+#: functions.php:263
+msgid "Hide author from posts"
+msgstr ""
+
+#: functions.php:279
+msgid "Google Analytics"
+msgstr ""
+
+#: functions.php:286
+msgid "Include Google Analytics"
+msgstr ""
+
+#: functions.php:297
+msgid "Google Analytics UA"
+msgstr ""
+
+#: functions.php:312
+msgid "Set up how post lists looks like on the blog"
+msgstr ""
+
+#: functions.php:586
+msgid "380px by 380px"
+msgstr ""
+
+#: functions.php:587
+msgid "780px by 780px"
+msgstr ""
+
+#: functions.php:588
+msgid "1200px by 1200px"
+msgstr ""
+
+#: functions.php:589
+msgid "1440px by 1440px"
+msgstr ""
+
+#: functions.php:590
+msgid "2400px by 2400px"
+msgstr ""
+
+#: functions.php:591
+msgid "2880px by 2880px"
+msgstr ""
+
+#: functions.php:603
+msgid "600px by 600px"
+msgstr ""
+
+#: functions.php:604
+msgid "300px by 300px"
+msgstr ""
+
+#: functions.php:643 functions.php:649 functions.php:651
+msgid ", "
+msgstr ""
+
+#: functions.php:658
+#, php-format
+msgid "View all posts by Drew %s"
+msgstr ""
+
+#: functions.php:662
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:664
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: functions.php:666
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:724
+msgid "Previous"
+msgstr ""
+
+#: functions.php:725
+msgid "Next"
+msgstr ""
+
+#: functions.php:755
+msgid "Tags: "
+msgstr ""
+
+#: single.php:168
+msgid "Written by:"
+msgstr ""
+
+#: single.php:286
+msgid "Oops, Post Not Found!"
+msgstr ""
+
+#: single.php:325
+msgid "More"
+msgstr ""
+
+#: single.php:325
+msgid "Stories"
+msgstr ""
+
+#. Theme Name of the plugin/theme
+msgid "ibmNorthstar"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.ibm.com"
+msgstr ""
+
+#. Description of the plugin/theme
+msgid ""
+"This theme was created using Northstar v18 web standards. Custom fields in "
+"the footer to update your social networks. Parallex scroll with CTAs that "
+"can be customized. Front page has featured posts carousel with cards layout."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Drew Norman / Ryan Sebade / Ian Crowley / Juraj Nyiri"
+msgstr ""
+
+#. Author URI of the plugin/theme
+msgid "mailto:Scott_Farnsworth@us.ibm.com"
+msgstr ""

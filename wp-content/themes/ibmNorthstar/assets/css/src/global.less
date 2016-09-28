@@ -1,0 +1,192 @@
+#ibm-content {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Remove the V18 floating social sharing icons
+#ibm-social-tools {display:none;}
+
+// ---------------------------------------------------------------------------
+// BASE
+
+a:link, a:visited { }
+a:hover {
+    text-decoration: none;
+}
+
+strong {
+    font-family: @fontBold;
+}
+
+// ---------------------------------------------------------------------------
+// SOCIAL ICONS
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'social_icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 3.7em;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: none;
+}
+
+.icon-email_icon_circle:before { content: "\e600"; }
+.icon-facebook_icon_circle:before { content: "\e601"; }
+.icon-googleplus_icon_circle:before { content: "\e602"; }
+.icon-winkedin_icon_circle:before { //'linkedin' inherits junk from ibm ww.css
+    content: "\e603";
+}
+.icon-twitter_icon_circle:before { content: "\e604"; }
+
+
+[class^="known-icon-"], [class*=" known-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'known' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.known-icon-download:before {
+  content: "\e900";
+}
+.known-icon-find:before {
+  content: "\e901";
+}
+.known-icon-share:before {
+  content: "\e902";
+}
+.known-icon-facebook:before {
+  content: "\e903";
+}
+.known-icon-twitter:before {
+  content: "\e904";
+}
+.known-icon-youtube:before {
+  content: "\e905";
+}
+.known-icon-linkedin:before {
+  font-family: 'known' !important;
+  font-size: inherit;
+  position: static;
+  content: "\e906";
+}
+
+// ---------------------------------------------------------------------------
+// LEADSPACE
+
+#ibm-leadspace-head {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+// ---------------------------------------------------------------------------
+// SHARE BUTTONS
+
+// .ibm-blog__share {
+
+//     padding-top: 10px;
+
+//     .facebook {
+//         min-height: 30px;
+//         margin-bottom: 25px;
+//     }
+
+//     UL {
+//         padding-top: 6px;
+//         border-top: 1px solid @grid_background_color;
+//     }
+//     LI {
+//         padding: 4px 0 10px 0;
+//         border-bottom: 1px solid @grid_background_color;
+//     }
+
+//     LI[class^='share_'] A {
+//         color: #777677;
+//         &:hover {color: #325C80; }
+//     }
+
+//     LI[class^='do_'] A,
+//     LI[class*=' do_'] A {
+//         color: #4178BE;
+//         &:hover {color: #325C80; }
+//     }
+
+// }
+
+
+.custom-tooltip-content{
+    position:absolute;
+    z-index:999;
+    display:none;
+    background-color:#dedede;
+    padding:5px;
+    border:1px solid #fff;
+    width:250px;
+
+    .widget_wpsp_widget {
+        margin:0;
+        padding:0;
+        color:#000;
+        background-color:#fff;
+        padding:2px 7px;
+      }
+
+}
+
+.custom-tooltip-content:after, .custom-tooltip-content:before {
+  bottom: 100%;
+  left: 70%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.custom-tooltip-content:after {
+  border-color: rgba(136, 183, 213, 0);
+  border-bottom-color: #dedede;
+  border-width: 8px;
+  margin-left: -8px;
+}
+.custom-tooltip-content:before {
+  border-color: rgba(194, 225, 245, 0);
+  border-bottom-color: #dedede;
+  border-width: 15px;
+  margin-left: -15px;
+}
+
+.custom-button-container{
+ 
+}
+.custom-button-container:hover{
+      .custom-tooltip-content {
+        display: block;
+        right : 10px;
+      }
+}
+
+
+.ibm-popular-widget{
+  .wp-most-popular{
+    list-style:none;
+  }
+
+}
+

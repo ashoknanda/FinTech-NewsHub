@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Webfonts Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+	    body, textarea { font-family:Arial, Sans-Serif; line-height:1.6em; font-size:13px; }
+	    h1 { font-size:3em; }
+	    h2, h3 { color:#999; }
+	    .content { width:780px; margin: 20px auto 40px; }
+	    .demo { font-weight:bold; font-style:normal; color: #999 }
+	    .fontdisplay {font-size:2em;line-height:150%;margin: 10px 40px 0px 0px;}
+	    .guidelines { color:#333; }
+	    pre { padding:0 0 0 20px; }
+	    hr { border:0; border-bottom:1px solid #537094; margin:20px 0; }
+	    .link { color: #537094;text-decoration:none; font-weight:bold;}
+	    .uc {text-transform:uppercase}
+	    
+    </style>
+    <style type="text/css">
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=45dc63b2-d17c-46e3-b348-372cc3304fa9");
+@font-face{
+font-family:"ITCLubalinGraphW01-Bk";
+src:url("fonts/dba232c1-9c23-4a6c-aa91-659205e8e868.eot?#iefix");
+src:url("fonts/dba232c1-9c23-4a6c-aa91-659205e8e868.eot?#iefix") format("eot"),url("fonts/be27e11d-4720-4de3-9b1b-d34deaf9f2d6.woff2") format("woff2"),url("fonts/08d26b1f-edba-4c24-871e-8f265f017896.woff") format("woff"),url("fonts/1663715b-f83c-4958-8905-97cc579db28b.ttf") format("truetype"),url("fonts/43653318-4d8d-4e4b-8f04-c6e8cb975558.svg#43653318-4d8d-4e4b-8f04-c6e8cb975558") format("svg");
+}
+@font-face{
+font-family:"ITCLubalinGraphW01-Md";
+src:url("fonts/a2b62950-ad70-46e2-b2e9-e82ec9db5384.eot?#iefix");
+src:url("fonts/a2b62950-ad70-46e2-b2e9-e82ec9db5384.eot?#iefix") format("eot"),url("fonts/e42da608-2166-4b10-8a21-ccf4179ad8fd.woff2") format("woff2"),url("fonts/6e86dc78-6a2a-44b2-a48e-267dd190bc17.woff") format("woff"),url("fonts/61a5852b-4a70-4369-a205-815fa0dccca3.ttf") format("truetype"),url("fonts/5b1a4f6f-183e-4a2b-897c-02b9544ff090.svg#5b1a4f6f-183e-4a2b-897c-02b9544ff090") format("svg");
+}
+@font-face{
+font-family:"ITCLubalinGraphW01-Demi";
+src:url("fonts/cc99e9f2-4765-47e8-8e9e-f8afa7f45aa2.eot?#iefix");
+src:url("fonts/cc99e9f2-4765-47e8-8e9e-f8afa7f45aa2.eot?#iefix") format("eot"),url("fonts/75b8321f-1ee5-4e49-b7ad-121247f6aece.woff2") format("woff2"),url("fonts/59400685-dc94-4bda-8b78-cceef07d0471.woff") format("woff"),url("fonts/d8199ae6-f15d-4aad-b2c6-4fb6aa728384.ttf") format("truetype"),url("fonts/33772b07-3175-4e1c-9aca-009627307668.svg#33772b07-3175-4e1c-9aca-009627307668") format("svg");
+}
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="demo">Fonts.com Web fonts</h1>
+        <p style="margin-top:-10px; font-size:1.5em;color:#666"><b>@font-face implementation instructions</b></p>
+        <hr />
+        <p class="uc">The fonts contained in this kit are:</p>
+        <div class="fontdisplay">
+<div style="font-family:'ITCLubalinGraphW01-Bk';"> ITC Lubalin Graph® W01 Book </div>
+<div style="font-family:'ITCLubalinGraphW01-Md';"> ITC Lubalin Graph® W01 Medium </div>
+<div style="font-family:'ITCLubalinGraphW01-Demi';"> ITC Lubalin Graph® W01 Demi </div>
+
+        </div>
+        <hr />
+        Click here for <a class="link uc" href="demo-async.htm">asynchronous</a> web fonts implementation
+        <hr />
+        <div class="guidelines">
+            <h2>CSS Implementation Guidelines</h2>
+            <p>You and any third party web font hosting service are responsible for ensuring that the font software in the self-hosting kit, in its original format, can only be used on the Web Sites for which the self-hosting kit was downloaded and cannot be used or referenced by any other web site. This includes, but is not limited to installing adequate technical protection measures that restrict the use and/or access to the font software, for instance by utilizing JavaScript or access control mechanism for cross-origin resource sharing and protecting against use on web sites other than the Web Sites for which the self-hosting kit was downloaded by restricting domain access only to such Web Sites. You must also retain the pageview tracking code on any Web Site that you self-host. In the event this Agreement terminates for any reason, the font software included with the self-hosting kit must be deleted from the server and all copies must be destroyed or returned to Monotype Imaging.</p>
+            <p>View <a class="link" href="http://new.fonts.com/info/legal/eula/web-fonts" target="_blank">"WEB FONT SOFTWARE" LICENSE AGREEMENT</a></p>
+            <p>Font file names have been obfuscated to protect the font software. You can identify font format based on file ending:</p>
+            <ul>
+                <li>1 - TrueType (ttf)</li>
+                <li>2 - Embedded OpenType (eot)</li>
+                <li>3 - Web Open Font Format (woff)</li>
+                <li>4 - Web Open Font Format version 2 (woff2)</li>
+                <li>5 - Scalable Vector Graphics (svg)</li>
+            </ul>
+            <p class="uc" style="margin: 20px 0px -20px;"><b>Copy and paste following code in head section of the page</b></p>
+            <hr />
+            <textarea style="width:830px; height:350px; border:1 #fff solid; background-color:#fcfcfc;"><style type="text/css">
+
+@import url("http://fast.fonts.net/t/1.css?apiType=css&projectid=45dc63b2-d17c-46e3-b348-372cc3304fa9");
+@font-face{
+font-family:"ITCLubalinGraphW01-Bk";
+src:url("fonts/dba232c1-9c23-4a6c-aa91-659205e8e868.eot?#iefix");
+src:url("fonts/dba232c1-9c23-4a6c-aa91-659205e8e868.eot?#iefix") format("eot"),url("fonts/be27e11d-4720-4de3-9b1b-d34deaf9f2d6.woff2") format("woff2"),url("fonts/08d26b1f-edba-4c24-871e-8f265f017896.woff") format("woff"),url("fonts/1663715b-f83c-4958-8905-97cc579db28b.ttf") format("truetype"),url("fonts/43653318-4d8d-4e4b-8f04-c6e8cb975558.svg#43653318-4d8d-4e4b-8f04-c6e8cb975558") format("svg");
+}
+@font-face{
+font-family:"ITCLubalinGraphW01-Md";
+src:url("fonts/a2b62950-ad70-46e2-b2e9-e82ec9db5384.eot?#iefix");
+src:url("fonts/a2b62950-ad70-46e2-b2e9-e82ec9db5384.eot?#iefix") format("eot"),url("fonts/e42da608-2166-4b10-8a21-ccf4179ad8fd.woff2") format("woff2"),url("fonts/6e86dc78-6a2a-44b2-a48e-267dd190bc17.woff") format("woff"),url("fonts/61a5852b-4a70-4369-a205-815fa0dccca3.ttf") format("truetype"),url("fonts/5b1a4f6f-183e-4a2b-897c-02b9544ff090.svg#5b1a4f6f-183e-4a2b-897c-02b9544ff090") format("svg");
+}
+@font-face{
+font-family:"ITCLubalinGraphW01-Demi";
+src:url("fonts/cc99e9f2-4765-47e8-8e9e-f8afa7f45aa2.eot?#iefix");
+src:url("fonts/cc99e9f2-4765-47e8-8e9e-f8afa7f45aa2.eot?#iefix") format("eot"),url("fonts/75b8321f-1ee5-4e49-b7ad-121247f6aece.woff2") format("woff2"),url("fonts/59400685-dc94-4bda-8b78-cceef07d0471.woff") format("woff"),url("fonts/d8199ae6-f15d-4aad-b2c6-4fb6aa728384.ttf") format("truetype"),url("fonts/33772b07-3175-4e1c-9aca-009627307668.svg#33772b07-3175-4e1c-9aca-009627307668") format("svg");
+}
+
+</style>
+
+</textarea>
+            <h3>Licensing information should be included within the CSS</h3>
+<pre>/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://www.fonts.com
+*/</pre>
+        </div>
+    </div>
+</body>
+</html>

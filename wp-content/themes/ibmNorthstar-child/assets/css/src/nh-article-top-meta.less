@@ -1,0 +1,43 @@
+.nh-article-top-meta{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	margin-bottoM:0.75em;
+
+	.nh-editors-pick-dogear {
+		display: block;
+		position: relative;
+		line-height: 0;
+		margin-left:1.5em;
+		
+		&:before {
+			position: relative;
+			color: #000;
+			top: 7px;
+		}
+	}
+
+	&.nh-editors-pick-inverse{
+
+		.nh-editors-pick-dogear{
+			&:before{
+				color:white;
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:499px){
+	.nh-card{
+
+		.nh-article-top-meta{
+
+			.nh-editors-pick-dogear {
+
+				.ibm-small{
+					display:none;
+				}
+			}
+		}	
+	}	
+}

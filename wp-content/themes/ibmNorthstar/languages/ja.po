@@ -1,0 +1,1053 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: ibmNorthstarDev\n"
+"POT-Creation-Date: 2016-07-06 08:32-0500\n"
+"PO-Revision-Date: 2016-07-15 17:17+0900\n"
+"Last-Translator: Scott C Farnsworth <scott_farnsworth@us.ibm.com>\n"
+"Language-Team: Scott C Farnsworth <scott_farnsworth@us.ibm.com>\n"
+"Language: ja\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-WPHeader: style.css\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: 404.php:7
+msgid "Page Not Found"
+msgstr "ページが見つかりません"
+
+#: 404.php:8
+msgid "The page you were looking for was not found."
+msgstr "お探しのページが見つかりませんでした"
+
+#: 404.php:9
+msgid "Back"
+msgstr "戻る"
+
+#: _includes/post_featured.php:75
+msgid "Read More"
+msgstr "続きを読む"
+
+#: _includes/post_listing_grid.php:69
+msgid "Continue reading"
+msgstr "さらに読む"
+
+#: _includes/post_listing_grid.php:72
+msgid "Facebook"
+msgstr "Facebook"
+
+#: _includes/post_listing_grid.php:73
+msgid "Twitter"
+msgstr "Twitter"
+
+#: _includes/post_listing_grid.php:74 _includes/post_listing_grid.php:75
+msgid "LinkedIn"
+msgstr "LinkedIn"
+
+#: _includes/post_listing_stack.php:95
+msgid "read more"
+msgstr "続きを読む"
+
+#: _includes/post_nextprev.php:6
+msgid "Previous Post"
+msgstr "前の記事"
+
+#: _includes/post_nextprev.php:15
+msgid "Next Post"
+msgstr "次の記事"
+
+#: _library/acf.php:8
+msgid "Article Fields"
+msgstr "記事フィールド"
+
+#: _library/acf.php:12
+msgid "Full Width?"
+msgstr "最大幅で表示しますか?"
+
+#: _library/acf.php:16 _library/acf.php:32 _library/acf.php:48
+msgid "Yes"
+msgstr "はい"
+
+#: _library/acf.php:17 _library/acf.php:33 _library/acf.php:49
+msgid "No"
+msgstr "いいえ"
+
+#: _library/acf.php:18 _library/acf.php:34 _library/acf.php:50
+msgid "Follow the global blog setting"
+msgstr "グローバルのブログ設定を使用"
+
+#: _library/acf.php:23
+msgid ""
+"Select to have the post body span the full width of the page (that is, do "
+"not show the right sidebar)."
+msgstr "記事の幅の最大化を選択(右サイド・バーは表示されません)"
+
+#: _library/acf.php:24
+msgid "Post body spans the full page width"
+msgstr "記事の幅を最大化"
+
+#: _library/acf.php:28
+msgid "Allow comments"
+msgstr "コメントを許可する"
+
+#: _library/acf.php:39
+msgid "Select to allow or disable comments for this post."
+msgstr "この記事へのコメントの可否を選択"
+
+#: _library/acf.php:44
+msgid "Display social links to share this post?"
+msgstr "当記事をシェアするためのソーシャル・リンクを表示しますか?"
+
+#: _library/acf.php:59 _library/acf.php:301 _library/acf.php:499
+#: _library/acf.php:962 _library/acf.php:1183 _library/acf.php:1787
+msgid "Title Size"
+msgstr "タイトル・サイズ"
+
+#: _library/acf.php:62 _library/acf.php:304 _library/acf.php:502
+#: _library/acf.php:531 _library/acf.php:965 _library/acf.php:1186
+#: _library/acf.php:1790 _library/acf.php:1819
+msgid "Select size"
+msgstr "サイズを選択"
+
+#: _library/acf.php:64 _library/acf.php:306 _library/acf.php:504
+#: _library/acf.php:533 _library/acf.php:967 _library/acf.php:1008
+#: _library/acf.php:1051 _library/acf.php:1188 _library/acf.php:1792
+#: _library/acf.php:1821
+msgid "Larger"
+msgstr "もっと大きく"
+
+#: _library/acf.php:65 _library/acf.php:79 _library/acf.php:307
+#: _library/acf.php:321 _library/acf.php:505 _library/acf.php:519
+#: _library/acf.php:534 _library/acf.php:548 _library/acf.php:968
+#: _library/acf.php:982 _library/acf.php:1009 _library/acf.php:1023
+#: _library/acf.php:1052 _library/acf.php:1066 _library/acf.php:1189
+#: _library/acf.php:1203 _library/acf.php:1793 _library/acf.php:1807
+#: _library/acf.php:1822 _library/acf.php:1836
+msgid "Normal"
+msgstr "普通"
+
+#: _library/acf.php:66 _library/acf.php:308 _library/acf.php:506
+#: _library/acf.php:535 _library/acf.php:969 _library/acf.php:1010
+#: _library/acf.php:1053 _library/acf.php:1190 _library/acf.php:1794
+#: _library/acf.php:1823
+msgid "Smaller"
+msgstr "もっと小さく"
+
+#: _library/acf.php:74 _library/acf.php:316 _library/acf.php:514
+#: _library/acf.php:977 _library/acf.php:1198 _library/acf.php:1802
+msgid "Title Weight"
+msgstr "タイトル・ウィジェット"
+
+#: _library/acf.php:78 _library/acf.php:320 _library/acf.php:518
+#: _library/acf.php:547 _library/acf.php:981 _library/acf.php:1022
+#: _library/acf.php:1065 _library/acf.php:1202 _library/acf.php:1806
+#: _library/acf.php:1835
+msgid "Bold"
+msgstr "太字"
+
+#: _library/acf.php:80 _library/acf.php:322 _library/acf.php:520
+#: _library/acf.php:549 _library/acf.php:983 _library/acf.php:1024
+#: _library/acf.php:1067 _library/acf.php:1204 _library/acf.php:1808
+#: _library/acf.php:1837
+msgid "Thin"
+msgstr "細く"
+
+#: _library/acf.php:88 _library/acf.php:330 _library/acf.php:557
+#: _library/acf.php:1075 _library/acf.php:1845
+msgid "Text Color"
+msgstr "文字色"
+
+#: _library/acf.php:91 _library/acf.php:333 _library/acf.php:560
+#: _library/acf.php:1078 _library/acf.php:1225 _library/acf.php:1848
+msgid ""
+"View https://www.ibm.com/standards/web/patterns/text for example color "
+"options"
+msgstr ""
+"カラー・サンプルとしてページを表示: https://www.ibm.com/standards/web/"
+"patterns/text"
+
+#: _library/acf.php:137 _library/acf.php:1271
+msgid "Leadspace Image"
+msgstr "リードスペース画像"
+
+#: _library/acf.php:140 _library/acf.php:1274
+msgid "Upload the article's main image. Size requirements 1440 × 320"
+msgstr "記事のメイン画像をアップロードする。推奨サイズは1440 × 320"
+
+#: _library/acf.php:147
+msgid "Card Image"
+msgstr "カード画像"
+
+#: _library/acf.php:150
+msgid "Upload the article's card image. Recommended size is 380 x 190"
+msgstr "記事のカード画像をアップロードする。推奨サイズは 380 x 190"
+
+#: _library/acf.php:157
+msgid "Add Second Author"
+msgstr "筆者を追加する"
+
+#: _library/acf.php:160 functions.php:264 functions.php:275 functions.php:287
+#: functions.php:310 functions.php:404 functions.php:420 functions.php:435
+#: functions.php:450 functions.php:467
+msgid "Enable"
+msgstr "有効にする"
+
+#: _library/acf.php:165
+msgid "Author 2 - Name"
+msgstr "筆者2 - 氏名"
+
+#: _library/acf.php:188
+msgid "Author 2 - Website Link"
+msgstr "筆者2 - Websiteリンク"
+
+#: _library/acf.php:211
+msgid "Author 2 - Image"
+msgstr "筆者2 - 画像"
+
+#: _library/acf.php:231
+msgid "Author 2 - Title/Dept"
+msgstr "筆者2- 所属/役職"
+
+#: _library/acf.php:278
+msgid "Profile Picture"
+msgstr "プロフィール写真"
+
+#: _library/acf.php:283
+msgid "Image used on author, contributors and article pages."
+msgstr "author, contributors and articleページで使用されるイメージ"
+
+#: _library/acf.php:288
+msgid "Leadspace Title"
+msgstr "リードスペースのタイトル"
+
+#: _library/acf.php:379 _library/acf.php:703
+msgid "Background Image"
+msgstr "背景イメージ"
+
+#: _library/acf.php:382
+msgid "leadspace image. Recommended size is 1440 × 320"
+msgstr "リードスペース画像　推奨サイズは1440 × 320"
+
+#: _library/acf.php:389
+msgid "Twitter link"
+msgstr "Twitterリンク"
+
+#: _library/acf.php:401
+msgid "LinkedIn Link"
+msgstr "LinkedInリンク"
+
+#: _library/acf.php:413
+msgid "Facebook link"
+msgstr "Facebookリンク"
+
+#: _library/acf.php:425
+msgid "Job Title"
+msgstr "肩書き"
+
+#: _library/acf.php:437 _library/acf.php:485 _library/acf.php:1773
+msgid "Post listing style"
+msgstr "ポスト・リスティング・スタイル"
+
+#: _library/acf.php:443 _library/acf.php:491 _library/acf.php:1779
+#: functions.php:188 functions.php:204
+msgid "Grid"
+msgstr "グリッド"
+
+#: _library/acf.php:444 _library/acf.php:492 _library/acf.php:1780
+#: functions.php:189 functions.php:205
+msgid "Stack"
+msgstr "スタック"
+
+#: _library/acf.php:445 _library/acf.php:493 _library/acf.php:1781
+msgid "Follow global settings"
+msgstr "グローバルの設定に従う"
+
+#: _library/acf.php:475 _library/acf.php:1136 _library/acf.php:1763
+msgid "Main Image"
+msgstr "メイン画像"
+
+#: _library/acf.php:478
+msgid "Leadspace Image Dimensions: 1440 × 320"
+msgstr "リードスペース・イメージの大きさ: 1440 × 320"
+
+#: _library/acf.php:500
+msgid "leadspace_title_size"
+msgstr "リードスペース・タイトル・サイズ"
+
+#: _library/acf.php:528 _library/acf.php:1046 _library/acf.php:1816
+msgid "Description Size"
+msgstr "ディスクリプション・サイズ"
+
+#: _library/acf.php:543 _library/acf.php:1061 _library/acf.php:1831
+msgid "Description Weight"
+msgstr "ディスクリプション・ウェイト"
+
+#: _library/acf.php:627
+msgid "Categories Page"
+msgstr "カテゴリーページ"
+
+#: _library/acf.php:631
+msgid "Columns"
+msgstr "カラム"
+
+#: _library/acf.php:634
+msgid "Choose 1/2/3 columns"
+msgstr "1/2/3カラムを選択"
+
+#: _library/acf.php:667 _library/acf.php:671
+msgid "Footer Band"
+msgstr "フッター・バンド"
+
+#: _library/acf.php:675
+msgid "Enable Footer Band"
+msgstr "フッター・バンドを有効にする"
+
+#: _library/acf.php:680
+msgid "Title"
+msgstr "タイトル"
+
+#: _library/acf.php:692
+msgid "description"
+msgstr "ディスクリプション"
+
+#: _library/acf.php:712
+msgid "Text color"
+msgstr "文字色"
+
+#: _library/acf.php:715
+msgid "Controls the color of the text on the Footer Band Background Image."
+msgstr "Footer Band背景イメージの文字色を管理する"
+
+#: _library/acf.php:718
+msgid "Black text (good for light background images)"
+msgstr "黒文字(明るい背景イメージに適する)"
+
+#: _library/acf.php:719
+msgid "White text (good for dark background images)"
+msgstr "白文字(暗い背景イメージに適する)"
+
+#: _library/acf.php:725
+msgid "Parallax"
+msgstr "パララックス"
+
+#: _library/acf.php:728
+msgid "Provides a visually interesting effect as the page scrolls"
+msgstr "ページのスクロールにビジュアル効果を追加する"
+
+#: _library/acf.php:729
+msgid "Turn Parallax on"
+msgstr "パララックスを有効にする"
+
+#: _library/acf.php:734
+msgid "Number of CTAs"
+msgstr "CTAナンバー"
+
+#: _library/acf.php:748
+msgid "CTA 1 Text"
+msgstr "CTA1テキスト"
+
+#: _library/acf.php:760
+msgid "CTA 1 url"
+msgstr "CTA1url"
+
+#: _library/acf.php:772
+msgid "CTA 2 text"
+msgstr "CTA2テキスト"
+
+#: _library/acf.php:784
+msgid "CTA 2 url"
+msgstr "CTA2url"
+
+#: _library/acf.php:796
+msgid "CTA 3 text"
+msgstr "CTA3テキスト"
+
+#: _library/acf.php:808
+msgid "CTA 3 url"
+msgstr "CTA3url"
+
+#: _library/acf.php:840
+msgid "Footer Social Links"
+msgstr "フッター・ソーシャル・リンク"
+
+#: _library/acf.php:844
+msgid "Social Icons"
+msgstr "ソーシャル・アイコン"
+
+#: _library/acf.php:847
+msgid "Check box to enable the social links band"
+msgstr "ソーシャル・リンク・バンドを有効にする"
+
+#: _library/acf.php:848
+msgid "Enable Social Links Band"
+msgstr "ソーシャル・リンク・バンドを有効にする"
+
+#: _library/acf.php:853
+msgid "Facebook Link"
+msgstr "Facebookリンク"
+
+#: _library/acf.php:865
+msgid "Twitter Link"
+msgstr "Twitterリンク"
+
+#: _library/acf.php:877
+msgid "Linkedin Link"
+msgstr "Linkedinリンク"
+
+#: _library/acf.php:889
+msgid "Youtube Link"
+msgstr "Youtubeリンク"
+
+#: _library/acf.php:901
+msgid "googleplus link"
+msgstr "Google+リンク"
+
+#: _library/acf.php:913
+msgid "RSS Link"
+msgstr "RSSリンク"
+
+#: _library/acf.php:945
+msgid "Home Leadspace"
+msgstr "ホーム・リードスペース"
+
+#: _library/acf.php:949 _library/acf.php:1332
+msgid "Main Title"
+msgstr "メインタイトル"
+
+#: _library/acf.php:952
+msgid ""
+"Please put the name of your blog in this space use sentence case structure. "
+"ie \"The blog\""
+msgstr "ブログのタイトルを入力。大文字は文頭の1文字のみ使用（例: The blog）"
+
+#: _library/acf.php:991
+msgid "Sub Title"
+msgstr "サブタイトル"
+
+#: _library/acf.php:1003
+msgid "Subtitle Size"
+msgstr "サブタイトル・サイズ"
+
+#: _library/acf.php:1018
+msgid "Subtitle Weight"
+msgstr "サブタイトル・ウェイト"
+
+#: _library/acf.php:1032 _library/acf.php:1212
+msgid "Description"
+msgstr "ディスクリプション"
+
+#: _library/acf.php:1124
+msgid "Text align"
+msgstr "文字配列"
+
+#: _library/acf.php:1128
+msgid "Default"
+msgstr "初期値"
+
+#: _library/acf.php:1129
+msgid "Center"
+msgstr "中央"
+
+#: _library/acf.php:1131
+msgid "How do you wish to have text aligned?"
+msgstr "文字配列はどのようにしたいですか?"
+
+#: _library/acf.php:1139
+msgid "Recommended resolution: 1440x320"
+msgstr "推奨サイズ: 1440x320"
+
+#: _library/acf.php:1167
+msgid "Page Field Group"
+msgstr "ページ・フィールド・グループ"
+
+#: _library/acf.php:1171
+msgid "Display Title"
+msgstr "タイトルの表示"
+
+#: _library/acf.php:1215
+msgid "This content will show up under the main title in the leadspace area"
+msgstr "この内容は、リードスペース・エリア内のメインタイトルの下に表示されます"
+
+#: _library/acf.php:1222
+msgid "Leadspace Text Color"
+msgstr "リードスペースの文字色"
+
+#: _library/acf.php:1281
+msgid "Sidebar"
+msgstr "サイド・バー"
+
+#: _library/acf.php:1284
+msgid "(Does not work on Archive or Contributors pages)"
+msgstr "(アーカイブやコントリビューターページでは動作しません)"
+
+#: _library/acf.php:1296
+msgid "Enable Sidebar"
+msgstr "サイドバーを有効にする"
+
+#: _library/acf.php:1335
+msgid "Enter the title for the sidebar. Ex: 'Follow the conversation'"
+msgstr "サイドバーのタイトルを入力する(例: 会話をフォローする)"
+
+#: _library/acf.php:1337
+msgid "Follow the conversation"
+msgstr "会話をフォローする"
+
+#: _library/acf.php:1346
+msgid "Twitter Embed Code"
+msgstr "Twitter埋め込みコード"
+
+#: _library/acf.php:1349
+msgid ""
+"Follow code examples to create your own twitter timeline https://dev.twitter."
+"com/web/embedded-timelines/user. If you have a twitter account already "
+"follow this link to timeline widget. https://twitter.com/settings/widgets"
+msgstr ""
+"コード例をフォローし自身のTwitterタイムラインを作成する。すでにTwitterアカウ"
+"ントを持っている場合はリンク先にてタイムライン・ウィジェットについて確認でき"
+"ます"
+
+#: _library/acf.php:1356
+msgid "First Content Space"
+msgstr "ファースト･コンテンツ･スペース"
+
+#: _library/acf.php:1359
+msgid "Enable First Content Space"
+msgstr "ファースト･コンテンツ･スペースを有効にする"
+
+#: _library/acf.php:1364
+msgid "First Section Title"
+msgstr "ファースト･セクション・タイトル"
+
+#: _library/acf.php:1387
+msgid "First Section Text Area"
+msgstr "ファースト･セクション・テキストエリア"
+
+#: _library/acf.php:1409
+msgid "First Section CTA Text"
+msgstr "ファースト･セクション・CTAテキスト"
+
+#: _library/acf.php:1432
+msgid "First Section CTA URL"
+msgstr "ファースト･セクション・CTA URL"
+
+#: _library/acf.php:1455
+msgid "Second Content Space"
+msgstr "セカンド･コンテンツ･スペース"
+
+#: _library/acf.php:1458
+msgid "Enable Second Content Space"
+msgstr "セカンド･コンテンツ･スペースを有効にする"
+
+#: _library/acf.php:1463
+msgid "Second Section Title"
+msgstr "セカンド･セクション・タイトル"
+
+#: _library/acf.php:1485
+msgid "Second Section Text Area"
+msgstr "セカンド･セクション・テキストエリア"
+
+#: _library/acf.php:1508
+msgid "Second Section CTA Text"
+msgstr "セカンド･セクション・CTAテキスト"
+
+#: _library/acf.php:1531
+msgid "Second Section CTA URL"
+msgstr "セカンド･セクション・CTA URL"
+
+#: _library/acf.php:1554
+msgid "RSS Feed"
+msgstr "RSSフィード"
+
+#: _library/acf.php:1557
+msgid "Adds fields for RSS Feed links"
+msgstr "RSSフィードのリンクを追加する"
+
+#: _library/acf.php:1558
+msgid "Enable RSS Feed"
+msgstr "RSSフィードを有効にする"
+
+#: _library/acf.php:1563
+msgid "RSS Feed Section Title"
+msgstr "RSSフィードのセクション・タイトル"
+
+#: _library/acf.php:1586
+msgid "Page Feed"
+msgstr "ページ・フィード"
+
+#: _library/acf.php:1589
+msgid ""
+"Select this option to add a feed for every page that contains the sidebar. "
+"If this is selected it will replace the first feed."
+msgstr ""
+"サイドバーを有する全ページのフィードを加えたい場合はこちらを選択してくださ"
+"い。選択された場合、ファースト･フィードと交換されます"
+
+#: _library/acf.php:1606
+msgid "RSS Feed 1 Link"
+msgstr "RSSフィード1のリンク"
+
+#: _library/acf.php:1634
+msgid "RSS Feed 1 Title"
+msgstr "RSSフィード1のタイトル"
+
+#: _library/acf.php:1663
+msgid "Add Second Feed?"
+msgstr "2つめのフィードを追加しますか?"
+
+#: _library/acf.php:1683
+msgid "RSS Feed 2 Link"
+msgstr "RSSフィード2のリンク"
+
+#: _library/acf.php:1711
+msgid "RSS Feed 2 Title"
+msgstr "RSSフィード2のタイトル"
+
+#: _library/acf.php:1766
+msgid "Image needs to be 1440 x 320"
+msgstr "イメージは1440 x 320である必要があります"
+
+#: _library/comments.php:25 _library/comments.php:75
+msgid "F jS, Y"
+msgstr "F jS, Y"
+
+#: _library/comments.php:34 _library/comments.php:84
+msgid "Your comment is awaiting moderation."
+msgstr "あなたのコメントは承認待ちです"
+
+#: _library/comments.php:40 _library/comments.php:90
+msgid "(Edit)"
+msgstr "(編集)"
+
+#: _library/site.php:123
+#, php-format
+msgid "Required fields are marked %s"
+msgstr "%s が付いている部分は入力必須フィールドです"
+
+#: _library/site.php:159
+#, php-format
+msgid "Page %s"
+msgstr "ページ %s"
+
+#: archive.php:18
+msgid "Archives by Month:"
+msgstr "月毎のアーカイブ"
+
+#: archive.php:23
+msgid "Archives by Subject:"
+msgstr "サブジェクト毎のアーカイブ"
+
+#: author.php:123
+msgid "Sorry"
+msgstr "申し訳ございません"
+
+#: author.php:126
+msgid "Author has no posts."
+msgstr "まだ投稿がありません"
+
+#: category.php:139 home.php:105 page-archive.php:111 tag.php:132
+msgid "Sorry, no posts matched your criteria."
+msgstr "申し訳ありませんが、条件に合う投稿はございません"
+
+#: category.php:155 home.php:123 page-archive.php:126 tag.php:148
+msgid "<p>Sorry, no posts matched your criteria.</p>"
+msgstr "<p>条件に合う投稿がありません</p>"
+
+#: comments-full-width.php:18
+msgid "Add Comment"
+msgstr "コメントを追加する"
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>No</span> Comments"
+msgstr "コメントなし"
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>One</span> Comment"
+msgstr "<span>1</span> コメント"
+
+#: comments-full-width.php:18 comments.php:18
+msgid "<span>%</span> Comments"
+msgstr "<span>%</span> コメント"
+
+#: comments-full-width.php:29 comments.php:29
+msgctxt "noun"
+msgid "Comment"
+msgstr "コメント"
+
+#: comments-full-width.php:55 comments.php:55
+msgid "Reply"
+msgstr "返信"
+
+#: comments-full-width.php:65 comments.php:65
+msgid "&larr; Previous Comments"
+msgstr "&larr; 前のコメント"
+
+#: comments-full-width.php:66 comments.php:66
+msgid "More Comments &rarr;"
+msgstr "コメントをさらに見る &rarr;"
+
+#: comments-full-width.php:71 comments.php:71
+msgid "Comments are closed."
+msgstr "コメントは削除されました"
+
+#: functions.php:82
+#, php-format
+msgid "Welcome, %1$s"
+msgstr "ようこそ, %1$s"
+
+#: functions.php:120 functions.php:125 functions.php:130
+msgid "This theme requires you to install the"
+msgstr "このテーマにはインストールが必要"
+
+#: functions.php:120 functions.php:125 functions.php:130
+msgid "download it from here"
+msgstr "ここからダウンロード"
+
+#: functions.php:120 functions.php:125 functions.php:130
+msgid "or"
+msgstr "または"
+
+#: functions.php:120 functions.php:125 functions.php:130
+msgid "click here to install it"
+msgstr "こちらをクリックしてインストール"
+
+#: functions.php:165
+msgid "Meta Data"
+msgstr "メタデータ"
+
+#: functions.php:166
+msgid "Optional NS Widgets"
+msgstr "選択 NS ウィジェット"
+
+#: functions.php:174
+msgid "Post Listing Design"
+msgstr "リスティング・デザインを投稿"
+
+#: functions.php:181
+msgid "Post listing style for homepage"
+msgstr "ホームページのリスティング・スタイルを投稿"
+
+#: functions.php:197
+msgid "Post listing style for other pages"
+msgstr "他ページのリスティング・スタイルを投稿"
+
+#: functions.php:213
+msgid "Post Listing Image Visibility"
+msgstr "リスティング・イメージ・ビジビリティーを投稿"
+
+#: functions.php:220
+msgid "Always show post images"
+msgstr "常に投稿のイメージを表示する"
+
+#: functions.php:221
+msgid "Show post images if available"
+msgstr "利用可能な場合は投稿のイメージを表示する"
+
+#: functions.php:222
+msgid "Never show post images"
+msgstr "投稿イメージは表示しない"
+
+#: functions.php:230
+msgid "For each article in listing, show"
+msgstr "リスティング内のそれぞれの記事"
+
+#: functions.php:237
+msgid "Full text"
+msgstr "全テキスト"
+
+#: functions.php:238
+msgid "Summary"
+msgstr "サマリー"
+
+#: functions.php:246
+msgid "Miscellaneous Overrides"
+msgstr "その他のオーバーライド"
+
+#: functions.php:258
+msgid "Force all posts to full width"
+msgstr "すべての投稿を全幅表示にする"
+
+#: functions.php:269
+msgid "Display social share icons on all posts"
+msgstr "全ての記事にsocial shareアイコンを表示する"
+
+#: functions.php:281
+msgid "Hide author from posts"
+msgstr "記事の投稿者を非表示にする"
+
+#: functions.php:297
+msgid "Google Analytics"
+msgstr "Google アナリティクス"
+
+#: functions.php:304
+msgid "Include Google Analytics"
+msgstr "Google アナリティクスを含める"
+
+#: functions.php:315
+msgid "Google Analytics UA"
+msgstr "Google アナリティクス UA"
+
+#: functions.php:331
+msgid "Set up how post lists looks like on the blog"
+msgstr "ポストリストがブログでどのように表示されるかを設定する"
+
+#: functions.php:384
+msgid "Optional v18 Widgets"
+msgstr "オプショナル v18 Widgets"
+
+#: functions.php:389
+msgid "Learn more"
+msgstr "詳細"
+
+#: functions.php:389
+msgid "at official v18 documentation."
+msgstr "official v18 ドキュメント"
+
+#: functions.php:393
+msgid "Data tables or table widgets"
+msgstr "データテーブル、またはテーブルウィジェット"
+
+#: functions.php:394
+msgid ""
+"These are needed if you are using any data tables on your page and using the "
+"alternate highlight or styles, or any of the table widgets available like "
+"row selector, table scroll, sorting, filtering, pagination, etc."
+msgstr ""
+"データテーブルをページで使用しており代替ハイライトやスタイルを使用している場"
+"合、またはロー・セレクターやテーブル・スクロール、ソーティング、フィルタリン"
+"グ、ページネーションなどのテーブルウィジェットを使用している場合は、これらが"
+"必要となります"
+
+#: functions.php:409
+msgid "Forms or form widgets"
+msgstr "フォームス、あるいはフォームウィジェット"
+
+#: functions.php:410
+msgid ""
+"If you have any forms on your page, including the \"pull-down navigator\" "
+"select list, these are required for styling and widgets to work."
+msgstr ""
+"ページで「プルダン･ナビゲーター」を有するフォームを使用している場合、スタイリ"
+"ングとウィジェットを動作させるためにこれらが必要となります"
+
+#: functions.php:425
+msgid "Code syntax highlighter"
+msgstr "コード・シンタックス・ハイライター"
+
+#: functions.php:426
+msgid ""
+"This enables the widget that color-codes your &lt;pre&gt; tag contents "
+"(code) and allows you to number the lines, highlight specific lines, and "
+"allow the user to select all and copy the code block."
+msgstr ""
+
+#: functions.php:440
+msgid "Dynamic tabs"
+msgstr "ダイナミック・タブ"
+
+#: functions.php:441
+msgid ""
+"Required for either the primary tab navigation or content space dynamic tabs "
+"widget. Enables the tabs to act like a basic show/hide and show the tab "
+"contents of the selected one."
+msgstr ""
+"プライマリー・タブ・ナビゲーターか、コンテンツスペース・ダイナミック・タブ"
+"ウィジェットが必要です。タブにshow/hide機能や選択したタブのコンテンツを表示す"
+"ることができるようになります"
+
+#: functions.php:455
+msgid "Mustache"
+msgstr "Mustache"
+
+#: functions.php:456
+msgid ""
+"This is an implementation of the mustache template system in JavaScript. "
+"Front-end web apps with MVC type setups will benefit from this. Makes it "
+"easy to AJAX an HTML template and replace variables in the template with "
+"content from a data object."
+msgstr ""
+
+#: functions.php:457
+msgid "Example:"
+msgstr "例:"
+
+#: functions.php:458
+msgid ""
+"In other words, make complex use of JavaScript's replace() function easy. If "
+"you are doing a lot of templating or complex replace()s where you need some "
+"logic, this will help you."
+msgstr ""
+
+#: functions.php:471
+msgid "Save Changes"
+msgstr "変更を保存"
+
+#: functions.php:484
+msgid "Meta Data Setup"
+msgstr "メタデータ・セットアップ"
+
+#: functions.php:488
+msgid "Blog settings"
+msgstr "ブログ設定"
+
+#: functions.php:490
+msgid "Blog Owner:"
+msgstr "ブログ・オーナー:"
+
+#: functions.php:493
+msgid "Blog Description:"
+msgstr "ブログの説明:"
+
+#: functions.php:497
+msgid "Country:"
+msgstr "国:"
+
+#: functions.php:531
+msgid "Tracking settings"
+msgstr "トラッキング設定"
+
+#: functions.php:533
+msgid "Primary Category:"
+msgstr "主カテゴリー:"
+
+#: functions.php:536
+msgid "Site ID:"
+msgstr "サイトID:"
+
+#: functions.php:539
+msgid "GBT Tags"
+msgstr "GBTタグ"
+
+#: functions.php:541
+msgid "IBM BU:"
+msgstr "IBM ビジネス・ユニット"
+
+#: functions.php:544
+msgid "Product Segment:"
+msgstr "製品セグメント:"
+
+#: functions.php:547
+msgid "Primary Brand:"
+msgstr "プライマリー・ブランド"
+
+#: functions.php:550
+msgid "Product Family:"
+msgstr "製品ファミリー:"
+
+#: functions.php:555
+msgid "Update Meta Data"
+msgstr "メタデータの更新"
+
+#: functions.php:607
+msgid "380px by 380px"
+msgstr "380px by 380px"
+
+#: functions.php:608
+msgid "780px by 780px"
+msgstr "780px by 780px"
+
+#: functions.php:609
+msgid "1200px by 1200px"
+msgstr "1200px by 1200px"
+
+#: functions.php:610
+msgid "1440px by 1440px"
+msgstr "1440px by 1440px"
+
+#: functions.php:611
+msgid "2400px by 2400px"
+msgstr "2400px by 2400px"
+
+#: functions.php:612
+msgid "2880px by 2880px"
+msgstr "2880px by 2880px"
+
+#: functions.php:625
+msgid "600px by 600px"
+msgstr "600px by 600px"
+
+#: functions.php:626
+msgid "300px by 300px"
+msgstr "300px by 300px"
+
+#: functions.php:680
+#, php-format
+msgid "View all posts by Drew %s"
+msgstr "Drewの記事をすべて表示 %s"
+
+#: functions.php:684
+#, php-format
+msgid ""
+"This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
+"\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:686
+#, php-format
+msgid ""
+"This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
+"span>."
+msgstr ""
+
+#: functions.php:688
+#, php-format
+msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
+msgstr ""
+
+#: functions.php:747
+msgid "Previous"
+msgstr "前へ"
+
+#: functions.php:748
+msgid "Next"
+msgstr "次へ"
+
+#: functions.php:779
+msgid "Tags: "
+msgstr "タグ:"
+
+#: single.php:168
+msgid "Written by:"
+msgstr "投稿者"
+
+#: single.php:286
+msgid "Oops, Post Not Found!"
+msgstr "記事が見つかりませんでした"
+
+#: single.php:325
+msgid "More"
+msgstr "さらに詳しく"
+
+#: single.php:325
+msgid "Stories"
+msgstr "記事"
+
+#. Theme Name of the plugin/theme
+msgid "ibmNorthstarDev"
+msgstr ""
+
+#. Theme URI of the plugin/theme
+msgid "http://www.ibm.com"
+msgstr "http://www.ibm.com"
+
+#. Description of the plugin/theme
+msgid ""
+"This theme was created using Northstar v18 web standards. Custom fields in "
+"the footer to update your social networks. Parallex scroll with CTAs that "
+"can be customized. Front page has featured posts carousel with cards layout."
+msgstr ""
+
+#. Author of the plugin/theme
+msgid "Drew Norman / Ryan Sebade / Ian Crowley / Juraj Nyiri"
+msgstr "Drew Norman / Ryan Sebade / Ian Crowley / Juraj Nyiri"
+
+#. Author URI of the plugin/theme
+msgid "mailto:Scott_Farnsworth@us.ibm.com"
+msgstr ""

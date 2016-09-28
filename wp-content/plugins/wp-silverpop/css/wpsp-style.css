@@ -1,0 +1,85 @@
+.loading{
+	width: 43px; 
+	height: 11px;
+	background:url(../images/ajax-loader.gif) no-repeat;
+  padding: 0px;
+  position: relative;
+  top: 5px;
+}
+label .wpsp_error{
+  color:#FF0000;
+}
+.wpsp_error{
+    background-color: #FFBABA;
+    border: 1px solid #DD3C10;
+    border-radius: 5px;
+    color: #D8000C;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 10px 10px;
+    padding: 3px 10px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+.error_wd {
+    background-color: #FFBABA;
+    border: 1px solid #DD3C10;
+    border-radius: 5px;
+    color: #D8000C;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0 10px 10px;
+    padding: 3px 10px;
+    text-shadow: 0 1px 0 #FFFFFF;
+}
+
+/**/
+.wpsp_display_error
+{
+	/*  disabled by Wonil so that it can be v18
+	max-width: 400px;
+	border: 1px solid #D8D8D8;
+	padding: 2px;
+	border-radius: 5px;
+	font-family: Arial;
+	font-size: 10px;
+	text-transform: uppercase;
+	background-color: rgb(255, 249, 242);
+	color: rgb(211, 0, 0);
+	text-align: center;
+  margin-top: 10px;
+  	*/
+}
+
+
+.wpsp_display_success
+{
+	/* disabled by Wonil so that it can follow the design
+	max-width: 400px;
+	border: 1px solid #D8D8D8;
+	padding: 2px;
+	border-radius: 5px;
+	font-family: Arial;
+	font-size: 10px;
+	text-transform: uppercase;
+	background-color: rgb(236, 255, 216);
+	color: green;
+	text-align: center;
+	margin-top: 10px;
+	*/
+}
+
+.wpsp_button_wrapper{
+	margin:auto;
+	padding:5px;
+	display: block;
+	vertical-align: middle;
+}
+
+.formsubmitbutton{
+	width:100%;
+}
+
+#registerForm .textfield{
+	width:100%;
+}

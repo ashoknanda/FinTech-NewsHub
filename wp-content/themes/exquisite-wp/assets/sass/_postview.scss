@@ -1,0 +1,441 @@
+$font-serif: 'ITCLubalinGraphW01-Bk';
+$font-serif-med: 'ITCLubalinGraphW01-Md';
+$font-serif-bold: 'ITCLubalinGraphW01-Demi';
+$light-blue: #00bcd3;
+$dark-grey: #dfdede;
+$black: #0c0c0c;
+
+.postview{
+	color: #000;
+
+	section{
+		margin-bottom: 40px;
+	}
+
+	.hide-on-phones,.hide-on-tablets{
+		display: none;
+	}
+
+	.hide-on-desktops{
+		display: inline;
+	}
+
+	.show-on-phones,.show-on-tablets,.show-on-desktops{
+		display: block;
+	}
+
+	.posthead{
+		padding: 0 15px !important;
+	}
+
+	.none-found{
+		height: 86px;
+ 	 	border: none;
+	}
+
+	.advisory-section{
+		margin-bottom: 60px;
+	}
+
+	.uppercase{
+		text-transform: uppercase;
+	}
+
+	 .tip{
+	  	line-height: 25px;
+	  	margin: 0 auto;
+	  	border-radius: 0;
+	 	background: $light-blue;
+	 	cursor: pointer;
+	 	display: block;
+	 	color: #fff;
+	 	width: 27px;
+	 	height: 27px;
+	 	text-align: center;
+	 	display: block !important;
+	 	margin-bottom: 15px;
+	 	font:{
+	 		family: "Helvetica";
+	 		size: 19px;
+	 		weight: 800;
+	 	}
+	 }
+
+	 #carousel_container{
+	 	position: relative !important;
+		 .owl-wrapper:after {
+			 visibility: hidden;
+			 display: block;
+			 font-size: 0;
+			 content: " ";
+			 clear: both;
+			 height: 0;
+		 }
+		 .owl-wrapper-outer{
+		 	margin: 0 auto;
+		 }
+		 .vuln-item {
+			 width: 100%;
+			 height: 100%;
+			 background: center center no-repeat;
+			 background-size: cover;
+			 a {
+				 display: block;
+				 height: 100%;
+			 }
+		 }
+		 @media only screen and (max-width: $break-small) {
+			 .vuln-item {
+				 height: 200px;
+			 }
+		 }
+	 }
+	 
+	.owl-wrapper{
+		.owl-item{
+			img{
+				width: 100%;
+			}
+		}
+	}
+
+	a{
+		color: #2ba6cb;
+		word-wrap: break-word;
+		font:{
+			family: "Helvetica";
+			weight: bold;
+
+		}
+	}
+
+	.cvss-score{
+		background-color: #c64444;
+		color:#fff;
+		padding: 6px 0;
+		margin-bottom: 20px;
+		font:{
+			size: 44px;
+			family: $font-serif-bold;
+		}
+		span{
+			font-size: 16px;
+			display: block;
+		}
+	}
+
+	p{
+		margin-bottom: 6px;
+		word-break: break-word;
+		
+		font:{
+			family: "Helvetica";
+			size: 12px;
+		}
+	}
+
+	.blue-text{
+		color: $light-blue;
+	}
+
+	.product_btn{
+		position: static;
+		bottom: 15px;
+		margin: 0 auto;
+		left: 10px;
+		align: bottom;
+	}
+
+	.metas{
+		p{
+			font-family: $font-serif-bold;
+			.blue-text{
+				font:{
+					family: Helvetica, sans-serif;
+					weight: 600;
+				}
+
+			}
+		}
+		
+	}
+
+	.post .post-title h1{
+		margin-top: -8px;
+		line-height: inherit;
+		word-break: break-word;
+		font:{
+			size: 48px;
+			family: $font-serif-med;
+			weight: 400;
+		}
+	}
+
+	h2,h3{
+		font:{
+			family: $font-serif-bold;
+			size: 14px;
+			weight: 400;
+		}
+		text-transform: uppercase;
+		border-bottom: 5px solid #efefef;
+		padding-bottom: 7px;
+
+		&.history{
+			font-size: 18px;
+		}
+	}
+
+	h2.history{
+		font-size: 18px;
+	}
+
+	h3{
+		font-size: 18px;
+	}
+
+
+	.post-details{
+		padding-bottom: 10px;
+		.score{
+			color:  #c64444;
+			line-height: 50px;
+			margin-bottom: 12px;
+			font:{
+				family: $font-serif-bold;
+				size: 60px;
+			}
+		}
+	}
+
+	.info-list{
+		border-top: 23px solid $dark-grey;
+		background-color: #f2f2f2;
+		color: $black;
+		position: relative;
+		display: block;
+    	display: flex;
+
+
+		&.short{
+			max-height: 247px;
+			overflow: hidden;
+		}	
+
+		&.no-results {
+			.main {
+				height: 120px;
+			}
+			.product {
+				height: 120px;
+				border-bottom: 0;
+			}
+		}
+
+		.product-btn{
+			left: 0px;
+			bottom:15px;
+		}
+
+		.blue-text{
+			display: block;
+			line-height: 24px;
+			font-weight: 600;
+		}
+
+		.main{
+			position: initial;
+			text-align: center;
+			padding-top: 14px;
+
+			p{
+				margin: 0;
+				font:{
+					family: "Helvetica";
+					size: 10px;
+				}
+			}
+			
+			span{
+				font:{
+					family: $font-serif-bold;
+					size: 34px;
+				}
+			}
+		}
+		.mobile-three{
+			background: #fff;
+		}
+		.phone-four{
+			padding: 15px 0 15px 10px;
+			border-top: 1px solid $dark-grey;
+			font:{
+				family: "Helvetica";
+				size: 12px;
+			}
+
+			&:first-child{
+				border: none;
+			}
+
+			&.head-list{
+				padding: 10px 0 10px 10px;
+			}
+		}
+	}
+
+	.uncollapse{
+		padding: 0 15px !important;
+	}
+
+	.last-module{
+		margin-top: 48px;
+	}
+
+	//General advisory custom styles
+	&.advisory{
+		.post-details{
+			padding-bottom: 26px;
+		}
+	}
+
+	//Malware custom styles
+
+	.mv-info{
+		margin-bottom: 10px;
+		p{
+			font-family: "Helvetica";
+		}
+		h2{
+			border: none;
+			margin-bottom: 5px;
+			padding: 0;
+		}
+	}
+
+	.malware-descritions{
+		margin-top: 20px;
+	}
+
+	.malware-details{
+		margin-top: 20px;
+		.columns{
+			margin-bottom: 20px;
+		} 
+		h2{
+			border: none;
+			margin-bottom: 0;
+		}
+	}
+
+
+	//mediaqueries
+	@media only screen and (max-width: 768px) {
+		.tip{
+			display: block !important;
+			position: absolute;
+			right: 10px;
+			bottom: 13px;
+		}
+	 }
+
+	@media only screen and (min-width: 768px) {
+
+		.tip{
+			
+				left: 5px;
+				bottom: inherit;
+			
+		}
+
+		p{
+			font-size: 14px;
+		}
+
+		.owl-controls{
+			display: none !important;
+		}
+
+		.hide-on-desktops{
+			display: none;
+		}
+
+		.hide-on-phones,.hide-on-tablets{
+			display: inline;
+		}
+
+		.cvss-score{
+			padding: 20px 0;
+			margin-bottom: 8px;
+			span{
+				font-size: 13px;
+			}
+		}
+
+		.description-details{
+			margin-top: 20px;
+		}
+
+		.technical-description{
+			min-height: 300px;
+		}
+
+		.date{
+			display: none;
+		}
+
+		.info-list{
+				
+			.main p{
+				font-size: 11px;
+			}
+
+			.hide{
+				display: block;
+			}
+			.blue-text{
+				margin-bottom: 0;
+				line-height: 14px;
+			}
+
+			 .phone-four{
+			 	font-size: 14px;
+			 }
+		}
+
+		.carousel{
+			.owl-item{
+				height: 50px;
+				width: 70px !important;
+				margin-top: 10px;
+				margin-left: 10px;
+				&:first-child{
+					margin-left: 0;
+				}
+			}
+			
+		}
+
+		.tip{
+			display: block !important;
+		}
+
+		.info-card{
+			h2{
+				margin-top: 0;
+			}
+		}
+	}
+}
+
+.single-ibm_vulnerabilities .postview a{
+	text-decoration: underline;
+}
+
+.single-ibm_general_advisory .postview a{
+	text-decoration: underline;
+}
+
+.single-ibm_malware .postview a{
+	text-decoration: underline;
+}

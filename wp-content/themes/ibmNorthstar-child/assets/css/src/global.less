@@ -1,0 +1,467 @@
+body{
+  background-color:#ededed;
+}
+
+#ibm-content {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+// Remove the V18 floating social sharing icons
+#ibm-social-tools {display:none;} 
+
+// ---------------------------------------------------------------------------
+// BASE
+a:link, a:visited {
+  text-decoration:none;
+  color:inherit;
+}
+a:hover, a:active {
+    text-decoration: underline;
+    color:#4178BE;
+}
+.ibm-sitenav-menu-container{
+  a{
+    text-decoration:none;
+  }
+}  
+
+strong {
+    font-family: @fontBold;
+}
+
+// ---------------------------------------------------------------------------
+// SOCIAL ICONS
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'social_icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    font-size: 3.7em;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: none;
+}
+
+.icon-email_icon_circle:before { content: "\e600"; }
+.icon-facebook_icon_circle:before { content: "\e601"; }
+.icon-googleplus_icon_circle:before { content: "\e602"; }
+.icon-winkedin_icon_circle:before { //'linkedin' inherits junk from ibm ww.css
+    content: "\e603";
+}
+.icon-twitter_icon_circle:before { content: "\e604"; }
+
+
+[class^="known-icon-"], [class*=" known-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'known' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.known-icon-download:before {
+  content: "\e900";
+}
+.known-icon-find:before {
+  content: "\e901";
+}
+.known-icon-share:before {
+  content: "\e902";
+}
+.known-icon-facebook:before {
+  content: "\e903";
+}
+.known-icon-twitter:before {
+  content: "\e904";
+}
+.known-icon-youtube:before {
+  content: "\e905";
+}
+.known-icon-linkedin:before {
+  font-family: 'known' !important;
+  font-size: inherit;
+  position: static;
+  content: "\e906";
+}
+
+// ---------------------------------------------------------------------------
+// LEADSPACE
+
+#ibm-leadspace-head {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+// ---------------------------------------------------------------------------
+// SHARE BUTTONS
+
+// .ibm-blog__share {
+
+//     padding-top: 10px;
+
+//     .facebook {
+//         min-height: 30px;
+//         margin-bottom: 25px;
+//     }
+
+//     UL {
+//         padding-top: 6px;
+//         border-top: 1px solid @grid_background_color;
+//     }
+//     LI {
+//         padding: 4px 0 10px 0;
+//         border-bottom: 1px solid @grid_background_color;
+//     }
+
+//     LI[class^='share_'] A {
+//         color: #777677;
+//         &:hover {color: #325C80; }
+//     }
+
+//     LI[class^='do_'] A,
+//     LI[class*=' do_'] A {
+//         color: #4178BE;
+//         &:hover {color: #325C80; }
+//     }
+
+// }
+
+
+
+
+.custom-button-container{
+  &:hover {
+    .custom-tooltip-content {
+      display: block;
+      right : 10px;
+      top: 50px;
+    }
+  }
+
+  p {
+    a {
+      margin: 9px 20px 10px 20px !important; 
+    }
+  }
+
+
+  .custom-tooltip-content{
+    position:absolute;
+    z-index:999;
+    display:none;
+    background-color:#dedede;
+    padding:5px;
+    border:1px solid #fff;
+    width:250px;
+
+    &:after, &:before {
+      bottom: 100%;
+      left: 70%;
+      border: solid transparent;
+      content: " ";
+      height: 0;
+      width: 0;
+      position: absolute;
+      pointer-events: none;
+    }
+
+    &:after {
+      border-color: rgba(136, 183, 213, 0);
+      border-bottom-color: #dedede;
+      border-width: 4px;
+      margin-left: -4px;    
+    }
+
+    &:before {
+      border-color: rgba(194, 225, 245, 0);
+      border-bottom-color: #dedede;
+      border-width: 8px;
+      margin-left: -8px;
+    }
+
+    .widget_wpsp_widget {
+        margin:0;
+        padding:0;
+        color:#000;
+        background-color:#fff;
+        padding:2px 7px;
+      }
+  }  // end custom-tooltip-content
+}
+
+
+
+.ibm-popular-widget{
+  border:none;
+  background-color:transparent;
+  .wp-most-popular{
+    list-style:none;
+  }
+}
+
+.nh-wpsp-widget-container{
+  margin:0;
+}
+
+.ibm-columns.filter-container{
+  padding: 0 0 1.75rem 0;
+  color: #fff;
+  FORM {
+    width:90%;
+    margin: auto;
+    padding: 0 0.5rem 0 0;
+    .ibm-bold.ibm-h4{
+      display: inline-block;
+      float:left;
+      padding-right: 2em;    
+    }
+    .icon-wrap{
+        display: inline-block; 
+        float:left;
+        line-height:0;
+    }    
+
+    P {
+      display: inline-block;
+      float:left;
+      line-height: 20px !important;
+      label {
+        display: inline-block;
+      }
+    }
+    .facetwp-facet.facetwp-type-checkboxes {
+      padding-left: 1.25em;
+      display: inline-block;
+      float: left;
+      width: 72%;
+      margin-top: 0.2em;
+
+      .facetwp-checkbox{
+        display: inline-block;
+        background: none;
+        margin:0 1.2em 0 0;
+        font-size:0.85em;
+        color: #C7C7C7;
+        text-decoration:underline;
+        
+        &:hover{
+          color: #FFF;
+        }
+
+        &.checked{
+         font-weight: bold;
+         color: #FFF;
+         &:HOVER{
+          text-decoration:underline;
+         }
+        }
+        padding:0;
+      }
+      .facetwp-toggle{
+        color : #fff;
+        &:visited {
+          color: #fff;
+        }
+      }
+
+    }     
+  }
+}
+
+#search-content .ibm-columns.filter-container{
+  FORM {
+    float:none;
+  }
+}
+
+.ibm-col-6-2.post, .ibm-col-6-4.post{
+  .ibm-card.row-one {
+    /*height: 240px;*/
+    background-size:cover;
+  }
+}
+
+.nh-twitter-widget-container {
+      background: #fff;
+      padding:10px;
+      overflow: hidden;
+      height: 500px;
+}
+
+
+/*-----------------------------------------------------
+ *  News Hub 
+ */
+#ibm-leadspace-head{
+  display:none;
+}
+
+      #ibm-content-main{
+        .ibm-blog__article{
+          .nh-right-column{
+            .data {
+                width: 100%;
+                background-color: #efefef;
+                padding: 40px 24px 20px;
+                font-size: 16px; 
+
+                &.nh-sidebar{
+                    background-color: transparent;
+                    padding: 40px 10px 20px 10px; 
+                }
+              }
+          }
+        }
+      }
+
+.nh-sidebar-ads-card{
+  
+  background-color: #17b4a0;
+  color: #fff;
+  a {
+    color: #fff;
+    &:visited {
+      color: #fff;
+    }
+
+    &:hover,
+    &:active {
+      color: #4178be;
+    }
+  }
+}
+
+// .nh-search-heading {
+//   &:before {
+//     content: "";
+//     width: 50px;
+//     height: 42px;
+//     display: inline-block;
+//     background: url('../../assets/img/bee_images.png');
+//     background-size: 100%;
+//     transform: rotate(45deg);
+//   }
+// }
+
+
+// #search_input {
+//     color: #323232;
+//     font-family: "HelvRegularIBM","Helvetica Neue",Arial,sans-serif;
+//     font-size: 16px;
+//     height: 50px;
+//     line-height: 50px;
+//     padding-right: 40px;
+//     position: relative;
+//     text-indent: 10px;
+//     top: 0;
+//     width: 100%;
+// }
+.site-banner-container{
+  padding-left: 4em;
+  .site-banner-card{
+    padding-left:80px;
+    height:3.4em;
+  }
+}
+
+#static-cards{
+  margin-bottom:0;
+  padding-bottom:0;
+}
+
+
+.ibm-col-6-3.post, .ibm-col-6-2.post{
+  margin-left:0;
+  margin-right:0;
+}
+
+.nh-icon-wrap{
+  display:inline-block;
+  line-height: 1em;
+}
+
+.ibm-small{
+  line-height:140%;
+}
+
+@import 'nh-z-indices.less';
+.ibm-sitenav-menu-list{
+  
+}
+#ibm-signin-minimenu-container,
+ul[role=menu]{
+    z-index:@z-index-ibm-sitenav-menu-list-menu;
+  }
+
+.nh-content-width-control{
+  max-width:900px;
+  width:100%;
+  margin:auto;
+}
+/*hack for checkbox in search typeahead*/
+#q{
+  font-size:14px;
+}
+
+[class^="lb-fi-"]::before, [class*=" lb-fi-"]::before,
+.lb-style-custom .lb-like, .lb-style-custom .lb-dislike{
+  background: transparent none repeat scroll 0 0 !important;
+  border: 0 none !important;
+}
+
+lb-fi-thmb5-d likebtn-icon lb-dislike-icon lb-fi,
+lb-fi-thmb5-u likebtn-icon lb-like-icon lb-fi{
+  color : #000 !important;
+}
+
+/*
+.data.social-margin.nh-sidebar {
+  .ibm-card {
+    display: none;
+    &:last-child {
+      display: block;
+    }
+  }
+} */
+
+.wp-caption-text{
+  font-size: 0.75em;
+  color: #888;
+}
+
+.nh-no-post-matched-message{
+    text-align: center;
+    /* padding: 3em 0 4em; */
+    color: white;
+}
+
+@import './nh-lading-page-global.less';
+/* @import './nh-wpsp-widget-container';*/
+@import './nh-subscribe-form.less';
+@import './nh-card.less';
+@import './nh-right-rail-lists.less';
+@import './nh-single-page.less';
+@import './nh-content-overlay.less';
+@import './new_grid.less';
+@import './nh-card-rotatingtweets.less';
+@import './nh-search-page.less';
+@import './nh-social-bar.less';
+@import './nh-promo-card.less';
+@import './category.less';
+@import './nh-article-source.less';
+@import './nh-article-categories.less';
+@import './nh-article-top-meta.less';

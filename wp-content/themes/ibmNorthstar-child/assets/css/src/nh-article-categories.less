@@ -1,0 +1,41 @@
+@import './nh-colors.less';
+
+.nh-article-categories{
+	display:flex;
+	flex-direction:row;
+	align-items: flex-start;
+	margin-top:0;
+	transform:translateY(@card-hover-translate-y);
+	transition:all @card-hover-transition-duration-step2;
+
+	.icon-wrap{
+		line-height:0;
+		margin-right:0.2em;
+	}
+
+	.content-wrap{
+
+		.nh-article-category{
+			text-decoration:underline;
+			color:#c7c7c7;
+
+			&:hover,
+			&:active{
+				color:#ffffff;
+			}
+		}
+	}
+
+	&.nh-article-categories-logo-inverse{
+
+		.icon-wrap{
+
+			svg{
+
+				polygon, polyline, path{
+					stroke:black;
+				}
+			}
+		}
+	}
+}

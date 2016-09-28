@@ -1,0 +1,145 @@
+// ---------------------------------------------------------------------------
+// ABOUT, TOPIC
+
+
+// Overrides for body.category at bottom of page
+body.page,
+body.category {
+
+  #ibm-leadspace-head {
+    min-height: 320px;
+    background-color: #4178BE;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .mobile({
+      min-height:230px;
+    });
+
+    #ibm-leadspace-body,
+    #ibm-leadspace-body .ibm-columns,
+    #ibm-leadspace-body .ibm-columns .ibm-col-1-1,
+    #ibm-leadspace-body .ibm-columns .ibm-col-1-1 .heading-container--outer {
+      height: 100%;
+    }
+
+    &.ibm-alternate {
+      #ibm-leadspace-body {
+        text-align: left;
+
+        H1 + P {
+          padding:5px 0 0;
+        }
+      }
+    }
+
+    H1 {
+        letter-spacing: .01em;
+
+        .mobile({
+          font-size:45px;
+          line-height: 45px;
+          padding-bottom: 5px;
+        });
+
+        .blue {
+          color: @color_blue;
+        }
+    }
+
+    P {
+      max-width: 580px;
+
+      .mobile({
+        font-size:15px;
+        line-height: 22px;
+      });
+    }
+
+  }
+
+
+  #ibm-content-main {
+    padding:0;
+
+
+    P {
+      line-height: 28px;
+    }
+
+    #ibm-leadspace-head {
+      P {
+        .mobile({
+          font-size:15px;
+          line-height: 22px;
+        });
+      }
+    }
+
+        .ibm-blog__postgrid {
+          padding-top: 30px;
+
+          .mobile({
+            padding-top: 15px;
+          });
+        
+          .ibm-blog__postgrid-item {
+              
+
+              h3 {
+                  padding: 0 0 15px;
+              }
+              &.article {
+                  //height: auto !important;
+              }
+              &.abstract {
+
+                  h3 {
+                      padding:0 20px;
+                  }
+              }
+          }
+        }
+    } 
+
+
+}
+
+body.category {
+
+  #ibm-leadspace-head {
+    .heading-container--outer {
+        display: table; 
+        height: 320px;
+        overflow: hidden;
+
+        .mobile({
+          min-height:230px;
+        });
+
+        .heading-container--inner {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    } 
+    &.ibm-alternate {
+      #ibm-leadspace-body {
+        padding:0;
+      }
+    }
+  }
+
+  .ibm-blog__featured-article {
+    h4.category {
+      //display: none;
+    }
+  }
+  
+}
+.ibm-blog__author-content{
+  left: 60px;
+}
+.ibm-blog__author-social{
+  display: inline-block;
+}

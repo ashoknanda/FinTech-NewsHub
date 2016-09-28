@@ -1,0 +1,152 @@
+//****breakpoints*****
+
+//default is 800px and up (desktop)
+
+//we break the grid here and below, so this is our de facto "mobile"
+@fullBleedWidth: 640px; //640 and BELOW
+
+// @smallMobileWidth: 401px; // 401 and above; just for product background images swap
+@tabletWidth: 641px; // 641 and above
+// @iPhone6: 370px; //370 and above
+// @notebookWidth: 767px; // 767 and above
+// @ibmNavThreshold: 800px; // 800 and above; point at which ibm nav switches to mobile
+@desktopWidth: 800px; // 800 and above
+@lgDesktopWidth: 900px; //900 and above
+
+
+
+
+/*
+
+usage
+
+.my-selector {
+  color: #fff;
+  content: 'desktop first, dude';
+
+    .tablet({
+      content: 'tablet is in a range between min and max width';
+      //color is inherited
+    });
+
+    .mobile({
+      content: 'mobile is just 640 and below';
+      float: left;
+      //color is inherited
+    });
+
+}
+
+*/
+
+
+//these will compile for ie8
+
+// .mobile(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .tablet(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .desktop(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .lgDesktop(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// Just in case needed later - 
+
+// .retina(@rules) when (@ie = true) {
+//     @rules();
+// }
+
+// .mobile-landscape(@rules) when (@ie = true) {
+// @rules();
+// }
+
+// .iphone-6(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .small-mobile(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .ibmNavThreshold(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+// .notebook(@rules) when (@ie = true) {
+//   @rules();
+// }
+
+
+//these will compile for everything else
+// .retina(@rules) {
+//   @media only screen and (-webkit-min-device-pixel-ratio: 2),
+//     only screen and (min--moz-device-pixel-ratio: 2),
+//     only screen and (-o-min-device-pixel-ratio: 2/1),
+//     only screen and (min-device-pixel-ratio: 2),
+//     only screen and (min-resolution: 192dpi),
+//     only screen and (min-resolution: 2dppx) {
+//     @rules();
+//   }
+// }
+
+// .mobile-landscape(@rules) {
+//   @media screen and (orientation: landscape) {
+//   @rules();
+//   }
+// }
+
+// .small-mobile(@rules) {
+//   @media screen and (min-width: @smallMobileWidth) {
+//   @rules();
+//   }
+// }
+
+// .iphone-6(@rules) {
+//   @media screen and (min-width: @iPhone6) {
+//   @rules();
+//   }
+// }
+
+.mobile(@rules) {
+  @media screen and (max-width: @fullBleedWidth) {
+    @rules();
+  }
+}
+
+.tablet(@rules) {
+  @media screen and (min-width: @tabletWidth) and (max-width: (@desktopWidth - 1)) {
+    @rules();
+  }
+}
+
+// .ibmNavThreshold(@rules) {
+//   @media screen and (min-width: @ibmNavThreshold) {
+//     @rules();
+//   }
+// }
+
+// .notebook(@rules) {
+//   @media screen and (min-width: @notebookWidth) {
+//     @rules();
+//   }
+// }
+
+.desktop(@rules) {
+  @media screen and (min-width: @desktopWidth) {
+    @rules();
+  }
+}
+
+.lgDesktop(@rules) {
+  @media screen and (min-width: @lgDesktopWidth) {
+    @rules();
+  }
+}
