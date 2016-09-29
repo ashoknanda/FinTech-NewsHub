@@ -114,7 +114,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
       $custom_fields = get_post_custom($post1->ID);
       $nc_author = array();
       $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
-      if(isset($nc_author)){
+      if(isset($nc_author) && is_array($nc_author)){
         foreach ( $nc_author as $key => $value ) {
           $postauthor = $value;
         }
@@ -198,7 +198,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
               'hide_empty' => false,
           );
 
-          $postslist = get_terms('dfads_group', $ads_args);
+          $postslist = (array)get_terms('dfads_group', $ads_args);
           $all_ids = array_map(create_function('$o', 'return $o->term_id;'), $postslist);
           return implode(',',$all_ids);
   }

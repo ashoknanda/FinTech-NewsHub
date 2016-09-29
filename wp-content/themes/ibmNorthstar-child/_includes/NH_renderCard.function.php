@@ -20,7 +20,7 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
   $nc_author = array();
   $nc_author = $custom_fields['nc-author'] ? $custom_fields['nc-author'] : "";
 
-  if(isset($nc_author)){
+  if(isset($nc_author) && is_array($nc_author)){
     foreach ( $nc_author as $key => $value ) {
       $postauthor = $value;
     }

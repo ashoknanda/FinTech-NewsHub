@@ -20,7 +20,7 @@ include_once __DIR__.'/_includes/NH_renderArticleCategories.function.php';
           $nc_author = array();
           $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
           $nc_source = $custom_fields['nc-source']?$custom_fields['nc-source']:"";
-          if(isset($nc_author)){
+          if(isset($nc_author) && is_array($nc_author)){
             foreach ( $nc_author as $key => $value ) {
               $postauthor = $value;
             }    
@@ -28,7 +28,7 @@ include_once __DIR__.'/_includes/NH_renderArticleCategories.function.php';
 $postsource = 'THINK Marketing';
 $nc_source_abbrev = 'T';
 
-if(isset($nc_source)){
+if(isset($nc_source) && is_array($nc_source)){
 
   foreach ( $nc_source as $key => $value ) {
     $postsource = $value;

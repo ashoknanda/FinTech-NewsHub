@@ -2,7 +2,7 @@
 
 include_once(__DIR__.'/../../../themes/ibmNorthstar-child/_includes/NH_renderArticleSource.function.php');
 include_once __DIR__.'/../../../themes/ibmNorthstar-child/_includes/NH_trim_text.function.php';
-include_once __DIR__.'/../../../themse/ibmNorthstar-child/_includes/NH_getCardBgColor.function.php';
+include_once __DIR__.'/../../../themes/ibmNorthstar-child/_includes/NH_getCardBgColor.function.php';
 
 class WMP_Widget extends WP_Widget {
 	public function __construct() {
