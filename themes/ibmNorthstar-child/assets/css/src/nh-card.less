@@ -1,0 +1,706 @@
+@import './nh-z-indices.less';
+
+@card-hover-transition-duration:0.1s;
+@card-hover-transition-duration-slow:0.25s;
+@card-hover-transition-duration-step1:@card-hover-transition-duration+0.2s 0.1s;
+@card-hover-transition-duration-step2:@card-hover-transition-duration+0.2s 0.2s;
+@card-hover-transition-duration-step3:@card-hover-transition-duration+0.2s 0.3s;
+@card-open-transition-duration:0.6s;
+@card-hover-translate-y:0%;
+
+.ibm-col-6-2.post,
+.nh-card-wrap{
+	margin:0;
+	width:33.333333333333%;
+	padding:0;
+
+	&.nh-card-large{
+		width:66.66666666666%;
+	}
+
+	&.nh-home-branding{
+		color:white;
+		background-color:#373737;
+
+		.inner-wrap{
+			position:relative;
+			width:100%;
+			height:100%;
+			overflow:hidden;
+
+			.title-wrap{
+				position:absolute;
+				top:50px;
+				right:60px;
+
+				.title{
+
+					font-size:2.75em;
+
+					div{
+						font-size:inherit;
+
+						&.marketing{
+							color:#00B4A0;
+							line-height:1em;
+						}
+					}
+				}
+
+				.static-banner-copy{
+					margin-top:1em;
+					margin-left:0.1em;
+				}
+			}
+
+			.rebus-wrap{
+				position:relative;
+				width:100%;
+				height:100%;
+			    background-position:left bottom;
+			    background-repeat:no-repeat;
+			}		
+		}
+	}
+
+	&.nh-card-wrap-height{
+		height:375px;
+	}
+
+	.ibm-card{
+		border:none;
+	}
+
+	.nh-card-circular-masker{
+		position:relative;
+		width:100%;
+		height:100%;
+	}
+
+	.ibm-card.nh-card,.ibm-card.nh-ad-card{
+		position:relative;
+		border:none;
+		width:100%;
+		height:100%;
+		margin:0;
+		opacity:0;
+		/*transform:translate(0,0) scale(1.2,1.2) perspective( 2000px ) rotateY(30deg);*/
+		/*transform:translateY(50px) rotate(0.0001deg);*/
+		transform:translateY(-50px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg) rotateX(50deg);
+		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+		transition:all @card-open-transition-duration ease-in-out;
+		background-repeat:no-repeat;
+		background-size:cover;
+		
+		border:none;
+
+		.nh-card-link{
+			display:block;
+		}
+
+		.nh-excerpt{
+			display:none;
+		}
+
+		.nh-card-top-meta{
+			margin-bottom:0.5em;
+		}
+
+		&.nh-card-hide-excerpt{
+
+			.nh-card-content{
+
+				.nh-card-meta-data-rotator{
+
+					.nh-excerpt{
+						display:none;
+					}
+				}
+			}
+		}
+
+		&.nh-no-background{
+
+			.nh-card-content-wrap{
+				background-image:none;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+
+				.nh-card-content{
+					position:static;
+
+					.nh-title{
+						font-size:2em;
+						line-height:100%;
+					}
+				}
+			}
+		}
+
+		&.nh-video-card{
+
+			.nh-card-content-wrap{
+				background-image:none;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+
+				.nh-card-content{
+
+				}
+			}
+
+			
+		}
+
+		.nh-card-hover-chevron{
+			position: absolute;
+		    top: 50%;
+		    right: 3rem;
+		    color: white;
+		    font-size: 2.5em;
+		    width:1rem;
+		    height:0;
+		    opacity:0;
+		    transition:all @card-hover-transition-duration-step1;
+
+		    &:before{
+		    	transform:translateY(-50%);
+		    }
+		}
+		
+		.nh-card-meta-color-changer{
+			opacity:0.6;
+			transition:opacity .3s, padding-bottom .2s;
+		}
+
+		.nh-card-meta-data-rotator{
+			transform:translateY(@card-hover-translate-y);
+			transition:all @card-hover-transition-duration-step1;
+		}
+		.nh-card-meta-data{
+			font-size:0.875em;
+			max-height:0;
+			overflow:hidden;
+			opacity:1;
+			transition:all @card-hover-transition-duration ease-in-out;
+
+
+			.nh-excerpt{
+				opacity:0;
+				transform:translateY(@card-hover-translate-y);
+				transition:all @card-hover-transition-duration-step1;
+			}
+
+			.nh-card-socialrow{
+				margin-top:1em;
+				opacity:0;
+				transform:translateY(@card-hover-translate-y);
+				transition:all @card-hover-transition-duration-step3;
+
+				.nh-card-social-icon{
+
+				&.nh-social-icon-email{
+
+					svg{
+
+						g{
+
+							transition:all 0.1s;
+						}
+					}
+
+					&:hover,
+					&:active{
+						svg{
+
+							g{
+
+								fill:#5AAAFA;
+							}
+						}
+					}
+				}
+
+					&.nh-social-icon-snapchat{
+						padding:0;
+
+						.nh-icon-snapchat {
+							position:relative;
+							top:8px;
+						}
+
+						&:hover,
+						&:active{
+
+							.nh-icon-snapchat {
+								
+							}
+						}
+					}
+
+					&:before{
+						color:white;
+						transition:all 0.2s;
+					}
+
+					&.ibm-facebook-link{
+						width:1rem;
+					}
+
+					&:hover,
+					&:active{
+						&:before{
+							color:#5AAAFA;
+						}
+					}
+				}
+			}
+		}
+
+		.nh-dot-separator{
+			color:#e0e0e0;
+			margin:0 0.5em;
+		}
+
+		&.donot-animate{
+			transition:all 0.1s;
+		}
+
+		&.start-animation{
+			opacity:1;
+			/*transform:translate(0,0) scale(1,1) perspective(2000px) rotateY(0deg);*/
+			/*transform:translateY(0px);*/
+			transform:translateY(0px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg) rotateX(0deg);
+
+			&.opened{
+				transform:translate(0,0) perspective( 2000px ) rotateY(90deg) scale(1.5);
+			    perspective-origin: 25% 75%;
+			    box-shadow: 0px 15px 40px 0px rgba(0,0,0,0.48);
+			    opacity:0;
+			    transition:all @card-open-transition-duration;
+			    &.bring-to-front{
+			    	z-index:@z-index-nh-card-opened;
+		    	}
+			}
+
+			.ibm-card__image{
+				display:none;
+				a{	
+					
+				}
+			}
+		}
+		
+		.ibm-card__image{
+			overflow:hidden;
+			line-height:0;
+
+			a{	
+				display:block;
+				width:100%;
+				height:200px;
+				position:relative;
+				transition:height @card-hover-transition-duration;
+
+				.ibm-resize{
+					position:absolute;
+					top:50%;
+					left:50%;
+					transform:translate(-50%, -50%) scale(1, 1);
+					transition:transform 1s;
+				}
+			}
+		}
+
+		.nh-card-content-wrap{
+			position:absolute;
+			top:0;
+			left:0;
+			bottom:0;
+			right:0;
+			background-image: linear-gradient(
+				to bottom, 
+				rgba(0,0,0,0) 21%,
+				rgba(0,0,0,0) 50%,
+				rgba(0,0,0,0.5) 80%,
+				rgba(0,0,0,0.5) 100%
+			);
+			background-color:rgba(0,0,0,0);
+			transition:all @card-hover-transition-duration-slow;
+		}
+
+		&.nh-image-card{
+			.nh-card-content-wrap{
+				opacity:0;
+				transition:all @card-hover-transition-duration;
+			}
+		}
+
+		.nh-card-content{
+			position:absolute;
+			bottom:0;
+			left:0;
+			right:0;
+			min-height:0;
+			transition:all @card-hover-transition-duration;
+			box-sizing:border-box;
+			max-width:640px;
+			
+			padding: 20px 60px 20px 21px;
+			color:white;
+
+			.nh-date {
+				margin-bottom:1em;
+				color:white;
+			}
+
+			.nh-title{
+				font-size:1.75rem;
+				line-height:110%;
+				padding-bottom:10px;
+				transition:all @card-hover-transition-duration;
+
+				.ibm-blog__header-link{
+					text-decoration:none;
+					border-bottom:none;
+					color:white;
+				
+					.ibm-textcolor-default{
+						transition:all 0.3s;
+					}
+				}
+			}
+
+			.nh-excerpt{
+				margin-bottom:0.5rem;
+
+				p{
+					color:white;
+					line-height:130%;
+					padding-bottom:0;
+					font-size:.875rem;
+					
+				}
+			}
+
+			.nh-author{
+				transition:color 0.3s;
+				margin-bottom:0.5rem;
+			}
+
+			.nh-tags{
+				
+				.nh-tag,
+				.nh-tag:visited{
+					text-transform: capitalize;
+					color:#5a5a5a;
+
+					&:hover,
+					&:active{
+						color:#4178BE;
+					}
+				}
+			}
+
+			.nh-video-container{
+				height: 5em;
+				padding-left:2em;
+				transition:@card-hover-transition-duration;
+
+				.ibm-video-placeholder{
+
+					.ibm-play-link{
+
+						&:before{
+							font-size:8em;
+							width:95px;
+							height:95px;
+							line-height:92px;
+							transition:@card-hover-transition-duration;
+						}
+					}
+				}
+			}
+		}
+
+		:not(.nh-platform-mobile) &:hover,
+		:not(.nh-platform-mobile) &:active{
+			/*transform:translateY(-8px) scale(1, 1);*/
+			box-shadow: 0px 3px 12px 0px rgba(0,0,0,1);
+		    z-index: @z-index-nh-card-hover;
+		    /*transform:translate(0, 0) scale(1.0,1.0) perspective( 2000px ) rotateY(0);*/
+		    transform:translateY(0px) scale(1.0,1.0) perspective( 2000px ) rotateY(0.0001deg);
+		    transition-duration:@card-hover-transition-duration;
+
+		    .nh-card-content-wrap{
+		    	opacity:1;
+
+		    	.nh-card-content{
+
+		    		.nh-title{
+				    	font-size:1.75em;
+				    }
+		    	}
+		    }
+
+		    .nh-card-hover-chevron{
+		    	right:2rem;
+		    	opacity:1;
+		    }
+
+			.nh-card-meta-color-changer{
+				opacity:1;
+			}
+
+			.nh-card-meta-data-rotator{
+				transform:translateY(0);
+			}
+			.nh-card-meta-data{
+				max-height:190px;
+				opacity:1;
+
+				.nh-excerpt{
+					opacity:1;
+					transform:translateY(0%);
+				}
+
+				.nh-card-categories{
+					opacity:1;
+					transform:translateY(0%);
+
+					.icon-wrap{
+					}
+
+					.content-wrap{
+
+						a{
+						}
+					}
+				}
+
+				.nh-card-socialrow{
+					opacity:1;
+					transform:translateY(0%);
+					
+					.nh-card-social-icon{
+					}
+				}
+			}
+
+			.ibm-card__image{
+
+				a{
+					/*height:225px;*/
+
+					.ibm-resize{
+						transform:translate(-50%, -50%) scale(1.05, 1.05);
+						transition:transform 0.8s, top 1s;
+					}
+				}
+			}
+
+			.nh-card-content-wrap{
+				background-color:rgba(0,0,0,0.6);
+			}
+
+			.nh-card-content{
+
+
+				.nh-title{
+
+					.ibm-blog__header-link{
+						text-decoration:none;
+						border-bottom:none;
+
+						.ibm-textcolor-default{
+							color:#4178BE;
+						}
+					}
+				}
+
+				.nh-author{
+				}
+
+				.nh-excerpt{
+					
+				}
+
+				.nh-video-container{
+					height: 2em;
+					padding-left:2em;
+
+					.ibm-video-placeholder{
+
+						.ibm-play-link{
+
+							&:before{
+								font-size: 80px;
+								width: 64px;
+								height: 64px;
+								line-height: 62px;
+								transition:@card-hover-transition-duration;
+							}
+						}
+					}
+				}
+			} 
+		}
+
+		.nh-promo-card-holder {
+			.nhcol {
+				height: 100%;
+			}
+		}
+	}
+
+	.nh-tag-no-color-change	,.nh-tag-no-color-change:visited{
+		color:#5a5a5a;
+
+		&:hover,
+		&:active{
+			color:#4178BE;
+		}
+	} 	
+}
+
+@media only screen and (max-width:1099px){
+
+	.ibm-col-6-2.post.nh-card-wrap{	
+		width:50%;
+
+		&.nh-home-branding{
+			
+		}
+	}
+
+	.ibm-col-6-4.post.nh-card-wrap{
+		width:50%;
+
+	}
+}
+
+@media only screen and (max-width:799px){
+	
+	.ibm-col-6-2.post.nh-card-wrap{	
+		width:100%;
+
+		&.nh-home-branding{
+			display:block;
+
+			.inner-wrap{
+
+				.title-wrap{
+					right:120px;
+				}
+			}
+		}
+	}
+
+	.ibm-col-6-4.post.nh-card-wrap{
+		width:100%;
+	}
+}
+
+@media only screen and (max-width:649px){
+	
+	.ibm-col-6-2.post.nh-card-wrap{	
+
+		&.nh-home-branding{
+
+			.inner-wrap{
+
+				.title-wrap{
+					right:60px;
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:499px){
+	
+	.ibm-col-6-2.post.nh-card-wrap{	
+
+		.nh-card{
+
+			.nh-card-content{
+
+				.nh-title{
+					font-size:1.5em;
+				}
+			}
+
+			:not(.nh-platform-mobile) &:hover,
+			:not(.nh-platform-mobile) &:active{
+
+				.nh-card-content-wrap{
+			    	.nh-card-content{
+
+			    		.nh-title{
+					    	font-size:1.3em;
+					    }
+			    	}
+			    }
+			}
+
+			&.nh-no-background{
+
+				.nh-card-content-wrap{
+					
+					.nh-card-content{
+					
+						.nh-title{
+							font-size:1.3em;
+							line-height:120%;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+@media only screen and (max-width:399px){
+	
+	.ibm-col-6-2.post.nh-card-wrap{	
+
+		.nh-card{
+
+			&.nh-no-background{
+
+				.nh-card-content-wrap{
+					
+					.nh-card-content{
+					
+						.nh-title{
+							font-size:1.2em;
+							line-height:120%;
+						}
+					}
+				}
+			}
+
+			.nh-card-content{
+
+				.nh-title{
+					font-size:1.3em;
+				}
+			}
+
+			:not(.nh-platform-mobile) &:hover,
+			:not(.nh-platform-mobile) &:active{
+
+				.nh-card-content-wrap{
+			    	.nh-card-content{
+
+			    		.nh-title{
+					    	font-size:1.2em;
+					    }
+			    	}
+			    }
+			}
+		}
+	}
+}

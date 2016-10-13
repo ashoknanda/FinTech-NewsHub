@@ -1,0 +1,149 @@
+@wide-card-display: { 
+	height:100%;
+
+	.dfad {
+		height:100%;
+	}
+
+	.nh-promo-card {
+		display:flex;
+		flex-direction:row;
+		align-items:center;
+		padding:0 90px 0 60px;
+
+		.nh-icon{
+			position:relative;
+		    height: 2em;
+		    font-size: 1.25em;
+		    color:white;
+		    margin:0.5em 0.1em;
+
+		    &.ibm-marketplace-link {
+				top:0;
+				left:0;
+			}
+
+			&.ibm-arrow-forward-link {
+				bottom:0;
+				right:0;
+			}
+		}
+
+		.nh-pictogram-wrap{
+			flex:2;
+			text-align:center;
+			padding-left:2em;
+
+			img {
+				    width: 160px;
+				}
+		}
+
+		.nh-copy-wrap{
+			flex:3;
+
+			.nh-sidebar & {
+				padding: 0 0 50px;
+			}
+
+			.title{
+				color:white;
+
+			}
+		}
+	}
+ };
+ 
+@narrow-card-display: {
+	.nh-promo-card{
+		display:block;
+		padding:0 20px 0;
+		
+		.ibm-h1 {
+		    font-size: 1.75rem;
+		    line-height: 110%;
+		}
+
+		.nh-icon{
+			position:absolute;
+
+			&.ibm-marketplace-link {
+				top:0;
+				left:10px;
+			}
+
+			&.ibm-arrow-forward-link {
+				bottom:0;
+				right:50px;
+			}
+		}
+
+		.nh-pictogram-wrap{
+			display:block;
+			padding:60px  0 40px;
+
+			img {
+				    width: 130px;
+				}
+		}
+
+		.nh-copy-wrap{
+			flex:3;
+
+			.nh-sidebar & {
+				padding: 0 0 50px;
+			}
+
+			.title{
+				color:white;
+
+			}
+		}
+	}
+
+
+};
+
+
+.nh-promo-card-holder {
+	@wide-card-display();
+
+	a:hover, a:active {
+    text-decoration: underline;
+    color: #FFF;
+}
+}
+
+@media only screen and (max-width: 1100px) and (min-width: 760px) {
+	.nh-promo-card-holder {
+		@narrow-card-display();
+	}
+}
+
+@media only screen and (max-width: 759px) {
+	.nh-promo-card-holder {
+		@narrow-card-display();
+	}
+}
+
+.nh-sidebar{
+	.nh-promo-card-holder {
+		@narrow-card-display();
+	}
+}
+
+@media only screen and (min-width: 760px) {
+	.nh-sidebar{
+		.nh-promo-card-holder {
+			@narrow-card-display();
+		}
+	}
+}
+@media only screen and (max-width: 759px) {
+	.nh-sidebar{
+		.nh-promo-card-holder {
+			@narrow-card-display();
+		}
+	}
+}
+

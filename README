@@ -1,0 +1,12 @@
+New Hub Content folder
+======================
+
+
+This will be the location of the FinTech Hub wp-content folder.
+
+TO GET STARTED LOCALLY
+--------------
+1. Download wordpress
+2. Delete the wp-content from the download folder
+3. Copy the rest of the files into this folder
+4. Create a wp-config.php file and change the login info for your MYSQL instance
