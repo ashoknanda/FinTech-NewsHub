@@ -19,7 +19,7 @@ get_header();
           $nc_author = array();
           $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
           $nc_source = $custom_fields['nc-source']?$custom_fields['nc-source']:"";
-          if(isset($nc_author)){
+          if(is_object($nc_author)){
             foreach ( $nc_author as $key => $value ) {
               $postauthor = $value;
             }    
@@ -27,7 +27,7 @@ get_header();
 $postsource = 'THINK Marketing';
 $nc_source_abbrev = 'T';
 
-if(isset($nc_source)){
+if(is_object($nc_source)){
 
   foreach ( $nc_source as $key => $value ) {
     $postsource = $value;

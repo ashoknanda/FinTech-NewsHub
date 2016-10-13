@@ -10,7 +10,7 @@ Author URI: http://www.solvercircle.com
 
 define("WPSP_BASE_URL", WP_PLUGIN_URL.'/'.plugin_basename(dirname(__FILE__)));
 
-add_action('init', 'set_wpsp_cookie');
+// add_action('init', 'set_wpsp_cookie');
 function set_wpsp_cookie() {
     // yes, this is a PHP 5.3 closure, deal with it
     if (!isset($_COOKIE['wpsp_cookie'])) {        
@@ -31,14 +31,16 @@ include ('includes/wpsp-init.php');
 
 function wpsp_css(){
   $cssurl = WPSP_BASE_URL.'/css/wpsp-popup.css';
-  echo "<link rel='stylesheet' type='text/css' href='$cssurl' />\n";
+  // echo "<link rel='stylesheet' type='text/css' href='$cssurl' />\n";
 }
 add_action('wp_head', 'wpsp_css');
 
 function wpsp_js(){        
   wp_enqueue_script('jquery');
-  wp_enqueue_script( 'wpsp-jscolor', plugins_url( '/js/colorpicker/jscolor.js', __FILE__ ));
-  wp_enqueue_script( 'wpsp-popup', plugins_url( '/js/wpsp_popup.js', __FILE__ ));  
+  if(is_admin()){
+    wp_enqueue_script( 'wpsp-jscolor', plugins_url( '/js/colorpicker/jscolor.js', __FILE__ ));  
+  }
+  // wp_enqueue_script( 'wpsp-popup', plugins_url( '/js/wpsp_popup.js', __FILE__ ));  
 }
 add_action('init','wpsp_js');
 register_activation_hook( __FILE__, 'wpsp_install');

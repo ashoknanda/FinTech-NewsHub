@@ -3,7 +3,7 @@ Contributors: likebtn, LikeBtn Support
 Tags: like button, voting, rating, vote, like, dislike, contest, rate, widget, widgets, like button widget, facebook like, facebook like button, poll, survey, donate, donations, share, share button, share buttons, thumbs up, thumb, thumbs, like counter, likes counter, post, posts, sharing, woocommerce, wordpress, bbPress, buddypress, comment, comments, rich snippets, page, pages, facebook, ratings, review, reviews, seo, addthis, votes, plugin, mobile plugin, youtube, mycred, ranking, user rating, open graph, Facebook Open Graph, metadata, opengraph, epoch
 Requires at least: 2.8
 Tested up to: 4.6
-Stable tag: 2.2.0
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,12 +26,13 @@ The **Like Button Voting & Rating** plugin allows you to add a cool looking full
 <a href="http://wordpress.likebtn.com/wordpress-like-button-plugin/" target="_blank" title="wordpress like button demo">Like Button Voting & Rating Demo</a>
 
 = Features =
-*   More than 80 parameters, 25 themes, 25 languages.
+*   More than 80 parameters, 28 themes, 33 languages.
+*   Custom themes and images.
+*   Works on websites fully cached with WP Super Cache, Quick Cache, CloudFlare, etc.
 *   Google Rich Snippets providing five star rating in Google search results. (<a href="https://likebtn.com/en/faq#rich_snippets" target="_blank" title="Google Rich Snippets Five Star Rating">Learn more</a>)
 *   Sorting content by likes.
 *   Real-time reports.
 *   Voting statistics. (PRO/VIP/ULTRA)
-*   Custom themes and images.
 *   Multisite compatible.
 *   Shortcode <code>[likebtn]</code> to display the Like button inside a post or page.
 *   Shortcodes <code>[likebtn_likes]</code> and <code>[likebtn_dislikes]</code> to display number of likes and dislikes.
@@ -42,7 +43,6 @@ The **Like Button Voting & Rating** plugin allows you to add a cool looking full
 *   BuddyPress notifications for authors when authenticated users like or dislike author's content.
 *   Recording like & dislike actions in BuddyPress activity stream (votes in private groups are NOT displayed in the public activity stream).
 *   Custom templates for snippets in BuddyPress activity stream.
-*   Works on websites fully cached with WP Super Cache, Quick Cache, CloudFlae, etc.
 *   Customizable position and alignment.
 *   Full access to the Like button CSS.
 *   Custom Like & Dislike buttons texts.
@@ -64,7 +64,7 @@ The Like Button Voting & Rating plugin is powered by <a href="http://likebtn.com
 
 ---
 
-> <a href="https://likebtn.com/en/customer.php/contact/full/" target="_blank" title="Like Button Support">Contact Us</a> | <a href="https://likebtn.com/en/faq" target="_blank" title="Like Button Referral Program">FAQ</a> | <a href="https://likebtn.com/en/referral-program" target="_blank" title="Like Button Referral Program">Referral Program</a>
+> <a href="https://likebtn.com/en/customer.php/contact/full/" target="_blank" title="Like Button Support">Contact Us</a> | <a href="https://likebtn.com/en/faq" target="_blank" title="Like Button Referral Program">FAQ</a> | <a href="https://likebtn.com/en/referral-program" target="_blank" title="Like Button Referral Program">Referral Program</a> | <a href="https://likebtn.com/en/showcase" target="_blank" title="Like Button Showcase">Showcase</a>
 
 ---
 
@@ -100,6 +100,16 @@ The Like Button Voting & Rating plugin is powered by <a href="http://likebtn.com
 16. WooCommerce
 
 == Changelog ==
+
+= 2.3.0 =
+* Add - Immediate votes synchronization into local DB as visitor votes
+* Add - "Showcase" link in readme: https://likebtn.com/en/showcase
+* Add - "Referral Program" link in readme: https://likebtn.com/en/referral-program
+* Add - "Hire Developer" link in readme: https://likebtn.com/en/developers
+* Add - "Allow to vote for one post only" option in Buttons -> Voting
+* Fix - IP info issue on https websites fixed
+* Fix - Like Button hooks disappearing from myCRED on some systems fixed
+* Fix - Dislikes count in Posts list fixed
 
 = 2.2.0 =
 * Add - Like Button for attachments

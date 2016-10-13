@@ -8,7 +8,6 @@ require_once('_library/helpers.php');
 // Comments template, kinda messy so let's keep it separate.
 require_once('_library/comments.php');
 // ACF fields
-require_once('_library/acf.php');
 
 //Initialize the update checker.
 require 'theme-updates/theme-update-checker.php';
@@ -30,6 +29,8 @@ function NorthStar_setup() {
     load_theme_textdomain( $domain, get_template_directory() . '/languages' );
 
     add_theme_support( 'post-thumbnails' );
+
+    require_once('_library/acf.php');
 }
 add_action( 'after_setup_theme', 'NorthStar_setup' );
 
@@ -168,7 +169,7 @@ add_action('admin_menu', 'add_new_settings_fields');
 function add_new_settings_fields() {
     $my_theme = wp_get_theme();
     $themeName = $my_theme->get( 'Name' );
-    add_options_page(__('Meta Data', 'Meta Data', $themeName), '8', 'meta-data', 'renderMetaDataPage');
+    add_options_page(__('Meta Data', 'Meta Data', $themeName), __('Meta Data', $themeName), '8', 'meta-data', 'renderMetaDataPage');
     add_options_page(__('Optional NS Widgets', $themeName), __('Optional NS Widgets', $themeName), '9', 'optional-ns-widgets', 'renderOptionalNSWidgetsPage');
 }
 
@@ -329,11 +330,7 @@ function renderNewTextField($args) {
     $saved_value = get_option($args[0]);
     echo "<fieldset>";
     echo '<input name="'. $args[0] .'" id="'.$args[0].'" type="text"';
-    if($saved_value == "")
-    {
-        echo 'value="UA-79125772-1"';
-    }
-    else
+    if(!$saved_value == "")
     {
         echo 'value="'.$saved_value.'"';
     }
@@ -473,6 +470,7 @@ function renderOptionalNSWidgetsPage() {
 }
 
 function renderMetaDataPage() {
+    $my_theme = wp_get_theme();
     ?>
     <div class='wrap'>
     <h2><?php echo __('Meta Data Setup', $my_theme->get( 'Name' )); ?></h2>

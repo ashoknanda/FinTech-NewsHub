@@ -63,11 +63,11 @@ function likebtn_admin_settings() {
                 </tr>
             </table>
             */ ?>
-            <div class="postbox ">
+            <div class="postbox likebtn_postbox">
                 <h3><?php _e('Account Details', LIKEBTN_I18N_DOMAIN); ?></h3>
                 <div class="inside">
                     <p>
-                        <?php _e('To get your account data:', LIKEBTN_I18N_DOMAIN); ?>
+                        <?php /*_e('To get your account data:', LIKEBTN_I18N_DOMAIN); */ ?>
                         <ol>
                             <li>
                                 <?php echo strtr(
@@ -80,6 +80,9 @@ function likebtn_admin_settings() {
                                     __('Add your website to your account on <a href="%url_websites%">Websites</a> page.', LIKEBTN_I18N_DOMAIN), 
                                     array('%url_websites%'=>"javascript:likebtnPopup('".__('http://likebtn.com/en/customer.php/websites', LIKEBTN_I18N_DOMAIN)."');void(0)")); 
                                 ?>
+                            </li>
+                            <li>
+                                <?php echo __('Check and save data.', LIKEBTN_I18N_DOMAIN); ?>
                             </li>
                         </ol>
                     </p>
@@ -94,21 +97,21 @@ function likebtn_admin_settings() {
                         <tr valign="top">
                             <th scope="row"><label><?php _e('E-mail', LIKEBTN_I18N_DOMAIN); ?></label></th>
                             <td>
-                                <input type="text" name="likebtn_account_email" value="<?php echo get_option('likebtn_account_email') ?>" onkeyup="accountChange(this)" class="likebtn_account likebtn_input" id="likebtn_account_email_input"/><br/>
+                                <input type="text" name="likebtn_account_email" value="<?php echo htmlspecialchars(get_option('likebtn_account_email')) ?>" onkeyup="accountChange(this)" class="likebtn_account likebtn_input" id="likebtn_account_email_input"/><br/>
                                 <p class="description"><?php _e('Your LikeBtn.com account email. Can be found on <a href="http://likebtn.com/en/customer.php/profile/edit" target="_blank">Profile</a> page', LIKEBTN_I18N_DOMAIN) ?></p>
                             </td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label><?php _e('API key', LIKEBTN_I18N_DOMAIN); ?></label></th>
                             <td>
-                                <input type="text" name="likebtn_account_api_key" value="<?php echo get_option('likebtn_account_api_key') ?>" onkeyup="accountChange(this)" class="likebtn_account likebtn_input" id="likebtn_account_api_key_input" maxlength="32" /><br/>
+                                <input type="text" name="likebtn_account_api_key" value="<?php echo htmlspecialchars(get_option('likebtn_account_api_key')) ?>" onkeyup="accountChange(this)" class="likebtn_account likebtn_input" id="likebtn_account_api_key_input" maxlength="32" /><br/>
                                 <p class="description"><?php _e('Your website API key on LikeBtn.com. Can be obtained on <a href="http://likebtn.com/en/customer.php/websites" target="_blank">Websites</a> page', LIKEBTN_I18N_DOMAIN) ?></p>
                             </td>
                         </tr>
                         <tr valign="top">
                             <th scope="row"><label><?php _e('Site ID', LIKEBTN_I18N_DOMAIN); ?></label></th>
                             <td>
-                                <input type="text" name="likebtn_site_id" value="<?php echo get_option('likebtn_site_id') ?>" class="likebtn_input" id="likebtn_site_id_input" maxlength="24" /><br/>
+                                <input type="text" name="likebtn_site_id" value="<?php echo htmlspecialchars(get_option('likebtn_site_id')) ?>" class="likebtn_input" id="likebtn_site_id_input" maxlength="24" /><br/>
                                 <?php /*<span class="description"><?php _e('Enter Site ID in following cases:', LIKEBTN_I18N_DOMAIN) ?><br/>
                                 ● <?php _e('Your site is local – located on a local server and is available from your local network only and NOT available from the Internet.', LIKEBTN_I18N_DOMAIN) ?><br/>
                                 ● <?php _e('Your site is path-based – one of sites located in different subdirectories of one domain and you want to have statistics separate from other sites.', LIKEBTN_I18N_DOMAIN) ?><br/><br/>*/ ?>
@@ -130,6 +133,7 @@ function likebtn_admin_settings() {
             <p>
                 <input class="button-primary" type="submit" name="Save" value="<?php _e('Save Changes', LIKEBTN_I18N_DOMAIN); ?>" />
             </p>
+            <br/>
 
             <?php if (get_option('likebtn_plan') < LIKEBTN_PLAN_PRO): ?>
                 <strong class="likebtn_error">
@@ -141,33 +145,48 @@ function likebtn_admin_settings() {
                 <br/><br/>
             <?php endif ?>
 
-            <div class="postbox">
+            <div class="postbox likebtn_postbox" id="synchronization">
+                <h3><?php _e('Synchronization', LIKEBTN_I18N_DOMAIN); ?></h3>
                 <div class="inside">
+                    <p class="description">
+                        <?php _e('Enable synchronization of likes from LikeBtn.com into your database to:', LIKEBTN_I18N_DOMAIN); ?><br/>
+                        &nbsp;&nbsp;● <?php _e('View statistics on Statistics tab.', LIKEBTN_I18N_DOMAIN); ?><br/>
+                        &nbsp;&nbsp;● <?php _e('Sort content by likes.', LIKEBTN_I18N_DOMAIN); ?><br/>
+                        &nbsp;&nbsp;● <?php _e('Use most liked content widget and shortcode.', LIKEBTN_I18N_DOMAIN); ?><br/>
+                    </p>
                     <table class="form-table">
                         <tr valign="top">
-                            <th scope="row"><label><?php _e('Synchronization interval', LIKEBTN_I18N_DOMAIN); ?></label>
-                                <i class="likebtn_help" title="​<?php _e('Votes are stored in LikeBtn.com system.', LIKEBTN_I18N_DOMAIN); ?> <?php _e('Choose time interval of fetching votes from LikeBtn.com into your database.', LIKEBTN_I18N_DOMAIN); ?>">&nbsp;</i>
+                            <th scope="row"><label><?php _e('Synchronization status', LIKEBTN_I18N_DOMAIN); ?></label>
+                                <?php /*<i class="likebtn_help" title="​<?php _e('Votes are stored in LikeBtn.com system.', LIKEBTN_I18N_DOMAIN); ?> <?php _e('Choose time interval of fetching votes from LikeBtn.com into your database.', LIKEBTN_I18N_DOMAIN); ?>">&nbsp;</i>*/ ?>
                             </th>
-                            <td>
-                                <select name="likebtn_sync_inerval" <?php disabled((!get_option('likebtn_account_email') || !get_option('likebtn_account_api_key'))); ?> id="likebtn_sync_inerval_input">
+                            <td class="likebtn_sync_cntr <?php if (_likebtn_is_stat_enabled()): ?>likebtn_sync_ena_flag<?php else: ?>likebtn_sync_dis_flag<?php endif ?>">
+                                <?php /*<select name="likebtn_sync_inerval" <?php disabled((!get_option('likebtn_account_email') || !get_option('likebtn_account_api_key'))); ?> id="likebtn_sync_inerval_input">
                                     <option value="" <?php selected('', get_option('likebtn_sync_inerval')); ?> ><?php _e('Synchronization of votes into local database is disabled', LIKEBTN_I18N_DOMAIN) ?></option>
                                     <?php foreach ($likebtn_sync_intervals as $sync_interval): ?>
                                         <option value="<?php echo $sync_interval; ?>" <?php selected($sync_interval, get_option('likebtn_sync_inerval')); ?> ><?php echo $sync_interval; ?> <?php _e('min', LIKEBTN_I18N_DOMAIN); ?></option>
                                     <?php endforeach ?>
                                 </select>
-                                <br/><br/>
-                                <input class="button-primary" type="button" value="<?php _e('Test Sync', LIKEBTN_I18N_DOMAIN); ?>" onclick="testSync('<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif')" /> &nbsp;<strong class="likebtn_test_sync_container"><img src="<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif" class="hidden"/></strong>
-                                <br/><br/>
-                                <div class="liketbtn_mansync_wr">
-                                    <input class="button-secondary likebtn_ttip" type="button" value="<?php _e('Run Full Sync Manually', LIKEBTN_I18N_DOMAIN); ?>" onclick="manualSync('<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif')" title="<?php _e("ATTENTION: Use this feature carefully since full synchronization may affect your website performance. If you don't experience any problems with likes synchronization better to avoid using this feature.", LIKEBTN_I18N_DOMAIN) ?>" /> &nbsp;<strong class="likebtn_manual_sync_container"><img src="<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif" class="hidden"/></strong>
-                                </div>
-                                <br/>
-                                <p class="description">
-                                    <?php _e('Enable synchronization of likes from LikeBtn.com into your database to:', LIKEBTN_I18N_DOMAIN); ?><br/>
-                                    ● <?php _e('View statistics on Statistics tab.', LIKEBTN_I18N_DOMAIN); ?><br/>
-                                    ● <?php _e('Sort content by likes.', LIKEBTN_I18N_DOMAIN); ?><br/>
-                                    ● <?php _e('Use most liked content widget and shortcode.', LIKEBTN_I18N_DOMAIN); ?><br/>
+                                <br/><br/>*/?>
+                                <input type="hidden" name="likebtn_sync_inerval" value="<?php echo get_option('likebtn_sync_inerval'); ?>" />
+                                <p>
+                                    <strong class="likebtn_success likebtn_sync_ena"><?php _e('Enabled', LIKEBTN_I18N_DOMAIN); ?></strong>
+                                    <strong class="likebtn_error likebtn_sync_dis"><?php _e('Disabled', LIKEBTN_I18N_DOMAIN); ?></strong> 
                                 </p>
+                                <?php if (!_likebtn_is_stat_enabled()): ?>
+                                    <p class="description likebtn_sync_dis"><?php _e('Please ugrade at least to PRO, enter, check and save account data above', LIKEBTN_I18N_DOMAIN); ?></p>
+                                <?php endif ?>
+                                <div <?php if (!get_option('likebtn_account_email') || !get_option('likebtn_account_api_key') || !get_option('likebtn_site_id')): ?>style="display:none"<?php endif ?>>
+                                    <br/>
+                                    <input class="button-primary likebtn_button_green likebtn_sync_dis" type="button" value="<?php _e('Enable Sync', LIKEBTN_I18N_DOMAIN); ?>" onclick="testSync('<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif')" />
+
+                                    <input class="button-primary likebtn_sync_ena" type="button" value="<?php _e('Test Sync', LIKEBTN_I18N_DOMAIN); ?>" onclick="testSync('<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif')" /> 
+                                    &nbsp;<strong class="likebtn_test_sync_container"><img src="<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif" class="hidden"/></strong>
+                                    
+                                    <div class="liketbtn_mansync_wr" style="display:none">
+                                        <br/><br/>
+                                        <input class="button-secondary likebtn_ttip" type="button" value="<?php _e('Run Full Sync Manually', LIKEBTN_I18N_DOMAIN); ?>" onclick="manualSync('<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif')" title="<?php _e("ATTENTION: Use this feature carefully since full synchronization may affect your website performance. If you don't experience any problems with likes synchronization better to avoid using this feature.", LIKEBTN_I18N_DOMAIN) ?>" /> &nbsp;<strong class="likebtn_manual_sync_container"><img src="<?php echo _likebtn_get_public_url() ?>img/ajax_loader.gif" class="hidden"/></strong>
+                                    </div>
+                                </div>
                             </td>
                         </tr>
                         <tr valign="top">
@@ -185,8 +204,10 @@ function likebtn_admin_settings() {
             <p>
                 <input class="button-primary" type="submit" name="Save" value="<?php _e('Save Changes', LIKEBTN_I18N_DOMAIN); ?>" />
             </p>
+            <br/>
 
-            <div class="postbox">
+            <div class="postbox likebtn_postbox">
+                <h3><?php _e('Miscellaneous', LIKEBTN_I18N_DOMAIN); ?></h3>
                 <div class="inside">
                     <table class="form-table">
                         <tr valign="top">

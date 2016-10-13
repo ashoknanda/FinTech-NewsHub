@@ -6,7 +6,7 @@ get_header();
 get_template_part('_includes/v18_content_main_start');
 $leadspace_title_size = get_field('leadspace_title_size');
     if(!$leadspace_title_size){
-      $leadspace_title_size = 'ibm-h2';
+      $leadspace_title_size = 'ibm-h1';
     }
 ?>
 
@@ -48,33 +48,15 @@ echo $pimages['sizes']['size-380'];
       <div id="ibm-leadspace-body">
           <div class="ibm-columns  ibm-padding-top-3 ibm-padding-bottom-3">
               <div class="ibm-col-1-1"> <!-- ibm-center -->
-                <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php
+                <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php
 echo get_field('display_title');
-?></h2>
+?></h1>
                 <p class="<?php the_field('leadspace_description_size'); ?> <?php the_field('leadspace_description_weight'); ?>"><?php
 echo the_field('description');
 ?></p>
               </div>
           </div>
       </div>
-
-			<div id="ibm-leadspace-social">
-				<div class="ibm-columns" style="padding: 10px 0 0px;">
-					<div class="ibm-col-1-1">
-						<div class="ibm-leadspace-social-links">
-							<div>
-								<p class="ibm-textcolor-white-core">Follow Us</p>
-								<p class="ibm-ind-link ibm-alternate">
-									<a class="ibm-twitter-encircled-link" href="http://www.twitter.com/ibm" target="blank"><span>Follow us on Twitter</span></a>
-									<a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/company/ibm" target="blank"><span>Join us on Linkedin</span></a>
-									<a class="ibm-facebook-encircled-link" href="http://www.facebook.com/ibm" target="blank"><span>Visit our Facebook page</span></a>
-									<a class="ibm-youtube-encircled-link" href="http://www.youtube.com/ibm" target="blank"><span>Watch our YouTube channel</span></a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
   </div>
 
 
@@ -103,7 +85,7 @@ $custom_query = new WP_Query($custom_args);
       }
       else
       {
-        ?><div class="ibm-columns ibm-cards ibm-padding-top-2 ibm-padding-bottom-3" data-widget="masonry" data-items=".post"><?php
+        ?><div class="ibm-columns"><div class="ibm-col-1-1"><div class="ibm-columns ibm-cards ibm-padding-top-2 ibm-padding-bottom-3" data-widget="masonry" data-items=".post"><?php
       }
 
 if ($custom_query->have_posts()):
@@ -133,7 +115,14 @@ endif;
 ?>
 
 </div> <!-- .ibm-columns -->
-
+<?php
+      if(esc_attr(get_option( 'post_listing_choice_others', '' )) !== "post_listing_choice_others_stack")
+      {
+        ?>
+          </div></div>
+        <?php
+      }
+      ?>
 <!-- pagination here -->
 <?php
 if (function_exists('custom_pagination')) {

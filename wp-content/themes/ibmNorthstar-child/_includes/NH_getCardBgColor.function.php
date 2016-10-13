@@ -7,7 +7,7 @@ function NH_getCardBgColor(){
 
 		if(isset($GLOBALS['nhCardColorOrder']) != true) $GLOBALS['nhCardColorOrder'] = 0;
 
-		$bgColors = array('#00B4A0', '#4178BE', '#5AA700', '#A6266E', '#9855D4', '#FF5003', '#E59200');
+		$bgColors = array('#D74108', '#5596E6', '#008571', '#4B8400', '#734098');
 		$bgColor = $bgColors[$GLOBALS['nhCardColorOrder']]; // bgColors is set at the top of this file
 
 		$GLOBALS['nhCardColorOrder'] = $GLOBALS['nhCardColorOrder'] + 1;

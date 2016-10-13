@@ -217,71 +217,6 @@ strong {
   margin:0;
 }
 
-.ibm-columns.filter-container{
-  padding: 0 0 1.75rem 0;
-  color: #fff;
-  FORM {
-    width:90%;
-    margin: auto;
-    padding: 0 0.5rem 0 0;
-    .ibm-bold.ibm-h4{
-      display: inline-block;
-      float:left;
-      padding-right: 2em;    
-    }
-    .icon-wrap{
-        display: inline-block; 
-        float:left;
-        line-height:0;
-    }    
-
-    P {
-      display: inline-block;
-      float:left;
-      line-height: 20px !important;
-      label {
-        display: inline-block;
-      }
-    }
-    .facetwp-facet.facetwp-type-checkboxes {
-      padding-left: 1.25em;
-      display: inline-block;
-      float: left;
-      width: 72%;
-      margin-top: 0.2em;
-
-      .facetwp-checkbox{
-        display: inline-block;
-        background: none;
-        margin:0 1.2em 0 0;
-        font-size:0.85em;
-        color: #C7C7C7;
-        text-decoration:underline;
-        
-        &:hover{
-          color: #FFF;
-        }
-
-        &.checked{
-         font-weight: bold;
-         color: #FFF;
-         &:HOVER{
-          text-decoration:underline;
-         }
-        }
-        padding:0;
-      }
-      .facetwp-toggle{
-        color : #fff;
-        &:visited {
-          color: #fff;
-        }
-      }
-
-    }     
-  }
-}
-
 #search-content .ibm-columns.filter-container{
   FORM {
     float:none;
@@ -448,6 +383,13 @@ lb-fi-thmb5-u likebtn-icon lb-like-icon lb-fi{
     /* padding: 3em 0 4em; */
     color: white;
 }
+
+
+.facetwp-facet .facetwp-checkbox .facetwp-expand{
+  display: none;
+}
+
+
 
 @import './nh-lading-page-global.less';
 /* @import './nh-wpsp-widget-container';*/

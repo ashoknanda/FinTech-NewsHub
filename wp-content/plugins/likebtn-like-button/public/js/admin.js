@@ -7,6 +7,7 @@ var likebtn_preview_position = 'static';
 var likebtn_preview_refresh = 300;
 var likebtn_preview_wait = false;
 var likebtn_pin = false;
+var likebtn_poll_cntr;
 
 // replace all occurences of a string
 String.prototype.replaceAll = function(search, replace){
@@ -52,9 +53,181 @@ function removeCookie(name) {
 }
 
 jQuery(document).ready(function(jQuery) {
-    //likebtnRefreshPreview();
     likebtnApplyTooltips();
+
+    // Poll
+    if (typeof(likebtn_msg_feedback_sent) != "undefined" && likebtn_msg_feedback_sent == 0) {
+        var a = jQuery(".plugins .active[data-slug='likebtn-like-button'] .deactivate a:first");
+        if (!a) {
+            a = jQuery(".plugins #likebtn-like-button.active .deactivate a:first");
+        }
+        if (!a || "undefined" == typeof(a.dialog)) {
+            return;
+        }
+        a.attr('onclick', 'deactivatePoll(event, "'+a.attr('href')+'")');
+    }
 });
+
+function deactivatePoll(event, href)
+{
+    var dialog_exists = true;
+    if (event) {
+        event.preventDefault();
+    }
+    likebtn_poll_cntr = jQuery("#likebtn_poll");
+    if (!likebtn_poll_cntr.size()) {
+        dialog_exists = false;
+        var poll_html = 
+            '<div id="likebtn_poll">'+
+                '<form id="likebtn_poll_form" onsubmit="return false">'+
+                '<div class="likebtn_poll_intro">'+likebtn_msg_f_intro+'</div>'+
+                '<div class="likebtn_poll_opt"><input type="radio" name="likebtn_reason" value="features" id="likebtn_reason_features" onclick="likebtnPollChoose(this)" required="required"/> <label for="likebtn_reason_features"><strong>'+likebtn_msg_f_features+'</strong></label></div>'+
+                '<div class="likebtn_poll_reason lpr_features">'+
+                    '<textarea rows="3" style="width:100%" placeholder="'+likebtn_msg_f_ph+'" id="likebtn_ta_features" name="likebtn_missing_features"></textarea><br/>'+
+                    '<input type="checkbox" id="likebtn_reason_features_email_c" onclick="likebtnPollFeaturesEmail(this)"/> <label for="likebtn_reason_features_email_c">'+likebtn_msg_f_notify+'</label><br/><input type="email" name="likebtn_reason_email" value="" placeholder="'+likebtn_msg_ye+'" style="width:50%; display:none" id="likebtn_reason_features_email" />'+
+                '</div>'+
+
+                '<div class="likebtn_poll_opt"><input type="radio" name="likebtn_reason" value="pricing" id="likebtn_reason_pricing" onclick="likebtnPollChoose(this)" required="required"/>  <label for="likebtn_reason_pricing"><strong>'+likebtn_msg_f_pricing+'</strong></label></div>'+
+                '<div class="likebtn_poll_reason lpr_pricing">'+
+                    likebtn_msg_f_pricing_i+
+                    //'<input type="email" name="likebtn_reason_pricing_email" value="" placeholder="Your email" style="width:50%"/>'+
+                '</div>'+
+
+                '<div class="likebtn_poll_opt"><input type="radio" name="likebtn_reason" value="integration" id="likebtn_reason_integration" onclick="likebtnPollChoose(this)" required="required"/>  <label for="likebtn_reason_integration"><strong>'+likebtn_msg_f_int+'</strong></label></div>'+
+                '<div class="likebtn_poll_reason lpr_integration">'+
+                    likebtn_msg_f_i1+' <a href="'+likebtn_msg_website+'developers" target="_blank">'+likebtn_msg_f_i2+'</a>'+
+                '</div>'+
+
+                '<div class="likebtn_poll_opt"><input type="radio" name="likebtn_reason" value="tmp" id="likebtn_reason_tmp" onclick="likebtnPollChoose(this)" required="required"/>  <label for="likebtn_reason_tmp"><strong>'+likebtn_msg_f_tmp+'</strong></label></div>'+
+
+                '<div class="likebtn_poll_opt"><input type="radio" name="likebtn_reason" value="other" id="likebtn_reason_other" onclick="likebtnPollChoose(this)" required="required"/>  <label for="likebtn_reason_other"><strong>'+likebtn_msg_other+'</strong></label></div>'+
+                '<div class="likebtn_poll_reason lpr_other" style="margin-bottom:0">'+
+                    '<textarea rows="3" style="width:100%" placeholder="'+likebtn_msg_other_ph+'" id="likebtn_ta_other" name="likebtn_other_text"></textarea>'+
+                '</div><br/>'+
+
+                '<div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">'+
+                    '<div style="display:none" id="likebtn_poll_loader"><img src="'+likebtn_msg_pub_url+'img/ajax_loader_hor.gif" /></div>'+
+                    '<div class="ui-dialog-buttonset">'+
+                        '<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-primary likebtn-button-submit" role="button"><span class="ui-button-text">'+likebtn_msg_f_submit2+'</span></button>&nbsp; '+
+                        '<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-secondary likebtn-button-submit" role="button" data-deactivate="1"><span class="ui-button-text">'+likebtn_msg_f_submit1+'</span></button>&nbsp; '+
+                        '<button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only button-secondary likebtn-button-close" role="button"><span class="ui-button-text">'+likebtn_msg_f_cancel+'</span></button>'+
+                    '</div>'+
+                '</div>'+
+                '<input type="submit" id="likebtn_poll_submit" style="display:none">'+
+                '</form>'+
+            '</div>';
+
+        likebtn_poll_cntr = jQuery(poll_html).appendTo(jQuery("body"));
+    }
+
+    likebtn_poll_cntr.dialog({
+        resizable: false,
+        autoOpen: false,
+        modal: true,
+        width: '50%',
+        title: likebtn_msg_d_title,
+        draggable: false,
+        show: 'fade',
+        dialogClass: 'likebtn_dialog',
+        close: function( event, ui ) {
+            
+        },
+        open: function() {
+            if (!dialog_exists) {
+                jQuery('.ui-widget-overlay, #likebtn_poll .likebtn-button-close').bind('click', function() {
+                    likebtn_poll_cntr.dialog('close');
+                });
+                jQuery('#likebtn_poll .likebtn-button-submit').bind('click', function() {
+                    var form = jQuery("#likebtn_poll_form");
+                    if (form[0] && !form[0].checkValidity()) {
+                        jQuery("#likebtn_poll_submit").click();
+                        return;
+                    }
+
+                    // Show loader
+                    jQuery("#likebtn_poll_loader").show();
+                    jQuery("#likebtn_poll_form .ui-dialog-buttonset").hide();
+
+                    var data = jQuery("#likebtn_poll_form").serializeArray();
+                    var decision = 'keep';
+                    if (jQuery(this).attr("data-deactivate") == '1') {
+                        decision = 'deactivate';
+                    }
+
+                    var email = likebtn_msg_account_email;
+                    if (!email) {
+                        email = likebtn_msg_admin_email;
+                    }
+
+                    data.push({'name':'action', 'value':'likebtn_plugin_feedback'});
+                    data.push({'name':'admin_email', 'value':likebtn_msg_admin_email});
+                    data.push({'name':'account_email', 'value':likebtn_msg_account_email});
+                    data.push({'name':'email', 'value':email});
+                    data.push({'name':'site_id', 'value':likebtn_msg_account_site_id});
+                    data.push({'name':'website', 'value':likebtn_msg_site_url});
+                    data.push({'name':'plan', 'value':likebtn_msg_plan});
+                    data.push({'name':'version', 'value':likebtn_msg_version});
+                    data.push({'name':'locale', 'value':likebtn_msg_locale});
+                    data.push({'name':'decision', 'value':decision});
+
+                    jQuery.ajax({
+                        type: 'POST',
+                        dataType: "json",
+                        url: ajaxurl,
+                        data: data,
+                        success: function(response) {
+                            likebtn_poll_cntr.dialog('close');
+                            if (decision == 'deactivate') {
+                                window.location.href = href;
+                            }
+                            jQuery("#likebtn_poll_loader").hide();
+                            jQuery("#likebtn_poll_form .ui-dialog-buttonset").show();
+                        },
+                        error: function(response) {
+                            likebtn_poll_cntr.dialog('close');
+                            if (decision == 'deactivate') {
+                                window.location.href = href;
+                            }
+                            jQuery("#likebtn_poll_loader").hide();
+                            jQuery("#likebtn_poll_form .ui-dialog-buttonset").show();
+                        }
+                    });
+                });
+            }
+        },
+        position: { 
+            my: "center", 
+            at: "center" 
+        }
+    });
+
+    likebtn_poll_cntr.dialog('open');
+}
+
+function likebtnPollChoose(radio)
+{
+    var chosen = jQuery(radio).val();
+    if (chosen) {
+        jQuery("#likebtn_poll .likebtn_poll_reason").hide();
+        jQuery("#likebtn_poll .lpr_"+chosen).show();
+        
+        jQuery("#likebtn_poll textarea").removeAttr("required");
+
+        if (jQuery("#likebtn_ta_"+chosen).is(":visible")) {
+            jQuery("#likebtn_ta_"+chosen).attr("required", "required");
+        } else {
+            jQuery("#likebtn_ta_"+chosen).removeAttr("required");
+        }
+    }
+}
+function likebtnPollFeaturesEmail(el)
+{
+    if (jQuery(el).is(":checked")) {
+        jQuery("#likebtn_reason_features_email").show();
+    } else {
+        jQuery("#likebtn_reason_features_email").hide().val('');
+    }
+}
 
 // Show/hide entity options
 function entityShowChange(el, entity_name)
@@ -113,10 +286,12 @@ function accountChange()
             account_data_filled = false;
         }
     });
+    
+    jQuery(".likebtn_sync_cntr:first").removeClass('likebtn_sync_ena_flag').addClass('likebtn_sync_dis_flag');
     if (account_data_filled) {
-        jQuery(":input[name='likebtn_sync_inerval']").removeAttr('disabled');
+        //jQuery(":input[name='likebtn_sync_inerval']").removeAttr('disabled');
     } else {
-        jQuery(":input[name='likebtn_sync_inerval']").val('').attr('disabled', 'disabled');
+        jQuery(":input[name='likebtn_sync_inerval']").val('');/*.attr('disabled', 'disabled')*/;
     }
 }
 
@@ -140,15 +315,22 @@ function testSync(loader_src)
             if (typeof(response.result_text) != "undefined") {
                 result_text = response.result_text;
             }
-            jQuery(".likebtn_test_sync_container:first").text(result_text);
             if (typeof(response.result) == "undefined" || response.result != "success") {
+                jQuery(".likebtn_test_sync_container:first").text(result_text);
                 jQuery(".likebtn_test_sync_container:first").css('color', 'red');
                 if (typeof(response.message) != "undefined") {
                     var text = jQuery(".likebtn_test_sync_container:first").html() + ': ' + response.message;
                     jQuery(".likebtn_test_sync_container:first").html(text);
                 }
             } else {
-                jQuery(".likebtn_test_sync_container:first").css('color', 'green');
+                if (jQuery(".likebtn_sync_cntr:first").hasClass('likebtn_sync_dis_flag')) {
+                    jQuery(".likebtn_test_sync_container:first").text('');
+                } else {
+                    jQuery(".likebtn_test_sync_container:first").text(result_text);
+                    jQuery(".likebtn_test_sync_container:first").css('color', 'green');
+                }
+
+                jQuery(".likebtn_sync_cntr:first").removeClass('likebtn_sync_dis_flag').addClass('likebtn_sync_ena_flag');
             }
 
         },
@@ -507,10 +689,19 @@ function likebtnPopup(url, name, height, width)
         width = jQuery(window).width();
     }
 
-    likebtn_popup = window.open(url, name, 'height='+height+',width='+width+',toolbar=0,scrollbars=yes');
-    likebtn_popup.focus();
+    var dualScreenLeft = window.screenLeft != undefined ? window.screenLeft : screen.left;
+    var dualScreenTop = window.screenTop != undefined ? window.screenTop : screen.top;
 
-    return likebtn_popup;
+    var w = window.innerWidth ? window.innerWidth : document.documentElement.clientWidth ? document.documentElement.clientWidth : screen.width;
+    var h = window.innerHeight ? window.innerHeight : document.documentElement.clientHeight ? document.documentElement.clientHeight : screen.height;
+
+    var left = ((w / 2) - (width / 2)) + dualScreenLeft;
+    var top = ((h / 2) - (height / 2)) + dualScreenTop;
+
+    var p = window.open(url, name, 'height='+height+',width='+width+',top='+top+',left='+left+',toolbar=0,scrollbars=yes');
+    p.focus();
+
+    return p;
 }
 
 // On Save Buttons
@@ -890,7 +1081,7 @@ function likebtnGetAccountData(url)
     // Add domain
     url += '?add_website='+window.location.hostname;
 
-    likebtnPopup(url);
+    likebtn_popup = likebtnPopup(url, 'get_account_data');
     likebtn_popup_timer = setInterval(likebtnOnGetAccountDataClose, 500);
 }
 
@@ -903,7 +1094,7 @@ function likebtnOnGetAccountDataClose()
         jQuery.ajax({
             type: 'get',
             dataType: 'jsonp',
-            url: 'http://likebtn.com/en/customer.php/api',
+            url: 'https://likebtn.com/en/customer.php/api',
             data: {
                 action: 'account_data',
                 domain: window.location.hostname
@@ -920,9 +1111,9 @@ function likebtnOnGetAccountDataClose()
                         jQuery("#likebtn_site_id_input").val(data.response.site_id);
                     }
                     accountChange();
-                    if (!jQuery("#likebtn_sync_inerval_input").val()) {
+                    /*if (!jQuery("#likebtn_sync_inerval_input").val()) {
                         jQuery("#likebtn_sync_inerval_input").val('5');
-                    }
+                    }*/
                 }
             },
             error: function(data) {
@@ -1776,4 +1967,11 @@ function likebtnIpInfo(ip)
         jQuery(".likebtn_ip_info .likebtn-ii-network:visible").html(org);
         jQuery(".likebtn_ip_info .likebtn-ii-hostname:visible").html(hostname);
     }, "jsonp");
+}
+
+function likebtnContactUs()
+{
+    var url = likebtn_msg_website+'customer.php/contact/full/?platform=WordPress&host_name='+likebtn_msg_site_url+'&email='+likebtn_msg_account_email+'&likebtn_short_version=1';
+
+    likebtnPopup(url, 'contact_us', 600, 600);
 }

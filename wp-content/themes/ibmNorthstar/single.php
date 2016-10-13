@@ -109,11 +109,9 @@
             $leadspace_default = $template_directory  . '/default-leadspace-1440x320.jpg';
             $leadspace_title_size = get_field('leadspace_title_size');
             if(!$leadspace_title_size){
-              $leadspace_title_size = 'ibm-h2';
+              $leadspace_title_size = 'ibm-h1';
             }
         ?>
-
-<div class="">
 
         <div class="ibm-blog__article ibm-padding-bottom-0" data-post-id-"<?php the_ID(); ?>">
 
@@ -140,27 +138,10 @@
                                 <?php } else { ?>
                                 <a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><h4 class="ibm-blog__category <?php the_field('text_color'); ?>"><?php echo $categories[0]->name; ?></h4></a>
                                 <?php } ?>
-                            <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>" itemprop="headline" rel="bookmark">
-                            <?php echo widont(get_the_title()); ?></h2>
+                            <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>" itemprop="headline" rel="bookmark">
+                            <?php echo widont(get_the_title()); ?></h1>
                             </div>
                         </div>
-                    </div>
-                    <div id="ibm-leadspace-social">
-                      <div class="ibm-columns" style="padding: 10px 0 0px;">
-                        <div class="ibm-col-1-1">
-                          <div class="ibm-leadspace-social-links">
-                            <div>
-                              <p class="ibm-textcolor-white-core">Follow Us</p>
-                              <p class="ibm-ind-link ibm-alternate">
-                                <a class="ibm-twitter-encircled-link" href="http://www.twitter.com/ibm" target="blank"><span>Follow us on Twitter</span></a>
-                                <a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/company/ibm" target="blank"><span>Join us on Linkedin</span></a>
-                                <a class="ibm-facebook-encircled-link" href="http://www.facebook.com/ibm" target="blank"><span>Visit our Facebook page</span></a>
-                                <a class="ibm-youtube-encircled-link" href="http://www.youtube.com/ibm" target="blank"><span>Watch our YouTube channel</span></a>
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
                     </div>
 		</div>
 
@@ -175,7 +156,7 @@
             <p>
     <?php
         $categoriesDisplayed = 0;
-        $categories = get_categories();
+        $categories = get_the_category();
         $string_temp = "";
         $isUncategorized = false;
         foreach ( $categories as $category )
@@ -212,7 +193,7 @@
                                         <div class="ibm-blog__post-author-thumb ibm-blog__contributor-thumb">
                                             <?php $user_info = get_userdata(get_the_author_meta('ID'));
                                             if(get_field('author_icon', 'user_' . get_the_author_meta('ID')) != "") { ?>
-                                           <div><a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta( 'user_nicename' ))); ?>"><img src="<?php the_field('author_icon', 'user_' . get_the_author_meta('ID')); ?>" alt="user icon" /></a></div>
+                                           <div><a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta( 'user_nicename' ))); ?>"><div style="background-image:url('<?php the_field('author_icon', 'user_' . get_the_author_meta('ID')); ?>'); background-size:cover; background-position:center center;" ></div></a></div>
                                            <?php } else { ?>
                                            <div><a href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'), get_the_author_meta( 'user_nicename' ))); ?>"><?php echo get_avatar($user_info->user_email); ?></a></div>
                                            <?php } ?>
@@ -226,7 +207,7 @@
                                     <div class="second">
                                             <?php if(get_field('guest_author_website_link')){ ?>
                                             <div class="ibm-blog__post-author-thumb ibm-blog__contributor-thumb">
-                                               <div><a href="<?php echo get_field('guest_author_website_link') ?>"><img src="<?php the_field('guest_author_image') ?>"></a></div>
+                                               <div><a href="<?php echo get_field('guest_author_website_link') ?>"><div style="background-image:url('<?php the_field('guest_author_image') ?>'); background-size:cover; background-position:center center;" ></div></a></div>
                                             </div>
                                                                                             <div class="ibm-center">
                                                    <a href="<?php echo get_field('guest_author_website_link') ?>"><h4 class="ibm-h4 ibm-bold ibm-padding-bottom-0"><?php the_field('guest_author_name'); ?></h4></a>
@@ -234,7 +215,7 @@
                                                 </div>
                                             <?php } else { ?>
                                             <div class="ibm-blog__post-author-thumb ibm-blog__contributor-thumb">
-                                                <div><img src="<?php the_field('guest_author_image') ?>"></div>
+                                                <div><div style="background-image:url('<?php the_field('guest_author_image') ?>'); background-size:cover; background-position:center center;" ></div></div>
                                             </div>
                                         <div class="ibm-center">
                                            <h4 class="ibm-h4 ibm-bold ibm-padding-bottom-0"><?php the_field('guest_author_name'); ?></h4>
@@ -277,12 +258,7 @@
 <!--                         <div class="facebook">
                             <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-width="200" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
                         </div> -->
-                        <div class="ibm-card ibm-popular-widget">
-                        <?php echo do_shortcode('[do_widget id=wmp_widget-2 wrap=div title=h2 ]') ?>
-                        </div>
-                        <div>
-                            <?php echo do_shortcode('[do_widget id=ccre_widget-2]') ?>
-                        </div>
+
 
 			<?php include('_includes/v18_sidebar.php'); ?>
                     </div>
@@ -323,8 +299,15 @@
         // get by category
         $categories = get_the_category();
         if (!empty( $categories)) {
-            $category = $categories[0];
-            $params['category_name'] = $category->slug;
+            foreach($categories as $loop_category)
+            {
+                if($loop_category->name !== "Featured Carousel" && $loop_category->name !== "Uncategorized")
+                {
+                    $category = $loop_category;
+                    $params['category_name'] = $loop_category->slug;
+                    break;
+                }
+            }
         }
 
         $posts      = new WP_Query($params);
@@ -332,11 +315,11 @@
         $grid_with_highlights = false;
     ?>
 
-    <?php if ( $posts->have_posts() && get_topic_category( get_the_category() ) !== "Uncategorized") { ?>
+    <?php if ( $posts->have_posts() && $category->name !== "Uncategorized" && $category->name !== "Featured Carousel") { ?>
         <div class="ibm-article-band ibm-blog__postgrid">
             <div class="ibm-columns">
                 <div class="ibm-col-1-1">
-                        <h3 class="postgrid-title"><?php $my_theme = wp_get_theme(); _e('More', $my_theme->get( 'Name' )); ?> <?php echo get_topic_category( get_the_category() ); ?> <?php $my_theme = wp_get_theme(); _e('Stories', $my_theme->get( 'Name' )); ?></h3>
+                        <h3 class="postgrid-title"><?php $my_theme = wp_get_theme(); _e('More', $my_theme->get( 'Name' )); ?> <?php echo $category->name; ?> <?php $my_theme = wp_get_theme(); _e('Stories', $my_theme->get( 'Name' )); ?></h3>
                 </div>
             </div>
             <div class="ibm-columns" data-widget="setsameheight" data-items=".ibm-blog__postgrid-item-link">

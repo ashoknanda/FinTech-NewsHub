@@ -446,3 +446,52 @@ ul.likebtn-is li {
 .likebtn_subtitle {
     margin: 0;
 }
+.likebtn_sync_cntr .likebtn_sync_ena,
+.likebtn_sync_cntr .likebtn_sync_dis {
+    display: none;
+}
+.likebtn_sync_cntr.likebtn_sync_ena_flag strong.likebtn_sync_ena {
+    display: inline;
+}
+.likebtn_sync_cntr.likebtn_sync_ena_flag input.likebtn_sync_ena {
+    display: inline-block;
+}
+.likebtn_sync_cntr.likebtn_sync_ena_flag div.likebtn_sync_ena,
+.likebtn_sync_cntr.likebtn_sync_ena_flag p.likebtn_sync_ena {
+    display: block;
+}
+
+.likebtn_sync_cntr.likebtn_sync_dis_flag strong.likebtn_sync_dis {
+    display: inline;
+}
+.likebtn_sync_cntr.likebtn_sync_dis_flag input.likebtn_sync_dis {
+    display: inline-block;
+}
+.likebtn_sync_cntr.likebtn_sync_dis_flag div.likebtn_sync_dis,
+.likebtn_sync_cntr.likebtn_sync_dis_flag p.likebtn_sync_dis {
+    display: block;
+}
+
+.likebtn_postbox {
+    margin-bottom: 10px;
+}
+
+.likebtn_poll_reason {
+    padding-left: 24px;
+    display: none;
+    margin-bottom: 15px;
+}
+.likebtn_dialog {
+    max-width: 600px;
+    min-width: 360px;
+}
+.likebtn_poll_opt {
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+.likebtn_poll_intro {
+    margin-bottom: 14px;
+}
+#likebtn_poll_loader {
+    text-align: right;
+}

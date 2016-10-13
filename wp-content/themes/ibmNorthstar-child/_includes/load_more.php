@@ -114,7 +114,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
       $custom_fields = get_post_custom($post1->ID);
       $nc_author = array();
       $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
-      if(isset($nc_author) && is_array($nc_author)){
+      if(is_object($nc_author)){
         foreach ( $nc_author as $key => $value ) {
           $postauthor = $value;
         }
@@ -168,7 +168,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
 
   <!-- Regular card block-->
 
-  <div class="ibm-col-6-2 post nh-card-wrap <?php echo $post1->post_type; ?>" data-post-id="bannerlogo" data-post-count="<?php if(isset($card_count) !== true) $card_count = 0; echo $card_count; $card_count = $card_count +1; ?>">
+  <div tabindex="0" class="ibm-col-6-2 post nh-card-wrap <?php echo $post1->post_type; ?>" data-post-id="bannerlogo" data-post-count="<?php if(isset($card_count) !== true) $card_count = 0; echo $card_count; $card_count = $card_count +1; ?>">
     <div class="ibm-col-6-2 post nh-card-wrap nh-card-wrap-height nh-home-branding static-banner" style="width:100%;background-color:#373737;">
       <div class="inner-wrap">
         <div class="rebus-wrap" style="background-image:url(<?php echo get_stylesheet_directory_uri().'/assets/img/TM-rebus-intro-v1.0.0-optimization-1.gif?animation-start='.rand(0,9999999); ?>);">
@@ -184,7 +184,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
     </div>
   </div>
 
-  <?php NH_renderCard($post1, 'card-featured', 0, $bgColor, $twitter_hash_tag, wp_get_theme()); ?>
+  <?php NH_renderCard($post1, 'card-featured', 0, $twitter_hash_tag, wp_get_theme()); ?>
     
 
 
@@ -198,7 +198,7 @@ function home_page_layout($my_current_section, $offset_position = 0) {
               'hide_empty' => false,
           );
 
-          $postslist = (array)get_terms('dfads_group', $ads_args);
+          $postslist = get_terms('dfads_group', $ads_args);
           $all_ids = array_map(create_function('$o', 'return $o->term_id;'), $postslist);
           return implode(',',$all_ids);
   }
@@ -289,7 +289,7 @@ function wp_get_all_popular_ids(){
     WHERE
       p.post_type IN ( 'post' ) AND
       p.post_status = 'publish'
-    ORDER BY 7_day_stats DESC
+    ORDER BY mp.7_day_stats DESC
     LIMIT 30
   ";
 

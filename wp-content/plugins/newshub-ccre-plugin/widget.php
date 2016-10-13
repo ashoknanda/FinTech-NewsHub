@@ -33,7 +33,7 @@ class CCRE_Widget extends WP_Widget {
 		?>
 			<div class="ccre_widget">
 				<div class="ccre_widget_head">
-					<h4 class="ibm-h4 ibm-bold postgrid-title">Watson suggests these related products and courses</h4>
+					<h4 class="ibm-h4 ibm-bold postgrid-title">Watson suggests</h4>
 					<div><img width="" height="" src="<?php echo plugins_url( 'img/watson_logo.png', __FILE__ ) ?>" alt="watson-logo" />  </div>
 				</div>
 				<p class="ibm-h4 ccre_widget_loader"><span class="ibm-spinner"></span>

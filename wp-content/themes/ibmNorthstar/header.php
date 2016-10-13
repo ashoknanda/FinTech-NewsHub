@@ -11,7 +11,7 @@
 
     </head>
 
-    <body  onload= "loadmenu()" id="ibm-com" <?php 
+    <body  id="ibm-com" <?php 
     $bodyClasses = get_body_class();
     $classStr = "";
     foreach($bodyClasses as $classes) {

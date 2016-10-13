@@ -3,8 +3,6 @@
     <head>
         <meta charset="utf-8">
 
-        <title><?php bloginfo('name'); ?></title>
-
         <?php include('_includes/v18_head.php'); ?>
 
         <?php wp_head(); ?>

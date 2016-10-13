@@ -19,6 +19,7 @@ function NH_renderArticleCategories($this_post, $context){
 	);
 	$this_postCategories = wp_get_post_categories($this_post->ID, $args);
 	$categories = $this_postCategories;
+	$catNotIn = categoryListNotToShow(); //Gets the full list of categories not be shown on page. 
 	
 	$catcountvalue = 0; 
 	$ret = '<div class="nh-article-categories '.$logoInverseClass.'">
@@ -38,12 +39,29 @@ function NH_renderArticleCategories($this_post, $context){
 	;
 	foreach($categories as $key => $value) {
 		
-		if($value->name != '' && $value->name != 'uncategorized'){
+		if($value->name != '' && $value->name != 'uncategorized' && !in_array($value->name, $catNotIn)){
 			if($catcountvalue > 0){
 				$ret = $ret.'<span>,</span> ';
 			}
 			$categoryId = get_cat_ID( $value->name );
 			$categoryLink = get_category_link( $categoryId );
+
+			$parent = get_category_parents( $value, true, ' &raquo; ' );
+			$temp_str = explode(" &raquo; ", $parent);
+			
+			if(count($temp_str) > 1 && $temp_str[1] != ""){
+				$parentAnchor = new SimpleXMLElement($temp_str[0]);
+				if(strcasecmp($parentAnchor[0], 'Digital marketing') == 0 ){
+					$categoryLink = $parentAnchor['href'].'?fwp_digital='.$value->slug;	
+				}else if(strcasecmp($parentAnchor[0], 'Campaign management') == 0){
+					$categoryLink = $parentAnchor['href'].'?fwp_campaign_management='.$value->slug;	
+				}else if(strcasecmp($parentAnchor[0], 'Data & analytics') == 0){
+					$categoryLink = $parentAnchor['href'].'?fwp_data_analytics='.$value->slug;	
+				}else {
+					$categoryLink = $parentAnchor['href'].'?fwp_category_level_2='.$value->slug;
+				}
+			}
+
 			$ret = $ret."<a style=\"display:inline-block;\" class=\"nh-article-category ibm-small\" href=\"$categoryLink\">$value->name</a>";
 			$catcountvalue +=1;
 			if($catcountvalue >= 3){

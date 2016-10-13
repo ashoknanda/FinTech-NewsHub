@@ -335,6 +335,14 @@ msgstr ""
 msgid "Stories"
 msgstr ""
 
+#: single.php:
+msgid "Please note that DISQUS operates this forum. By commenting, you are accepting the"
+msgstr ""
+
+#: single.php:
+msgid "IBM commenting guidelines"
+msgstr ""
+
 msgid "Editor's Picks"
 msgstr ""
 

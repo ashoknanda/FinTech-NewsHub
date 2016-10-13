@@ -29,7 +29,7 @@ function callCCRE(url, categories){
 };
 
 function ccreErrorCallback(err){
-	var htmlInser = "<p>Apologies , we are having trouble talking to Watson. Please check back later.</p>";
+	var htmlInser = "<p>I'm still learning and don't have a suggestion yet. Stay tuned.</p>";
 	jQuery(".ccre_widget_loader").hide();
 	jQuery(".ccre_widget_entries").html(htmlInsert);	
 	updateMetrics(strData, 'error', "by NewsHub content page load");

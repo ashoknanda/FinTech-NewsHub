@@ -227,44 +227,23 @@ function getURLParameter(name) {
   return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [ , "" ])[1] .replace(/\+/g, '%20')) || null;
 };
 
-(function(window, $){
+// if there is facetwp parameter, clear it.
+var paged = parseInt(getURLParameter('fwp_paged'));
+if( isNaN(paged) !== true && window.newshub.urlReset !== true){
+	window.newshub.urlReset = true;
+	// window.location.href = window.location.href.replace('fwp_paged', '');
+	var params = window.location.search.substring(1).split('&');
+	var newSearch = '?';
+	params.forEach(function(param, i){
+		var n = param.split('=');
+		if(n[0] === 'fwp_paged'){
+			params[i] = '';
 
-	$(function(){
-		console.log('site.js:init!');
-
-		$('body').addClass('nh-platform-'+(browserDetection.getPlatform()||'desktop'));
-
-		window.newshub = window.newshub || {};
-		window.newshub.$ = $;
-
-		var paged = parseInt(getURLParameter('fwp_paged'));console.log('isNaN===', isNaN(paged));
-		if( isNaN(paged) !== true && window.newshub.urlReset !== true){
-			window.newshub.urlReset = true;
-			// window.location.href = window.location.href.replace('fwp_paged', '');
-			var params = window.location.search.substring(1).split('&');
-			var newSearch = '?';
-			params.forEach(function(param, i){
-				var n = param.split('=');
-				if(n[0] === 'fwp_paged'){
-					params[i] = '';
-				}
-				newSearch = newSearch + params[i] +'&';
-			});
-			window.location.href = window.location.href.replace(window.location.search, newSearch);
 		}
-
-		//-----------------------------------------------------
-		//	 let's add beta!
-		console.log('adding beta');
-		var $beta = $('<span class="beta-designator" style="font-size:0.85em;color:#00B4A0;font-weight:normal;font-family:HelvBoldIBM;margin-left:0.5em;display:none;">BETA</span>');
-		$("header .ibm-sitenav-menu-name a").append($beta);
-		setTimeout(function(){
-			$("header .ibm-sitenav-menu-name a .beta-designator").fadeIn(1000);
-		}, 500);
-		console.log('added beta');
-
+		newSearch = newSearch + params[i] +'&';
 	});
-})(window, jQuery);
+	window.location.href = window.location.href.replace(window.location.search, newSearch);
+}
 
 /*-----------------------------------------------------
  *	browser detection
@@ -398,3 +377,26 @@ var browserDetection = (function(obj){
 	
 	return obj;
 })(browserDetection || {});
+
+//-----------------------------------------------------
+//	let's start the show
+(function(window, $){
+
+	$(function(){
+		console.log('\n\n\n\t\t\t     O O\n\t\t\t   . --- .\n\t\t\t  /| --- |\\\n\t\t\t (_) --- (_)\n\t\t\t      -\n\n\n*********************************************\n\n\tWelcome to IBM Digital Marketing Hub.\n\n*********************************************\n\n\n.');
+
+		$('body').addClass('nh-platform-'+(browserDetection.getPlatform()||'desktop'));
+
+		window.newshub = window.newshub || {};
+		window.newshub.$ = $;
+
+		//-----------------------------------------------------
+		//	 let's add beta!
+		var $beta = $('<span class="beta-designator" style="font-size:0.85em;color:#00B4A0;font-weight:normal;font-family:HelvBoldIBM;margin-left:0.5em;display:none;">BETA</span>');
+		$("header .ibm-sitenav-menu-name a").append($beta);
+		setTimeout(function(){
+			$("header .ibm-sitenav-menu-name a .beta-designator").fadeIn(1000);
+		}, 500);
+
+	});
+})(window, jQuery);

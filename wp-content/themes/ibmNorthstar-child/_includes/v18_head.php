@@ -30,14 +30,16 @@
 
 
         //Code to add the og tag info.
-        $pageTitle = get_bloginfo('name');
+        $pageTitle = 'IBM '.get_bloginfo('name');
         $pageDesc = get_bloginfo('description');
         $pageImage = "http://www-03.ibm.com/ibm/history/ibm100/images/icp/W141717T18176O09/us__en_us__ibm100__good_design__eye_bee_m__620x350.jpg";
         if(is_category()){
-          $pageTitle = $pageTitle.' - ';
-          $pageTitle = single_cat_title($pageTitle,false);
+          // $pageTitle = $pageTitle.' - ';
+          $catPageTitle = single_cat_title('',false);
+          $pageTitle = $catPageTitle.' Articles - '.$pageTitle;
           $pageDesc = category_description();
-        }elseif(is_single()){
+        }
+        elseif(is_single()){
           $pageTitle = $pageTitle.' - ';
           $pageTitle = single_post_title($pageTitle,false); 
 
@@ -45,7 +47,7 @@
           $post_obj = get_post( $post_id );
           $pageDesc = $post_obj->post_content;
           $pageDesc = strip_tags($pageDesc);
-          $pageDesc = substr($pageDesc, 0, 50);
+          $pageDesc = substr($pageDesc, 0, 150);
           $postImage = get_field('card_image', $post_id);
           $pageImage = $postImage['sizes']['large'];
         }
@@ -65,6 +67,7 @@
 
         $pageCategory = "IBM_MarketingHUB";
         if(is_home()){
+          $pageTitle = $pageTitle.' - Thought Leadership & Best Practices';
           $pageCategory = $pageCategory.'_HomePage';
         }else if(is_category()){
           $pageCategory = $pageCategory.'_Topics';
@@ -76,19 +79,14 @@
           }else if($ctT == 'Data & analytics'){
             $pageCategory = $pageCategory.'_DataAnalytics';
           }
+        }else if(strcasecmp($pagename ,'Trending') == 0){
+          $pageTitle = 'Trending Articles - '.$pageTitle;
         }
 
         ?>
-        
 
-        <meta property="og:url"           content="<?php echo $pageURL; ?>" />
-        <meta property="og:type"          content="website" />
-        <meta property="og:title"         content="<?php echo $pageTitle; ?>" />
-        <meta property="og:description"   content="<?php echo $pageDesc; ?>" />
-        <meta property="og:image"         content="<?php echo $pageImage; ?>" />
+        <title><?php echo $pageTitle; ?></title>
         <meta name="description" content="<?php echo $pageDesc; ?>" />
-
-        <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/noframework.waypoints.min.js" ></script>
 
         <script>
             digitalData = {
@@ -145,11 +143,12 @@
                         }
                     }
                 };
+                               
         </script>
 
 
         <!-- IBM: METRICS -->
-        <script src="//1.www.s81c.com/common/stats/ida_stats.js"></script>        
+        <!-- <script src="//1.www.s81c.com/common/stats/ida_stats.js"></script> -->
 
         <!-- IBM: BASE -->
         <link href="//1.www.s81c.com/common/v18/css/www.css" rel="stylesheet" />
@@ -165,15 +164,15 @@
 
 
         <!-- IBM: METRICS -->
-        <script type="text/javascript" src="//www.ibm.com/software/info/js/tactic.js"></script>
-        <script type="text/javascript" src="//www.ibm.com/software/info/js/tacticbindlinks.js"></script>
+        <!-- <script type="text/javascript" src="//www.ibm.com/software/info/js/tactic.js"></script> -->
+        <!-- <script type="text/javascript" src="//www.ibm.com/software/info/js/tacticbindlinks.js"></script> -->
 
         <!-- Newscred: Metrics -->
         <script src="//analytics.newscred.com/analytics_fd28b4bb344e4c9496e4f926e0700b4f.js"></script>
 
         <script src='//1.www.s81c.com/common/v18/js/masonry.js'></script>
 
-        <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/site.js"></script>
+        <script src="<?php echo get_stylesheet_directory_uri(); ?>/assets/js/site.min.js"></script>
 
         <!--Live Assist --> 
         <!-- <script src="https://www.ibm.com/common/digitaladvisor/js/cm-app.min.js" defer></script> -->
@@ -220,11 +219,11 @@
                 contentType: "application/json",
                 success: function checkstatus(xhr){
                   ++counter;
-                  console.log("success,counter", counter);
+                  // console.log("success,counter", counter);
                 },
                 jsonpCallback: 'checkstatus',
                 error: function(xhr){
-                  console.log("Inside error:counter",counter);
+                  // console.log("Inside error:counter",counter);
                   if(counter>0){
                     return;
                   }
@@ -255,8 +254,10 @@
 
 
         <?php if(is_home() && $pageURL != ''): ?> 
-        <script type="text/javascript" src="<?php echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.renamed.js'; ?>"></script>
-        <script type="text/javascript" src="<?php echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.scrollVert.renamed.js'; ?>"></script>
-        <script type="text/javascript" src="<?php echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.carousel.renamed.js'; ?>"></script>
-        <script type="text/javascript" src="<?php echo 'wp-content/plugins/rotatingtweets/js/rotatingtweets_v2.js'; ?>"></script>
+        
+        <script type="text/javascript" src="<?php echo 'wp-content/plugins/rotatingtweets/js/rotating_tweet.min.js'; ?>"></script> 
+<!--         <script type="text/javascript" src="<?php //echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.renamed.js'; ?>"></script>
+        <script type="text/javascript" src="<?php //echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.scrollVert.renamed.js'; ?>"></script>
+        <script type="text/javascript" src="<?php //echo 'wp-content/plugins/rotatingtweets/js/jquery.cycle2.carousel.renamed.js'; ?>"></script>
+        <script type="text/javascript" src="<?php //echo 'wp-content/plugins/rotatingtweets/js/rotatingtweets_v2.js'; ?>"></script> -->
       <?php endif; ?>

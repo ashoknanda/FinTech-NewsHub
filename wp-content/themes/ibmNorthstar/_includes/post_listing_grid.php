@@ -11,22 +11,7 @@ foreach($pcategories as $pcategory)
 }
 ?>
 
-  <?php if($post_count == 4): ?>
-    <div class="ibm-col-6-2 post post" data-post-id-"subscribewidget">
-      <div class="ibm-card">
-        <div class="nh-wpsp-widget-container" style="padding:10px;">
-        <?php echo do_shortcode('[do_widget id=wpsp_widget-2 category=Industry,Cloud formtype=3]') ?>
-        </div>
-      </div>
-    </div>
-  <?php endif ?>
-
-
-  <?php if($post_count == 2): ?>
-  <div class="ibm-col-6-4 post <?php echo $post->post_type; ?>" data-post-id-"<?php the_ID(); ?>">
-    <?php else: ?>
  <div class="ibm-col-6-2 post <?php echo $post->post_type; ?>" data-post-id-"<?php the_ID(); ?>">
-    <?php endif ?>
     <div class="ibm-card">
     <?php if(!empty($categories) && $categories[0]->name != ''): ?>
     <div class="ibm-card__heading"><p><a href="<?php echo get_category_link($categories[0]->cat_ID); ?>"><?php echo $categories[0]->name; ?></a></p></div>
@@ -69,7 +54,6 @@ foreach($pcategories as $pcategory)
     <a href="https://twitter.com/intent/tweet?original_referer=<?php the_permalink(); ?>&amp;text=<?php the_title(); ?>&amp;tw_p=tweetbutton&amp;url=<?php the_permalink(); ?><?php echo isset( $twitter_user ) ? '&amp;via='.$twitter_user : ''; ?>" target="_blank" class="ibm-twitter-encircled-link"><?php $my_theme = wp_get_theme(); _e('Twitter', $my_theme->get( 'Name' )); ?></a>
     <a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo( 'name' ); ?>" target="_blank"><?php $my_theme = wp_get_theme(); _e('LinkedIn', $my_theme->get( 'Name' )); ?></a>
     <a class="ibm-googleplus-encircled-link" href="https://plusone.google.com/_/+1/confirm?hl=en-US&amp;url=<?php the_permalink(); ?>" target="_blank"><?php $my_theme = wp_get_theme(); _e('LinkedIn', $my_theme->get( 'Name' )); ?></a></p>
-    <?php if (function_exists('wpfp_link')) { wpfp_link(); } ?>
 </div>
     </div>
     </div>

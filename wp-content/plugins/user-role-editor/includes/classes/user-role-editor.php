@@ -444,8 +444,22 @@ class User_Role_Editor {
      * @return array
      */
     public function plugin_action_links($links) {
-
-        $settings_link = "<a href='options-general.php?page=settings-" . URE_PLUGIN_FILE . "'>" . esc_html__('Settings', 'user-role-editor') . "</a>";
+        $single_site_settings_link = '<a href="options-general.php?page=settings-' . URE_PLUGIN_FILE . '">' . esc_html__('Settings', 'user-role-editor') .'</a>';
+        $multisite = $this->lib->get('multisite');        
+        if (!$multisite ) {
+            $settings_link = $single_site_settings_link;
+        } else {
+            $ure = basename(URE_PLUGIN_DIR) . '/' . URE_PLUGIN_FILE;
+            $active_for_network = is_plugin_active_for_network($ure);
+            if (!$active_for_network) {
+                $settings_link = $single_site_settings_link;
+            } else {
+                if (!current_user_can('manage_network_plugins')) {
+                    return $links;
+                }
+                $settings_link = '<a href="'. network_admin_url() .'settings.php?page=settings-'. URE_PLUGIN_FILE .'">'. esc_html__('Settings', 'user-role-editor') .'</a>';
+            }
+        }
         array_unshift($links, $settings_link);
 
         return $links;
@@ -778,7 +792,6 @@ class User_Role_Editor {
         
         wp_enqueue_script('jquery-ui-dialog', false, array('jquery-ui-core', 'jquery-ui-button', 'jquery'));
         wp_enqueue_script('jquery-ui-selectable', false, array('jquery-ui-core', 'jquery'));
-        wp_enqueue_script('jquery-ui-tabs', false, array('jquery-ui-core', 'jquery'));
         wp_register_script('ure-js', plugins_url('/js/ure-js.js', URE_PLUGIN_FULL_PATH));
         wp_enqueue_script('ure-js');
         wp_localize_script('ure-js', 'ure_data', array(
@@ -829,6 +842,7 @@ class User_Role_Editor {
     protected function load_settings_js() {
     
         wp_enqueue_script('jquery-ui-tabs', false, array('jquery-ui-core', 'jquery'));
+        do_action('ure_load_js_settings');
         
     }
     // end of load_settings_js()

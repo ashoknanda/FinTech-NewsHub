@@ -1,0 +1,18 @@
+<svg width="165px" height="170px" viewBox="34 33 165 170" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.2 (33826) - http://www.bohemiancoding.com/sketch -->
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(36.000000, 34.000000)" stroke-linecap="round">
+        <polyline id="Stroke-1" stroke="#FFFFFF" stroke-width="3.118" stroke-linejoin="round" points="142.709 63.7444 142.709 19.2824 98.247 19.2824"></polyline>
+        <polyline id="Stroke-2" stroke="#FFFFFF" stroke-width="3.118" stroke-linejoin="round" points="62.7444 19.2828 18.2824 19.2828 18.2824 63.7448"></polyline>
+        <polyline id="Stroke-3" stroke="#FFFFFF" stroke-width="3.118" stroke-linejoin="round" points="18.2828 99.2475 18.2828 143.7095 62.7448 143.7095"></polyline>
+        <polyline id="Stroke-4" stroke="#FFFFFF" stroke-width="3.118" stroke-linejoin="round" points="98.2474 143.709 142.7094 143.709 142.7094 99.247"></polyline>
+        <g id="Group-13" transform="translate(0.000000, 0.500000)" stroke="#FFFFFF" stroke-width="3.118">
+            <path d="M160.7418,89.7311 L142.7088,63.2441" id="Stroke-5"></path>
+            <path d="M71.7608,165.75 L98.2478,143.209" id="Stroke-7"></path>
+            <path d="M0.25,72.2608 L18.283,98.7478" id="Stroke-9"></path>
+            <path d="M89.231,0.75 L62.744,18.783" id="Stroke-11"></path>
+        </g>
+        <polygon id="Stroke-14" stroke="#FFFFFF" stroke-width="3.118" stroke-linejoin="round" points="62.744 99.247 98.247 99.247 98.247 63.744 62.744 63.744"></polygon>
+    </g>
+</svg>

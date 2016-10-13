@@ -91,6 +91,7 @@ function usp_author_link() {
 
 /*
 	Displays a list of all user submitted posts
+	Bonus: includes any posts submitted by the Pro version of USP :)
 	Shortcode: 
 		[usp_display_posts userid="1"]                : displays all submitted posts by registered user with ID = 1
 		[usp_display_posts userid="Pat Smith"]        : displays all submitted posts by author name "Pat Smith"
@@ -152,7 +153,7 @@ function usp_display_posts($attr, $content = null) {
 	foreach ($submitted_posts as $post) {
 		setup_postdata($post);
 		
-		$display_posts .= '<li><a href="'. get_the_permalink() .'" title="'. __('View full post', 'usp') .'">'. get_the_title() .'</a></li>';
+		$display_posts .= '<li><a href="'. get_the_permalink() .'" title="'. esc_attr__('View full post', 'usp') .'">'. get_the_title() .'</a></li>';
 		
 	}
 	

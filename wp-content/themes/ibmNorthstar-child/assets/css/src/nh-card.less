@@ -86,7 +86,7 @@
 		opacity:0;
 		/*transform:translate(0,0) scale(1.2,1.2) perspective( 2000px ) rotateY(30deg);*/
 		/*transform:translateY(50px) rotate(0.0001deg);*/
-		transform:translateY(50px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg);
+		transform:translateY(-50px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg) rotateX(50deg);
 		box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
 		transition:all @card-open-transition-duration ease-in-out;
 		background-repeat:no-repeat;
@@ -140,35 +140,18 @@
 
 		&.nh-video-card{
 
-			.nh-video-card-overlay{
-				position:absolute;
-				top:0;
-				left:0;
-				width:100%;
-				height:100%;
-				display:flex;
-				flex-direction:column;
-				justify-content:center;
-				align-items:center;
-				background-color:rgba(0,0,0,0.5);
+			.nh-card-content-wrap{
+				background-image:none;
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
 
-				.play-button{
-					color:white;
-					position:relative;
-					width:100px;
-					height:100px;
-					border-radius:50%;
-					border:solid 3px white;
+				.nh-card-content{
 
-					&:after{
-						width: 0; 
-						height: 0; 
-						border-top: 60px solid transparent;
-						border-bottom: 60px solid transparent;
-						border-left: 60px solid green;
-					}
 				}
 			}
+
+			
 		}
 
 		.nh-card-hover-chevron{
@@ -289,7 +272,7 @@
 			opacity:1;
 			/*transform:translate(0,0) scale(1,1) perspective(2000px) rotateY(0deg);*/
 			/*transform:translateY(0px);*/
-			transform:translateY(0px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg);
+			transform:translateY(0px) scale(1,1) perspective( 2000px ) rotateY(0.0001deg) rotateX(0deg);
 
 			&.opened{
 				transform:translate(0,0) perspective( 2000px ) rotateY(90deg) scale(1.5);
@@ -420,6 +403,26 @@
 					}
 				}
 			}
+
+			.nh-video-container{
+				height: 5em;
+				padding-left:2em;
+				transition:@card-hover-transition-duration;
+
+				.ibm-video-placeholder{
+
+					.ibm-play-link{
+
+						&:before{
+							font-size:8em;
+							width:95px;
+							height:95px;
+							line-height:92px;
+							transition:@card-hover-transition-duration;
+						}
+					}
+				}
+			}
 		}
 
 		:not(.nh-platform-mobile) &:hover,
@@ -522,6 +525,25 @@
 
 				.nh-excerpt{
 					
+				}
+
+				.nh-video-container{
+					height: 2em;
+					padding-left:2em;
+
+					.ibm-video-placeholder{
+
+						.ibm-play-link{
+
+							&:before{
+								font-size: 80px;
+								width: 64px;
+								height: 64px;
+								line-height: 62px;
+								transition:@card-hover-transition-duration;
+							}
+						}
+					}
 				}
 			} 
 		}

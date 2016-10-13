@@ -91,14 +91,7 @@
                               }
                               ?>
 
-                              <li role="presentation" class="custom-head-button custom-button-container">
-                                <p>
-                                  <button style="margin-top:6px;margin-left:20px;margin-right:20px" class="ibm-btn-sec ibm-btn-blue-50 ibm-btn-small" data-tooltip-id="test-tt-1">Subscribe</button>
-                                </p>
-                                  <div id="test-tt-1" class="custom-tooltip-content">
-                                      <?php echo do_shortcode('[do_widget id=wpsp_widget-3 category=All formtype=1]') ?>
-                                  </div>
-                              </li>
+
 
                       </ul>
                   </div>
@@ -117,10 +110,10 @@
                         $leadspace_title_size = get_field('leadspace_title_size');
                         $leadspace_subtitle_size = get_field('leadspace_subtitle_size');
                         if(!$leadspace_title_size){
-                          $leadspace_title_size = 'ibm-h2';
+                          $leadspace_title_size = 'ibm-h1';
                         }
                         if(!$leadspace_subtitle_size){
-                          $leadspace_subtitle_size = 'ibm-h4';
+                          $leadspace_subtitle_size = 'ibm-h3';
                         }
                       if($limage != '') { ?>
                   <div id="ibm-leadspace-head" class="ibm-alternate ibm-padding-top-2 ibm-padding-bottom-2 <?php the_field('text_color'); ?>"
@@ -142,45 +135,15 @@
                           <?php if(get_field('text_align') == "center"){ ?>
                               <div class="ibm-col-1-1 ibm-center">
                               <?php } else { ?>
-                              <div class="ibm-col-1-1">
+                              <div class="ibm-col-2-1">
                               <?php } ?>
-                                    <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php the_field('main_title'); ?></h2>
-                                    <h4 class="<?php echo $leadspace_subtitle_size; ?> <?php the_field('leadspace_subtitle_weight'); ?>"><?php the_field('sub_title'); ?></h4>
-                                    <!-- <h4 class="<?php the_field('leadspace_description_size'); ?> <?php the_field('leadspace_description_weight'); ?>"><?php the_field('credit'); ?></h4> -->
+                                    <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php the_field('main_title'); ?></h1>
+                                    <h2 class="<?php echo $leadspace_subtitle_size; ?> <?php the_field('leadspace_subtitle_weight'); ?>"><?php the_field('sub_title'); ?></h2>
+                                    <h4 class="<?php the_field('leadspace_description_size'); ?> <?php the_field('leadspace_description_weight'); ?>"><?php the_field('credit'); ?></h4>
                                   </div>
                           </div>
-
                       </div>
-                      <?php if (0){ ?>
-                      <div id="ibm-leadspace-social">
-                          <div class="ibm-columns">
-                              <div class="ibm-col-1-1">
-                                  <div class="ibm-leadspace-social-links">
-                                      <div class="ibm-sharethispage"></div>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                      <?php } else { ?>
 
-                        <div id="ibm-leadspace-social">
-              						<div class="ibm-columns" style="padding: 10px 0 0px;">
-              							<div class="ibm-col-1-1">
-              								<div class="ibm-leadspace-social-links">
-              									<div>
-              										<p class="ibm-textcolor-white-core">Follow Us</p>
-              										<p class="ibm-ind-link ibm-alternate">
-              											<a class="ibm-twitter-encircled-link" href="http://www.twitter.com/ibm" target="blank"><span>Follow us on Twitter</span></a>
-              											<a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/company/ibm" target="blank"><span>Join us on Linkedin</span></a>
-              											<a class="ibm-facebook-encircled-link" href="http://www.facebook.com/ibm" target="blank"><span>Visit our Facebook page</span></a>
-              											<a class="ibm-youtube-encircled-link" href="http://www.youtube.com/ibm" target="blank"><span>Watch our YouTube channel</span></a>
-              										</p>
-              									</div>
-              								</div>
-              							</div>
-              						</div>
-              					</div>
-                      <?php } ?>
 
                 <?php endwhile; endif; ?>
 
@@ -207,15 +170,6 @@
                   <?php
                   }
                   ?>ga('send', 'pageview');
-
-                  console.log("I am here ");
-                  jQuery(document).ready(function($) {
-                      var x = $("#ibm-signin-minimenu-container li a");
-                      console.log(x);
-                      x.on('load', function(ele){
-                        console.log(ele);
-                      });
-                  });
 
                 </script>
             </header>

@@ -68,7 +68,7 @@ class Newshub_Social_Count {
 	function facebook_share( $atts ) {
         $url      = $atts['url'];
         $api_call = 'http://graph.facebook.com/?id=' . $url;
-        $count = $this->get_response_body( $api_call )->shares; 
+        $count = $this->get_response_body( $api_call )->share->share_count;
         // return '<span style="padding:10px;display:inline-block;">'.$this->get_response_body( $api_call )->shares . ' Facebook Likes & Shares</span>';
         return $count == 0?0:$count;
  

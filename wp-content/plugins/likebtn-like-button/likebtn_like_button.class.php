@@ -2,6 +2,7 @@
 
 define('LIKEBTN_LAST_SUCCESSFULL_SYNC_TIME_OFFSET', 57600);
 define('LIKEBTN_API_URL', 'http://api.likebtn.com/api/');
+define('LIKEBTN_VOTES_SYNC_INTERVAL', 14400);
 define('LIKEBTN_LOCALES_SYNC_INTERVAL', 86400);
 define('LIKEBTN_STYLES_SYNC_INTERVAL', 86400);
 define('LIKEBTN_PLAN_SYNC_INTERVAL', 43200);
@@ -23,7 +24,7 @@ class LikeBtnLikeButton {
      * Running votes synchronization.
      */
     public function runSyncVotes() {
-        if (get_option('likebtn_plan') >= LIKEBTN_PLAN_PRO && !self::$synchronized && get_option('likebtn_account_email') && get_option('likebtn_account_api_key') && get_option('likebtn_sync_inerval') && $this->timeToSyncVotes(get_option('likebtn_sync_inerval') * 60)) {
+        if (get_option('likebtn_plan') >= LIKEBTN_PLAN_PRO && !self::$synchronized /*&& get_option('likebtn_account_email') && get_option('likebtn_account_api_key')*/ && get_option('likebtn_sync_inerval') && get_option('likebtn_acc_data_correct') == '1' && $this->timeToSyncVotes(LIKEBTN_VOTES_SYNC_INTERVAL /*get_option('likebtn_sync_inerval') * 60*/)) {
             $this->syncVotes();
         }
     }
@@ -618,8 +619,7 @@ class LikeBtnLikeButton {
      * Run plan synchronization.
      */
     public function runSyncPlan() {
-        if (get_option('likebtn_account_email') && 
-            get_option('likebtn_account_api_key') && get_option('likebtn_site_id') &&
+        if (get_option('likebtn_acc_data_correct') == '1' &&
             $this->timeToSync(LIKEBTN_PLAN_SYNC_INTERVAL, 'likebtn_last_plan_sync_time')) 
         {
             $this->syncPlan();

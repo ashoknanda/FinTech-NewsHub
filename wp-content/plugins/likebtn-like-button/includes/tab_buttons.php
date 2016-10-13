@@ -1047,6 +1047,13 @@ function likebtn_admin_buttons()
                                                             </div>
                                                         </td>
                                                     </tr>
+                                                    <tr valign="top">
+                                                        <th scope="row"><label><?php _e('Allow to vote for one post only', LIKEBTN_I18N_DOMAIN); ?></label>
+                                                        </th>
+                                                        <td>
+                                                            <input type="checkbox" name="likebtn_voting_one_<?php echo $entity_name; ?>" value="1" <?php checked('1', get_option('likebtn_voting_one_' . $entity_name)); ?> />
+                                                        </td>
+                                                    </tr>
                                                 </table>
                                             </div>
                                         </div>

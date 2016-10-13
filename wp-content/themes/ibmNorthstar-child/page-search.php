@@ -5,30 +5,24 @@ get_header();
 	<?php
 get_template_part('_includes/v18_content_main_start');
 $leadspace_title_size = get_field('leadspace_title_size');
-    if(!$leadspace_title_size){
-      $leadspace_title_size = 'ibm-h2';
-    }
+if(!$leadspace_title_size){
+  $leadspace_title_size = 'ibm-h2';
+}
 ?>
 
-  <?php
+<?php
 $pimages = get_field('leadspace_image');
 $ads_group_ids = -1;
-        $twitter_user = 'IBMforMarketing';
-        $twitter_hash_tag = 'NewWaytoEngage';
+$twitter_user = 'IBMforMarketing';
+$twitter_hash_tag = 'NewWaytoEngage';
         
 $catNotIn = categoryListNotToShow(); //Gets the full list of categories not be shown on page.         
 ?>
-
-
-	<?php
-
+<?php
 // ---------------------------------------------------------------------------
 // Query
-
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-
 ?>
-
 
 <div id="search-content" class="ibm-background-white-core">   <!-- Dummy div start -->
     <div class="ibm-columns ibm-padding-top-3">
@@ -109,6 +103,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         ?>
     </div>
 </div><!-- End dummy div -->
+
 <?php if(have_posts()): ?>
     <div class="ibm-band nh-more-ibm-search">
       <div class="ibm-columns">

@@ -5,6 +5,16 @@ get_header();
 <!-- <script src="<?php //echo get_stylesheet_directory_uri().'/assets/js/infinite_load_fw.js'; ?>"></script>  -->
 <?php
 get_template_part('_includes/v18_content_main_start');
+
+function my_facetwp_is_main_query( $is_main_query, $query ) {
+    if ( isset( $query->query_vars['facetwp'] ) ) {
+        $is_main_query = true;
+    }
+    return $is_main_query;
+}
+add_filter( 'facetwp_is_main_query', 'my_facetwp_is_main_query', 10, 2 );
+
+
 $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 //Get latest Editors pick;
         $latest_editors_args = array(
@@ -30,6 +40,17 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         // wp_reset_query();
         $twitter_user = 'IBMforMarketing';
         $twitter_hash_tag = 'THINKmarketing';
+
+        $custom_args = array(
+            'paged' => $paged,
+            'post_type' => 'Post',
+            'posts_per_page' => get_field("posts_per_page"),
+            'post__not_in' => array( $latest_editor_pick_post[0]->ID ),
+            'facetwp' => true,
+            'orderby' => 'date'
+        );
+
+        $custom_query = new WP_Query($custom_args);        
 ?>
 
 
@@ -39,7 +60,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     <form class="ibm-row-form" method="post" action="__REPLACE_ME__">
         <p>
             <label style="display:inline-block;padding-right: 10px;">Filter:</label>
-            <?php //echo facetwp_display( 'facet', 'categories' ); ?>
+            <?php// echo facetwp_display( 'facet', 'categories' ); ?>
         </p>
     </form>
 </div>    
@@ -58,15 +79,14 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                 <?php
                 $post_count = ($paged - 1)*10;
                 $m3 = 0;
-                if (have_posts()):
-                   while (have_posts()):
-                        the_post();
+                if ($custom_query->have_posts()):
+                   while ($custom_query->have_posts()):
+                        $custom_query->the_post();
                         if($post->ID != $latest_editor_pick_post[0]->ID){
                             $post_count += 1;
 
                             include('_includes/post_listing_grid.php');                           
                         }
-
                    endwhile;
                 elseif($paged==1):
                     $my_theme = wp_get_theme();

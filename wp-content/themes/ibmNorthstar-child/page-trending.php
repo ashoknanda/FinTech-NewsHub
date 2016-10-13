@@ -21,9 +21,9 @@ add_filter( 'facetwp_is_main_query', 'my_facetwp_is_main_query', 10, 2 );
 
 $ids_from_query = wp_get_all_popular_ids();
 $postidstofetch = explode(",",$ids_from_query);
-
-// $paged = (get_query_var('paged')) ? get_query_var('paged') : get_query_var('fwp_paged') ? get_query_var('fwp_paged'):1;
-$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+$fwp_paged_val = filter_input( INPUT_GET, "fwp_paged", FILTER_SANITIZE_STRING );
+$paged = (get_query_var('paged')) ? get_query_var('paged') : $fwp_paged_val ? $fwp_paged_val:1;
+// $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
 $custom_args = array(
     'post__in' => $postidstofetch,
@@ -32,23 +32,6 @@ $custom_args = array(
     'orderby' => 'post__in'
 );
 
-
-
-// add_filter( 'posts_clauses', 'filter_by_popular', 10, 2 );
-// function filter_by_popular( $clauses, $query_object ){
-//     $join = &$clauses['join'];
-//     if (! empty( $join ) ) $join .= ' ';
-//     $join .= " INNER JOIN {$wpdb->prefix}most_popular mp on mp.post_id = {$wpdb->posts}.ID";
-
-//     $where = &$clauses['where'];
-//     $where .= " AND p.post_type IN 'post' AND p.post_status = 'publish'"; 
-
-//     $orderby = &$clauses['orderby'];
-//     $orderby = "{wpdb->prefix}most_popular.7_day_stats DESC ".$orderby;
-
-//     // print_r($clauses);
-//     return $clauses;
-// }
 
 $custom_query = new WP_Query($custom_args);
 
@@ -76,15 +59,8 @@ $custom_query = new WP_Query($custom_args);
                         $post_count += 1;
                         $custom_query->the_post();
 
-                // if (isset($custom_posts)):
-                //    global $post;
-                //    foreach ($custom_posts as $post):
-                //         setup_postdata($post);
-                        // $post_count += 1;
-
                        include('_includes/post_listing_grid.php');
-                   // endforeach;
-                       endwhile;
+                    endwhile;
                 elseif($paged==1):
                     $my_theme = wp_get_theme();
                     echo '<div class="nh-no-post-matched-message">';

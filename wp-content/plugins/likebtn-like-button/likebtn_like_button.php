@@ -3,7 +3,7 @@
   Plugin Name: Like Button Voting & Rating
   Plugin URI: https://likebtn.com/en/wordpress-like-button-plugin
   Description: Add Like button to posts, pages, comments, WooCommerce, BuddyPress, bbPress, custom post types! Sort content by likes! Get instant stats and insights!
-  Version: 2.2.0
+  Version: 2.3.0
   Author: LikeBtn
   Author URI: https://likebtn.com
  */
@@ -13,7 +13,7 @@
 // ini_set('error_reporting', E_ALL);
 
 // Plugin version
-define('LIKEBTN_VERSION', '2.2.0');
+define('LIKEBTN_VERSION', '2.3.0');
 // Current DB version
 define('LIKEBTN_DB_VERSION', 13);
 
@@ -147,6 +147,9 @@ define('LIKEBTN_WIDGET_EXCERPT_LENGTH', 200);
 // Main website address
 define('LIKEBTN_WEBSITE_MAIN_PROTOCOL', 'http');
 define('LIKEBTN_WEBSITE_DOMAIN', 'likebtn.com');
+
+// Url for sending feedback
+define('LIKEBTN_WEBSITE_AJAX', "https://likebtn.com/en/ajax/ajax.php");
 
 // post format: just to translate
 $post_formats = array(
@@ -534,7 +537,7 @@ global $likebtn_settings_options;
 $likebtn_settings_options = array(
     'likebtn_account_email' => '',
     'likebtn_account_api_key' => '',
-    'likebtn_sync_inerval' => '',
+    'likebtn_sync_inerval' => '', // > 0 - sync enabled
     'likebtn_site_id' => '',
     'likebtn_cf' => '',
     'likebtn_css' => '',
@@ -576,6 +579,7 @@ $likebtn_buttons_options = array(
     'likebtn_voting_period' => '',
     'likebtn_voting_date' => '',
     'likebtn_voting_created' => '',
+    'likebtn_voting_one' => '',
     'likebtn_og' => '',
 );
 // Internal settings
@@ -603,6 +607,7 @@ $likebtn_internal_options = array(
     // Correct account data or not
     'likebtn_acc_data_correct' => 0,
     'likebtn_review' => 0, // 1 = display, -1 = dismissed 
+    'likebtn_feedback_sent' => 0, 
 );
 
 // Internal settings
@@ -1256,17 +1261,16 @@ $likebtn_system_check = array(
     'http://wv.likebtn.com/w/v/1/1',
 );
 
-// initicalization
+// initialization
 function likebtn_init() {
 
     _likebtn_plugin_on_load();
 
     load_plugin_textdomain(LIKEBTN_I18N_DOMAIN, false, dirname(plugin_basename(__FILE__)) . '/languages');
 
-    // Process forms
-    _likebtn_bulk_actions();
-
     if (is_admin()) {
+        // Process forms
+        _likebtn_bulk_actions();
         wp_enqueue_script('jquery');
     } else {
         _likebtn_og_init();
@@ -1350,6 +1354,54 @@ function likebtn_admin_menu_post()
 }
 add_action( 'admin_menu', 'likebtn_admin_menu_post');
 
+function likebtn_admin_footer_js()
+{
+    //update_option('likebtn_feedback_sent', 0);
+    ?>
+        <script type="text/javascript">
+            var likebtn_msg_site_url = "<?php echo likebtn_escape_msg(get_site_url()); ?>";
+            var likebtn_msg_account_email = "<?php echo likebtn_escape_msg(get_option('likebtn_account_email')) ?>";
+            var likebtn_msg_admin_email = "<?php echo likebtn_escape_msg(get_option('admin_email')) ?>";
+            var likebtn_msg_account_site_id = "<?php echo likebtn_escape_msg(get_option('likebtn_site_id')) ?>";
+            var likebtn_msg_plan = "<?php echo (int)get_option('likebtn_plan') ?>";
+            var likebtn_msg_version = "<?php echo LIKEBTN_VERSION ?>";
+            var likebtn_msg_pub_url = "<?php echo _likebtn_get_public_url(); ?>";
+            var likebtn_msg_feedback_sent = <?php echo (int)get_option('likebtn_feedback_sent'); ?>;
+            var likebtn_msg_locale = "<?php echo get_locale(); ?>";
+
+            var likebtn_msg_website = "<?php echo __('https://likebtn.com/en/', LIKEBTN_I18N_DOMAIN) ?>";
+            var likebtn_msg_d_title = "<?php echo likebtn_esctr_msg(__('Like Button Plugin Deactivation', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_intro = "<?php echo likebtn_esctr_msg(__('We are very sorry that our Like Button plugin did not satisfy your needs. Could you please tell us why you\'ve decided to deactivate the plugin, maybe we still can help. We are not leaving even one client unsatisfied!', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_features = "<?php echo likebtn_esctr_msg(__('I\'m missing some feature(s) in the plugin', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_ph = "<?php echo likebtn_esctr_msg(__('Please list here those features which you are missing in the plugin and we will implement them ASAP', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_notify = "<?php echo likebtn_esctr_msg(__('Notify me by email when features are ready', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_ye = "<?php echo likebtn_esctr_msg(__('Your email', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_pricing = "<?php echo likebtn_esctr_msg(__('It\'s too expensive — I\'m looking for a free/cheaper plugin', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_pricing_i = "<?php echo likebtn_esctr_msg(__('We approach each client individually — don\'t hesitate and <nobr><a href=\"javascript:likebtnContactUs();likebtn_poll_cntr.dialog(\'close\');void(0);\">drop us a message</a></nobr> and we will provide you with an individual pricing solution.', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_int = "<?php echo likebtn_esctr_msg(__('I could not integrate Like Button into my website', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_i1 = "<?php echo likebtn_esctr_msg(__('Just contact <a href=\"javascript:likebtnContactUs();likebtn_poll_cntr.dialog(\'close\');void(0);\">our support</a> and we will do our best to help you or check our', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_i2 = "<?php echo likebtn_esctr_msg(__('developers directory', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_other = "<?php echo likebtn_esctr_msg(__('Other reason', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_other_ph = "<?php echo likebtn_esctr_msg(__('Please tell us why Like Button plugin did not satisfy your needs and we will try to do everything possible to make you happy. Be sure!', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_cancel = "<?php echo likebtn_esctr_msg(__('Cancel', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_submit1 = "<?php echo likebtn_esctr_msg(__('Submit and Deactivate Plugin', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_submit2 = "<?php echo likebtn_esctr_msg(__('Submit and KEEP plugin active', LIKEBTN_I18N_DOMAIN)) ?>";
+            var likebtn_msg_f_tmp = "<?php echo likebtn_esctr_msg(__('Deactivating for time being', LIKEBTN_I18N_DOMAIN)) ?>";
+        </script>
+    <?php
+}
+add_action('admin_footer', 'likebtn_admin_footer_js');
+
+function likebtn_escape_msg($msg)
+{
+    return str_replace('"', '\"', strip_tags($msg));
+}
+
+function likebtn_esctr_msg($msg)
+{
+    return preg_replace('/[^"]"/', '\"', $msg);
+}
+
 // Metabox for posts
 function _likebtn_post_meta_box()
 {
@@ -1425,7 +1477,7 @@ HEADER;
                         <div class="postbox likebtn_logo">
                             <div class="inside likebtn_sidebar_inside">
                                 <a href="https://likebtn.com/en/wordpress-like-button-plugin" target="_blank" title="LikeBtn.com"><img alt="" src="'.$logo_url.'" /></a>
-                                <input type="submit" id="likebtn_contact" value="' . __('Contact Us', LIKEBTN_I18N_DOMAIN) . '" class="button-primary" onclick="likebtnPopup(\''.__('https://likebtn.com/en/', LIKEBTN_I18N_DOMAIN).'customer.php/contact/full/?platform=WordPress&host_name=' . get_site_url() . '&email=' . get_option('likebtn_account_email') . '&likebtn_short_version=1\', \'\', 600, 600)">
+                                <input type="submit" id="likebtn_contact" value="' . __('Contact Us', LIKEBTN_I18N_DOMAIN) . '" class="button-primary" onclick="likebtnContactUs()">
                             </div>
                         </div>
                         <div class="postbox">
@@ -1458,7 +1510,7 @@ HEADER;
                     <h1 class="nav-tab-wrapper">
                         <a class="nav-tab ' . ($_GET['page'] == 'likebtn_buttons' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_buttons">' . __('Buttons', LIKEBTN_I18N_DOMAIN) . '</a>
                         <a class="nav-tab ' . ($_GET['page'] == 'likebtn_settings' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_settings">' . __('Settings', LIKEBTN_I18N_DOMAIN) . '</a>
-                        <a class="nav-tab ' . ($_GET['page'] == 'likebtn_statistics' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_statistics">' . __('Statistics', LIKEBTN_I18N_DOMAIN) . ' <i class="premium_feature" title="PRO / VIP / ULTRA">&nbsp;</i></a>
+                        <a class="nav-tab ' . ($_GET['page'] == 'likebtn_statistics' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_statistics">' . __('Statistics', LIKEBTN_I18N_DOMAIN) . '</a>
                         <a class="nav-tab ' . ($_GET['page'] == 'likebtn_reports' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_reports">' . __('Reports', LIKEBTN_I18N_DOMAIN) . '</a>
                         <a class="nav-tab ' . ($_GET['page'] == 'likebtn_votes' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_votes">' . __('Votes', LIKEBTN_I18N_DOMAIN) . '</a>
                         <a class="nav-tab ' . ($_GET['page'] == 'likebtn_widget' ? 'nav-tab-active' : '') . '" href="' . admin_url() . 'admin.php?page=likebtn_widget">' . __('Widget', LIKEBTN_I18N_DOMAIN) . '</a>
@@ -1594,10 +1646,10 @@ function _likebtn_sidebar_synchronization()
         $status = __('Enabled', LIKEBTN_I18N_DOMAIN);
         $status_class = 'likebtn_success';
 
-        $last_sync = get_option('likebtn_last_sync_time');
-        if ($last_sync) {
-            $last_sync = ceil((time()-$last_sync) / 60);
-            $last_sync_html = $last_sync.' '.__('min(s) ago', LIKEBTN_I18N_DOMAIN);
+        // $last_sync = get_option('likebtn_last_sync_time');
+        // if ($last_sync) {
+        //     $last_sync = ceil((time()-$last_sync) / 60);
+        //     $last_sync_html = $last_sync.' '.__('min(s) ago', LIKEBTN_I18N_DOMAIN);
 
             // Do not show messages
             /*if (get_option('likebtn_last_sync_result') == 'error') {
@@ -1605,9 +1657,9 @@ function _likebtn_sidebar_synchronization()
                     $sync_result_html = get_option('likebtn_last_sync_message');
                 }
             }*/
-        } else {
-            $last_sync_html = __('Never', LIKEBTN_I18N_DOMAIN);
-        }
+        // } else {
+        //     $last_sync_html = __('Never', LIKEBTN_I18N_DOMAIN);
+        // }
     } else {
         $status = __('Disabled', LIKEBTN_I18N_DOMAIN);
         $status_class = 'likebtn_error';
@@ -1626,10 +1678,10 @@ function _likebtn_sidebar_synchronization()
         ';
     }
     if (!$enabled) {
-        $html .= ' <a href="'.admin_url().'admin.php?page=likebtn_settings">'.__('Edit', LIKEBTN_I18N_DOMAIN).'</a>';
+        $html .= ' <a href="'.admin_url().'admin.php?page=likebtn_settings#synchronization">'.__('Edit', LIKEBTN_I18N_DOMAIN).'</a>';
     }
     
-    if ($enabled) {
+    /*if ($enabled) {
         $html .= '
             <div class="likebtn_sidebar_div_simple"></div>
                 '.__('Last sync', LIKEBTN_I18N_DOMAIN).': <strong>'.$last_sync_html.'</strong>
@@ -1640,7 +1692,7 @@ function _likebtn_sidebar_synchronization()
                 '.__('Error', LIKEBTN_I18N_DOMAIN).': <strong class="likebtn_error">'.$sync_result_html.'</strong>
             ';
         }*/
-    }
+    //}
     $html .= '</div>';
 
     return $html;
@@ -2006,6 +2058,9 @@ function _likebtn_plugin_on_load()
     require_once(dirname(__FILE__) . '/likebtn_like_button.class.php');
     $likebtn = new LikeBtnLikeButton();
     $likebtn->runSyncVotes();
+
+    // Sync plan
+    $likebtn->runSyncPlan();
 }
 
 // Update DB
@@ -2031,6 +2086,10 @@ function _likebtn_db_update()
 // update options
 function _likebtn_update_options() {
     $likebtn_entities = _likebtn_get_entities();
+    // Update plugin before updating options
+    if (function_exists('_maybe_update_plugins')) {
+        _maybe_update_plugins();
+    }
 
     foreach ($likebtn_entities as $entity_name => $entity_title) {
         // Set default settings for new entity
@@ -2141,17 +2200,16 @@ function likebtn_admin_init()
         die;
     }
 
-    // Sync plan
-    require_once(dirname(__FILE__) . '/likebtn_like_button.class.php');
-    $likebtn = new LikeBtnLikeButton();
-    $likebtn->runSyncPlan();
-
     // Check account data on settings update
     if (isset($_GET['page']) && $_GET['page'] == 'likebtn_settings' &&
         isset($_GET['settings-updated']) && $_GET['settings-updated'] == 'true'
     ) {
         update_option('likebtn_acc_data_correct', '0');
  
+        // Sync plan
+        require_once(dirname(__FILE__) . '/likebtn_like_button.class.php');
+        $likebtn = new LikeBtnLikeButton();
+
         $test_response = $likebtn->checkAccount(get_option('likebtn_account_email'), get_option('likebtn_account_api_key'), get_option('likebtn_site_id'));
 
         // Set credentials status
@@ -2159,8 +2217,26 @@ function likebtn_admin_init()
         if ($test_response['connect_result'] == 'success') {
             if ($test_response['result'] == 'success') {
                 update_option('likebtn_acc_data_correct', '1');
+                // Enable sync
+                update_option('likebtn_sync_inerval', 5);
             }
         }
+    }
+
+    // Poll
+    $script = basename($_SERVER['REQUEST_URI']);
+    if (!$script) {
+        $script = basename($_SERVER['SCRIPT_NAME']);
+    }
+    if (!$script) {
+        $script = basename($_SERVER['SCRIPT_FILENAME']);
+    }
+    $script = preg_replace("/\?.*/", '', $script);
+
+    if (is_admin() && $script == 'plugins.php' && !get_option('likebtn_feedback_sent')) {
+        wp_enqueue_script('jquery');
+        wp_enqueue_script('jquery-ui-dialog');
+        wp_enqueue_style("wp-jquery-ui-dialog");
     }
 }
 
@@ -2988,8 +3064,9 @@ function likebtn_admin_help()
     <div>
         <iframe width="100%" height="428" src="https://www.youtube.com/embed/JpMYoKPPbyM" frameborder="0" allowfullscreen></iframe>
         <ul>
-            <li>● <?php echo __('<a href="https://likebtn.com/en/wordpress-like-button-plugin" target="_blank">Documentation</a>', LIKEBTN_I18N_DOMAIN); ?></li>
+            <li>● <?php echo __('<a href="https://likebtn.com/en/wordpress-like-button-plugin#documentation" target="_blank">Documentation</a>', LIKEBTN_I18N_DOMAIN); ?></li>
             <li>● <?php echo __('<a href="https://likebtn.com/en/faq" target="_blank">LikeBtn.com FAQ</a>', LIKEBTN_I18N_DOMAIN); ?></li>
+            <li>● <a href="<?php echo __('https://likebtn.com/en/', LIKEBTN_I18N_DOMAIN); ?>developers" target="_blank">Hire developer</a></li>
         </ul>
     </div>
     <?php
@@ -3556,7 +3633,7 @@ function _likebtn_get_markup($entity_name, $entity_id, $values = null, $use_enti
     }
 
     // Voting period
-    // Must ho after item parameters as entity_date is defined here
+    // Must go after item parameters as entity_date is defined here
     $voting_period = get_option('likebtn_voting_period_' . $use_entity_name);
     if ($voting_period) {
         switch ($voting_period) {
@@ -3581,6 +3658,12 @@ function _likebtn_get_markup($entity_name, $entity_id, $values = null, $use_enti
                 break;
         }
     }
+
+    // Allow to vote for one post only
+    if (!isset($values['group_identifier']) && get_option('likebtn_voting_one_'.$use_entity_name)) {
+        $values['group_identifier'] = $entity_name;
+    }
+    
 
     $likebtn_settings = _likebtn_get_all_settings();
     foreach ($likebtn_settings as $option_name => $option_info) {
@@ -4464,7 +4547,13 @@ function likebtn_test_sync_callback() {
     $test_response = $likebtn->testSync($likebtn_account_email, $likebtn_account_api_key, $likebtn_site_id);
 
     if ($test_response['result'] == 'success') {
-        $result_text = __('OK', LIKEBTN_I18N_DOMAIN);
+
+        if (get_option('likebtn_sync_inerval')) {
+            $result_text = __('OK', LIKEBTN_I18N_DOMAIN);
+        } else {
+            $result_text = __('Enabled', LIKEBTN_I18N_DOMAIN);
+        }
+        update_option('likebtn_sync_inerval', 5);
     } else {
         $result_text = __('Error', LIKEBTN_I18N_DOMAIN);
     }
@@ -4509,7 +4598,7 @@ function likebtn_check_account_callback() {
     $test_response = $likebtn->checkAccount($likebtn_account_email, $likebtn_account_api_key, $likebtn_site_id);
 
     if ($test_response['result'] == 'success') {
-        $result_text = __('OK', LIKEBTN_I18N_DOMAIN);
+        $result_text = __('OK', LIKEBTN_I18N_DOMAIN).' ('.__('Don\'t forget to click "Save Changes"', LIKEBTN_I18N_DOMAIN).')';
     } else {
         $result_text = __('Error', LIKEBTN_I18N_DOMAIN);
     }
@@ -4628,6 +4717,38 @@ function likebtn_refresh_plan_callback() {
 }
 
 add_action('wp_ajax_likebtn_refresh_plan', 'likebtn_refresh_plan_callback');
+
+function likebtn_plugin_feedback_callback() {
+    $response = array(
+        'result' => 'error',
+        'error_message' => '',
+    );
+
+    try {
+        $http = new WP_Http();
+        $response = $http->post(LIKEBTN_WEBSITE_AJAX, array('body'=>$_POST));
+    } catch (Exception $e) {
+        if (is_admin()) {
+            $response['error_message'] = $e->getMesssage();
+        }
+    }
+
+    if (!is_wp_error($response) && isset($response['result'])) {
+        $result = $response['result'];
+    }
+
+    update_option('likebtn_feedback_sent', 1);
+
+    if (!DOING_AJAX) {
+        define('DOING_AJAX', true);
+    }
+    if (ob_get_contents()) {
+        ob_clean();
+    }
+    _likebtn_send_json($response);
+}
+
+add_action('wp_ajax_likebtn_plugin_feedback', 'likebtn_plugin_feedback_callback');
 
 // reset items likes/dislikes
 function _likebtn_reset($entity_name, $items)
@@ -5459,7 +5580,17 @@ function likebtn_event_handler()
     @ob_flush();
     flush();*/
 
-    _likebtn_save_vote($_POST['identifier'], (int)$_POST['type'], (int)$_POST['old_type']);
+    $likes = null;
+    if (isset($_POST['l']) && $_POST['l'] != '?') {
+        $likes = $_POST['l'];
+    }
+    $dislikes = null;
+    if (isset($_POST['d']) && $_POST['d'] != '?') {
+        $dislikes = $_POST['d'];
+    }
+
+    // @todo: determine and pass url
+    _likebtn_save_vote($_POST['identifier'], (int)$_POST['type'], (int)$_POST['old_type'], '', $likes, $dislikes);
 
     die;
 }
@@ -5469,7 +5600,7 @@ add_action('wp_ajax_nopriv_likebtn_event_handler', 'likebtn_event_handler');
 // Save vote
 // type: 1, -1, 0 (cancel)
 // act - u, a, r (if set request to LikeBtn has been sent)
-function _likebtn_save_vote($identifier, $type, $old_type = 0, $act = 'u', $wpen = '')
+function _likebtn_save_vote($identifier, $type, $old_type = 0, $act = 'u', $wpen = '', $likes = null, $dislikes = null, $url = '')
 {
     global $wpdb;
 
@@ -5599,6 +5730,13 @@ function _likebtn_save_vote($identifier, $type, $old_type = 0, $act = 'u', $wpen
                 }
             }
         }
+    }
+
+    // Update item
+    if (get_option('likebtn_plan') >= LIKEBTN_PLAN_PRO && !is_null($likes) && !is_null($dislikes)) {
+        require_once(dirname(__FILE__) . '/likebtn_like_button.class.php');
+        $likebtn = new LikeBtnLikeButton();
+        $likebtn->updateCustomFields($identifier, $likes, $dislikes, $url);
     }
 
     return $result;
@@ -5753,8 +5891,20 @@ function likebtn_prx()
                             $wpen = $_GET['wpen'];
                         }
 
-                        _likebtn_save_vote($s['i'], $vote_type, $vote_old_type, $vote_act, $wpen);
-                        //}
+                        $likes = null;
+                        if (isset($body['data']['l']) && $body['data']['l'] != '?') {
+                            $likes = $body['data']['l'];
+                        }
+                        $dislikes = null;
+                        if (isset($body['data']['d']) && $body['data']['d'] != '?') {
+                            $dislikes = $body['data']['d'];
+                        }
+
+                        $s_url = '';
+                        if (!empty($s['url'])) {
+                            $s_url = $s['url'];
+                        }
+                        _likebtn_save_vote($s['i'], $vote_type, $vote_old_type, $vote_act, $wpen, $likes, $dislikes, $s_url);
                     }
                 }
             }

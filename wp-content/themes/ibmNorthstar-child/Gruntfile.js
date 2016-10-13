@@ -19,13 +19,6 @@
             paths: ['<%= directory %>assets/css'],
             sourceMap: true
           },
-          options : {
-            plugins : [
-              new (require('less-plugin-autoprefix'))({
-                browsers : [ "last 5 versions" ]
-              }) 
-            ]
-          },
           files: {
             '<%= directory %>assets/css/style.css': '<%= directory %>assets/css/src/__bootstrap.less'
           }
@@ -57,7 +50,7 @@
         },
         js: {
           files: ['<%= directory %>assets/js/*/*.js'],
-          tasks: ['concat'] //, 'uglify'
+          tasks: ['concat', 'uglify'] //, 'uglify'
         }
       }
     });

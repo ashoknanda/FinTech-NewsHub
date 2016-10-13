@@ -8,8 +8,11 @@
 
 /* Overview Panel */
 .mm-panel-overview { padding: 0 0 0 200px; background-image: url(../images/usp-logo.jpg); background-repeat: no-repeat; background-position: 15px 0; background-size: 180px 130px; }
-.mm-overview-intro { padding: 0 15px 0 0; }
+.mm-overview-intro { margin: 0 15px; padding: 0 15px 10px 0; }
+
 .mm-left-div  { float: left; margin: 0 0 15px 0; }
+#mm-plugin-options .mm-left-div ul { margin-bottom: 30px; }
+
 .mm-right-div { float: left; margin: 0 15px 15px 15px; }
 .mm-pro-blurb {
 	display: block; position: relative; width: 100px; height: 100px; line-height: 100px; text-decoration: none; text-align: center; text-indent: -9999em;
@@ -60,9 +63,9 @@
 
 /* Code & Captions */
 .mm-item-desc { font-size: 13px; color: #777; }
-.mm-item-caption { margin: 3px 0 0 3px; font-size: 11px; color: #777; }
+.mm-item-caption { margin: 1px 0 0 3px; font-size: 11px; color: #777; }
 .mm-item-caption code { font-size: 10px; }
-.mm-code { background-color: #fafae0; color: #333; font-size: 14px; }
+.mm-code { padding: 5px; background-color: #fafae0; color: #333; font-size: 14px; }
 
 /* Misc. Styles */
 #mm-panel-toggle { margin: 5px 0; }

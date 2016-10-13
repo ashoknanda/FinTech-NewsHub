@@ -7,7 +7,7 @@
     $authID = $curauth->ID;
     $leadspace_title_size = get_field('leadspace_title_size', 'user_' . $authID);
     if(!$leadspace_title_size){
-      $leadspace_title_size = 'ibm-h2';
+      $leadspace_title_size = 'ibm-h1';
     }
 
     $post_listing_style = get_field('post_listing_style', 'user_' . $authID);
@@ -43,29 +43,12 @@
       <div id="ibm-leadspace-body">
           <div class="ibm-columns ibm-padding-top-3 ibm-padding-bottom-2">
               <div class="ibm-col-1-1"> <!-- ibm-center -->
-                <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight', 'user_' . $authID); ?> "><?php echo the_field('author_title_large', 'user_' . $authID); ?></h2>
+                <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight', 'user_' . $authID); ?> "><?php echo the_field('author_title_large', 'user_' . $authID); ?></h1>
               </div>
           </div>
-      </div>
-      <div id="ibm-leadspace-social">
-        <div class="ibm-columns" style="padding: 10px 0 0px;">
-          <div class="ibm-col-1-1">
-            <div class="ibm-leadspace-social-links">
-              <div>
-                <p class="ibm-textcolor-white-core">Follow Us</p>
-                <p class="ibm-ind-link ibm-alternate">
-                  <a class="ibm-twitter-encircled-link" href="http://www.twitter.com/ibm" target="blank"><span>Follow us on Twitter</span></a>
-                  <a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/company/ibm" target="blank"><span>Join us on Linkedin</span></a>
-                  <a class="ibm-facebook-encircled-link" href="http://www.facebook.com/ibm" target="blank"><span>Visit our Facebook page</span></a>
-                  <a class="ibm-youtube-encircled-link" href="http://www.youtube.com/ibm" target="blank"><span>Watch our YouTube channel</span></a>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
   </div>
-
+<div class="ibm-columns"><div class="ibm-col-1-1">
  <div class="ibm-columns ibm-padding-top-3 ibm-cards" data-widget="masonry" data-items=".post">
 
 <?php
@@ -84,7 +67,7 @@ else
   <div class="ibm-card__image ibm-center">
             <div class="ibm-blog__post-author-thumb ibm-blog__contributor-thumb">
               <?php if(get_field('author_icon', 'user_' . $authID) != "") { ?>
-                <div><img src="<?php the_field('author_icon', 'user_' . $authID); ?>" alt="user icon" /></div>
+                <div><div style="background-image:url('<?php the_field('author_icon', 'user_' . $authID); ?>'); background-size:cover; background-position:center center;" ></div></div>
               <?php } else { ?>
                 <div><?php $user_info = get_userdata($authID); echo get_avatar($user_info->user_email); ?></div>
               <?php } ?>
@@ -143,7 +126,7 @@ if($post_listing_style == "stack")
     </div>
   </div>
   </div>
-
+</div>
 
     <?php endif; ?>
 
@@ -156,16 +139,15 @@ if($post_listing_style == "stack")
   <?php
   $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 
-$custom_args = array(
-    'paged' => $paged,
-    'post_type' => 'post',
-    'posts_per_page' => get_field("posts_per_page"),
-    'orderby' => 'date'
-);
-
-$custom_query = new WP_Query($custom_args);
 if (function_exists('custom_pagination')) {
-    custom_pagination($custom_query->max_num_pages, "", $paged);
+    if(isset($custom_query))
+    {
+      custom_pagination($custom_query->max_num_pages, "", $paged);
+    }
+    else
+    {
+      custom_pagination(false, "", $paged);
+    }
     wp_reset_postdata();
 }
 ?>

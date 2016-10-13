@@ -9,18 +9,15 @@ include_once __DIR__.'/NH_renderArticleCategories.function.php';
 include_once __DIR__.'/NH_renderArticleTopMeta.function.php';
 include_once __DIR__.'/NH_trim_text.function.php';
 include_once __DIR__.'/NH_getCardBgColor.function.php';
+include_once __DIR__.'/NH_renderAuthorDateLine.function.php';
 
-function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_hash_tag, $my_theme){ 
+function NH_renderCard($this_post, $context, $card_count, $twitter_hash_tag, $my_theme){ 
   //
-  $postauthor = null;
-  $authID = $this_post->post_author;
-  $userdata = get_userdata($authID);  
-  $postauthor =  $userdata->user_nicename; //Setting author to post author set in WP if Newscred nc-author does not exist.
   $custom_fields = get_post_custom($this_post->ID);
   $nc_author = array();
   $nc_author = $custom_fields['nc-author'] ? $custom_fields['nc-author'] : "";
 
-  if(isset($nc_author) && is_array($nc_author)){
+  if(is_object($nc_author)){
     foreach ( $nc_author as $key => $value ) {
       $postauthor = $value;
     }
@@ -88,14 +85,6 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
   $bgColor = NH_getCardBgColor();
 
   //-----------------------------------------------------
-  //  By ${author} ${date}
-  $byAndDate = '';
-  if($postauthor != ''){
-    $byAndDate = "By ".$postauthor.', ';
-  }
-  $byAndDate = $byAndDate.get_the_time(get_option('date_format'), $this_post->ID);
-
-  //-----------------------------------------------------
   //  email sharing
   $email_body = urlencode("\r\n")."You might enjoy reading this article from THINK Marketing: " . rawurlencode($this_post->post_title) . urlencode("\r\n\r\n") . $permalink;
 
@@ -103,9 +92,10 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
 <div 
   class="ibm-col-6-2 post nh-card-wrap nh-card-wrap-height <?php echo $this_post->post_type; ?> <?php echo $featuredClass; ?>" 
   data-post-id="<?php echo $this_post->ID; ?>" 
-  data-post-count="<?php if(isset($card_count) !== true) $card_count = 0; echo $card_count; $card_count = $card_count +1; ?>"
+  data-post-count="<?php echo $card_count; ?>"
 >
   <div 
+    tabindex="0"
     class="
       ibm-card nh-card 
       <?php if(strlen($this_post->post_title) > 76) echo('nh-card-hide-excerpt'); ?> 
@@ -124,23 +114,27 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
       <a class="ibm-blog__header-link" style="height:100%;" href= "<?php echo $permalink; ?>">
         <span class=""></span>
       </a>
-    <?php elseif($is_video_post): ?>
-      <a class="ibm-blog__header-link ibm-video-placeholder" style="height:100%;" href= "<?php echo $permalink; ?>">
-        <span class="ibm-play-link"></span>
-      </a>
+
     <?php else: ?>
 
     <div class="ibm-card__content">
       <div class="nh-card-content-wrap">
-        <div class="nh-card-content">
 
+        <div class="nh-card-content">
+          <?php if($is_video_post): ?>
+            <div class="nh-video-container">
+              <a href="<?php echo $permalink; ?>" class="ibm-video-placeholder">
+                <span class="ibm-play-link"></span>
+              </a>
+            </div>          
+           <?php endif; ?>         
           <div class="nh-card-top-meta">
             <?php echo NH_renderArticleTopMeta($this_post, $context); ?>
           </div>
 
           <h3 class="nh-title ibm-h3 ibm-bold ibm-textcolor-white" data-title-content="<?php echo(strlen($this_post->post_title)); ?>"><a class="ibm-blog__header-link nh-transition-triggerer" href= "<?php echo $permalink; ?>"><span class=""><?php echo trim_text($this_post->post_title, 107, true, true); ?></span></a></h3>
 
-          <div class="nh-author ibm-textcolor-white ibm-small"><?php echo($byAndDate);?></div>
+          <div class="nh-author ibm-textcolor-white ibm-small"><?php echo NH_renderAuthorDateLine($this_post); ?></div>
 
           <div class="nh-card-meta-data-rotator"><div class="nh-tags nh-card-meta-color-changer nh-card-meta-data">
 
@@ -173,7 +167,7 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
                   
                     <svg width="26px" height="17px" viewBox="128 0 26 17" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                         <!-- Generator: Sketch 39.1 (31720) - http://www.bohemiancoding.com/sketch -->
-                        <desc>Created with Sketch.</desc>
+                        <desc>Mail</desc>
                         <defs></defs>
                         <g id="mailIcon" stroke="none" stroke-width="1" fill="white" fill-rule="evenodd" transform="translate(128.000000, 1.000000)" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M24.7618222,15.3326118 L1.02478519,15.3326118 C0.688711111,15.3326118 0.417155556,15.0662588 0.417155556,14.7387294 L0.417155556,1.00131765 C0.417155556,0.673788235 0.688711111,0.407435294 1.02478519,0.407435294 L24.7618222,0.407435294 C25.0978963,0.407435294 25.3694519,0.673788235 25.3694519,1.00131765 L25.3694519,14.7387294 C25.3694519,15.0662588 25.0978963,15.3326118 24.7618222,15.3326118 L24.7618222,15.3326118 Z" id="Stroke-1" stroke="#606060" stroke-width="0.8227"></path>
@@ -195,152 +189,14 @@ function NH_renderCard($this_post, $context, $card_count, $bgColor, $twitter_has
     </div class="ibm-card__content">
 
     
-    <?php if($is_video_post == true){ ?>
-      <div class="nh-video-card-overlay">
-        <div class="play-button">play</div>
-      </div>
-    <?php } ?>
+
 
       
     <?php endif; ?> <!-- End if video type or image type or regular type -->
       <a class="nh-card-hover-chevron ibm-chevron-right-light-link ibm-blog__header-link nh-transition-triggerer" href= "<?php echo $permalink; ?>"></a>
     </div class="nh-card">
     <script>
-      (function($){
-
-        /*-----------------------------------------------------
-         *  this part populates window.newshub.data.articles with article data for overlay approach for showing contents.
-         */
-
-        window.newshub = (function(ns){
-
-          ns.data = ns.data || {};
-          ns.data.articles = ns.data.articles || {};
-          ns.data.animatedArticles = ns.data.animatedArticles || {};
-          ns.data.articles[<?php echo $this_post->ID; ?>] = {
-            title:unescape("<?php echo addslashes($this_post->post_title); ?>"),
-            author:unescape("<?php echo addslashes($postauthor); ?>"),
-            source:unescape("<?php echo addslashes($postsource); ?>"),
-            editorsPick:"<?php echo $is_editor_pick ?>"
-          }
-
-          return ns;
-        })(window.newshub || {});
-
-        //-----------------------------------------------------
-        //  so that we can get url param to show different behaviors
-        function getURLParameter(name) {
-          return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [ , "" ])[1] .replace(/\+/g, '%20')) || null;
-        };
-
-        /*-----------------------------------------------------
-         *  let's start staggered animation if it hasn't been animated
-         */
-
-        var
-          $el = $('[data-post-id=<?php echo($this_post->ID); ?>]'),
-          $cardEl = $el.find('.nh-card');
-          // $cardEl.css({
-          //   'transform':'translateY(0px) scale(1.2,1.2) perspective( 2000px ) rotateY('+(Math.random() * 40 + 50)+'deg)'
-          // })
-          delay = Math.max((parseInt($el.attr('data-post-count')) - Object.keys(window.newshub.data.animatedArticles).length), 0) * 100 + 300;
-        ;
-
-        delay = Math.random() * 800 + 300;
-
-        if(window.newshub.data.animatedArticles[<?php echo $this_post->ID; ?>] !== true){
-
-          // add to the animation history
-          window.newshub = (function(ns){
-
-            ns.data = ns.data || {};
-            ns.data.animatedArticles = ns.data.animatedArticles || {};
-            ns.data.animatedArticles[<?php echo $this_post->ID; ?>] = true;
-
-            return ns;
-          })(window.newshub || {});
-
-          setTimeout(function(){
-
-            // animate the card
-            $el.find('.nh-card')
-              .addClass('start-animation')
-            ;
-
-          }, delay);
-
-        }else{
-          
-          var
-            $el = $('[data-post-id=<?php echo($this_post->ID); ?>]')
-          ;
-          setTimeout(function(){
-
-            // animate the card
-            $el.find('.nh-card')
-              .addClass('donot-animate')
-              .addClass('start-animation')
-            ;
-
-          }, delay);
-        }
-        
-        $el.find('.nh-transition-triggerer').each(function(i, el){
-
-          var
-            $triggerer = $(el)
-          ;
-
-          $triggerer.click(function(e){
-
-            e.preventDefault();
-
-            $cardEl.addClass('opened').addClass('bring-to-front');
-
-            var $contentOverlay = $('<div class="nh-content-overlay"></div>');
-
-            $('#ibm-content-body').append($contentOverlay);
-
-            setTimeout(function(){
-              $contentOverlay.addClass('show-up');
-            },20);
-
-            var articleData = window.newshub.data.articles[$el.attr('data-post-id')];
-
-            setTimeout(function(){
-
-              var clickThroughTestCase = getURLParameter('transition_option_case');
-              clickThroughTestCase = '1';
-              if(clickThroughTestCase === '1'){
-
-                //-----------------------------------------------------
-                //  open the link
-                window.location.href = $triggerer.attr('href');
-
-              }else{
-                //-----------------------------------------------------
-                //  open an overlay
-                $('#story-space-2').append('<div class="nh-content-overlay"><h2 class="title">'+unescape(articleData.title)+'</h2><div class="content-wrap">'+unescape(articleData.content)+'</div><div class="close-button">close</div></div>');
-
-                $('#story-space-2').find('.nh-content-overlay > .close-button').click(function(e){
-                  $cardEl.removeClass('opened');
-                  $('#story-space-2').find('.nh-content-overlay > .close-button').unbind('click');
-                  $('#story-space-2').find('.nh-content-overlay').fadeOut(500, function(){
-                    $cardEl.removeClass('bring-to-front');
-                    $('#story-space-2').find('.nh-content-overlay').remove();
-                  });
-                });
-
-                $('#story-space-2').find('.nh-content-overlay').fadeIn(200);
-              }
-
-            }, 200);
-
-          });
-
-        });
-
-       })(jQuery);
+      window.newshub.functions.renderCard(<?php echo $this_post->ID; ?>);
     </script>
   </div>
 

@@ -23,18 +23,18 @@
 
 				$post_id = get_the_ID();
 
-				// $post_categories = wp_get_post_categories( $post_id );
-				// $cats = array();
-				     
-				// if(!empty($post_categories)){
-				// 	foreach($post_categories as $c){
-				// 	    $cat = get_category( $c );
-				// 	    $cats[] = array( 'name' => $cat->name, 'slug' => $cat->slug );
-				// 	}					
-				// }else if(is_search()){
-				// 	$search_query = get_search_query();
-				// 	array_push($cats, $search_query);
-				// }
+				$post_categories = get_the_category( $post_id );
+				$cats = array();
+
+				if(!empty($post_categories)){
+					foreach($post_categories as $c){
+					    $cat = get_category( $c );
+					    array_push($cats, $cat->name);
+					}					
+				}else if(is_search()){
+					$search_query = get_search_query();
+					array_push($cats, $search_query);
+				}
 				
 
 
@@ -48,7 +48,13 @@
 				// 	$ccre_params['url'] = "https://cpedevelopmentJAVA.mybluemix.net/freetextrec";
 				// }
 				// wp_localize_script('ccre_ajax', 'ccre_params', $ccre_params);
-				wp_localize_script( 'ccre_ajax_load', 'load_url', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'post_id' => $post_id));
+
+				$not_to_pass = CCREIntegration::categoryListNotToPass();
+
+				$cat_to_pass = array_udiff($cats, $not_to_pass, 'strcasecmp');
+		
+				$cat_ids = implode(',',$cat_to_pass);				
+				wp_localize_script( 'ccre_ajax_load', 'load_url', array( 'ajaxurl' => admin_url( 'admin-ajax.php' ), 'post_id' => $post_id, 'categories_passed' => $cat_ids));
 
 				// wp_enqueue_script( 'ccre_ajax', plugins_url( 'js/ccre_ajax.js', __FILE__ ), array('jquery'), '1.0', true );
 			    wp_enqueue_script( 'ccre_ajax_load', plugins_url( 'js/ccre_ajax_load.js', __FILE__ ), array('jquery'), '1.0', true );
@@ -62,41 +68,51 @@
 			wp_reset_query();
 
 			$post_id = $_REQUEST["post_id"];
+			$invalid_characters = array("$", "%", "#", "<", ">", "|");
+			$post_id = str_replace($invalid_characters, "", $post_id);
 
-			$post_categories = get_the_category( $post_id );
-			$cats = array();
 
-			if(!empty($post_categories)){
-				foreach($post_categories as $c){
-				    $cat = get_category( $c );
-				    array_push($cats, $cat->name);
-				}					
-			}else if(is_search()){
-				$search_query = get_search_query();
-				array_push($cats, $search_query);
-			}
+			$cp = $_REQUEST["categories_passed"];
+			$cp = str_replace($invalid_characters, "", $cp);
+			// print_r($cp);
+
+			// $post_categories = get_the_category( $post_id );
+			// $cats = array();
+
+			// if(!empty($post_categories)){
+			// 	foreach($post_categories as $c){
+			// 	    $cat = get_category( $c );
+			// 	    array_push($cats, $cat->name);
+			// 	}					
+			// }else if(is_search()){
+			// 	$search_query = get_search_query();
+			// 	array_push($cats, $search_query);
+			// }
 		
-					
-			$ccre_url = "http://cognitivepersonalization.mybluemix.net/freetextrec";
+			// $ccre_url = "http://cognitivepersonalization.mybluemix.net/freetextrec";
+			$ccre_url = "http://cpedevelopmentJAVA.mybluemix.net/freetextrec";
 
 			if(is_ssl()){
-				$ccre_url = "https://cognitivepersonalization.mybluemix.net/freetextrec";
+				// $ccre_url = "https://cognitivepersonalization.mybluemix.net/freetextrec";
+				$ccre_url = "https://cpedevelopmentJAVA.mybluemix.net/freetextrec";
 			}
 
-			$not_to_pass = CCREIntegration::categoryListNotToPass();
+			// $not_to_pass = CCREIntegration::categoryListNotToPass();
 
-			$cat_to_pass = array_udiff($cats, $not_to_pass, 'strcasecmp');
+			// $cat_to_pass = array_udiff($cats, $not_to_pass, 'strcasecmp');
 	
-			$cat_ids = implode(',',$cat_to_pass);
+			// $cat_ids = implode(',',$cat_to_pass);
 
 
-			$xml = json_encode(array('q' => $cat_ids?$cat_ids:"INDUSTRY",
+			$xml = json_encode(array('q' => $cp?$cp:"INDUSTRY",
 										'industry' => 'UNCLASSIFIED',
 										'subindustry' => 'UNCLASSIFIED',
-										'numresults' => 5));
+										'contentset' => 'NHM:4,PDP:5',
+										'numresults' => 9));
 
 			$context = stream_context_create(array(
 				'http' => array(
+					'timeout' => 6,
 					'method' => 'POST',
 					'header' => 'Content-Type: application/json',
 					'content' => $xml
@@ -112,27 +128,61 @@
 			$retHtml = "";
 			$className = "ibm-arrow-forward-link nh-asset-marketplace";
 			// $result = '{"results":'.$result.'}';
+
 			$json_2 = json_decode($result, true);
 			if(isset($json_2)){
 				$count_items_shown = 0;
+				$article_count = 0;
+				$marketplace_count = 0;
+				$all_articles = "";
+				$all_marketplace = "";
 				foreach ($json_2 as $item) {
-					if($item['SCORE'] > 0.5 ){
-						echo '<li class="ccre_container_item"><p class="ibm-ind-link">';
-						echo '<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].'</a>';
+					if($item['SCORE'] > 0.1 && $item["DOCID"] != $post_id ){
+						// print_r($item['CONTENT_TYPE']);
+						if($item['CONTENT_TYPE'] == 'newscred' && $article_count < 3){
+							
+							if($article_count == 0){
+								$all_articles = $all_articles.'<li class="ccre_container_item"><p class="ibm-h4 ibm-bold">Articles</p></li>';
+							}
+							$all_articles = $all_articles.'<li class="ccre_container_item">
+												<p class="ibm-ind-link">
+													<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
+													'</a>
+												</p>
+											  </li>';
+							$article_count += 1; 
 
-						// echo '<span class="likebtn-wrapper" data-theme="custom" data-icon_l_url="'.$tupd.'" data-icon_l_url_v="'.$tups.'" data-icon_d_url="'.$tdws.'" data-icon_d_url_v="'.$tdwd.'" data-white_label="true" data-identifier="'.$item["DOCID"].'" data-show_like_label="false" data-counter_show="false" data-popup_width="0" data-share_enabled="false" data-tooltip_enabled="false" data-event_handler="likeButtonClicked" data-site_id="57d43fae9b1d1b42405feedd" ></span><script>(function(d,e,s){if(d.getElementById("likebtn_wjs"))return;a=d.createElement(e);m=d.getElementsByTagName(e)[0];a.async=1;a.id="likebtn_wjs";a.src=s;m.parentNode.insertBefore(a, m)})(document,"script","//w.likebtn.com/js/w/widget.js");</script>';
-						echo '</p></li>';
+						}elseif($item['CONTENT_TYPE'] == 'marketplace' && $marketplace_count < 5){
+							if($marketplace_count == 0){
+								$all_marketplace = $all_marketplace.'<li class="ccre_container_item"><p class="ibm-h4 ibm-bold">Offerings & courses</p></li>';
+							}
+							$all_marketplace = $all_marketplace.'<li class="ccre_container_item">
+												<p class="ibm-ind-link">
+													<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
+													'</a>
+												</p>
+											  </li>';
+							$marketplace_count += 1;
+						}
 
 						$count_items_shown +=1;
+
+						if($count_items_shown >= 8){
+							break;
+						}
+						
 					}
-				}
+				}			
 
 				if($count_items_shown == 0){
-					echo "<p>I don't have any suggestions for you right now.</p>";
+					echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned.</p>";
+				}else {
+					echo $all_articles;
+					echo $all_marketplace;
 				}
 
 			}else{
-				echo '<p>Apologies , we are having trouble talking to Watson. Please check back later.</p>';
+				echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned.</p>";
 			}
 
 			// var_dump($json_2[0]);
@@ -177,7 +227,7 @@
 		    "Category Level2",
 		    "Digital marketing",
 		    "Campaign management",
-		    "Data & analytics");
+		    "Data &amp; analytics");
 
 		  return $naCategoryList;
 		}

@@ -2,6 +2,7 @@
 
 include_once __DIR__.'/_includes/NH_renderArticleTopMeta.function.php';
 include_once __DIR__.'/_includes/NH_renderArticleCategories.function.php';
+include_once __DIR__.'/_includes/NH_renderAuthorDateLine.function.php';
 ?>
 
 <?php get_header(); ?>
@@ -10,71 +11,25 @@ include_once __DIR__.'/_includes/NH_renderArticleCategories.function.php';
 
     <?php
 
-          $postsource = null;
-          $postauthor = null;
-          $authID = $post->post_author;
-          $userdata = get_userdata($authID);
-          $postauthor =  $userdata->user_nicename; //Setting author to post author set in WP if Newscred nc-author does not exist. 
+//           $postsource = null;
+        // $pageURL = 'http';
+        // if( isset($_SERVER["HTTPS"]) ) {
+        //   if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
+        // }
+        // $pageURL .= "://";
+        // if ($_SERVER["SERVER_PORT"] != "80") {
+        //   $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
+        // } else {
+        //   $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+        // }
+
           $custom_fields = get_post_custom($post->ID);
-          $nc_source = array();
-          $nc_author = array();
-          $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
-          $nc_source = $custom_fields['nc-source']?$custom_fields['nc-source']:"";
-          if(isset($nc_author) && is_array($nc_author)){
-            foreach ( $nc_author as $key => $value ) {
-              $postauthor = $value;
-            }    
-          }
-$postsource = 'THINK Marketing';
-$nc_source_abbrev = 'T';
-
-if(isset($nc_source) && is_array($nc_source)){
-
-  foreach ( $nc_source as $key => $value ) {
-    $postsource = $value;
-
-    if(strcasecmp ( $value , "ibm commerce" ) == 0){
-      $postsource = 'THINK Marketing';
-    }
-    // $nc_source_abbrev = abbreviate($postsource, 3);
-    $cleaned_nc_source = str_replace('the', "", $postsource);
-    $nc_source_abbrev = $cleaned_nc_source[0];
-  }
-
-}else{
-
-  $postsource = 'THINK Marketing';
-  $nc_source_abbrev = 'T';
-
-}
-
-          //Identify it is editors_pick.
-          $allTags = wp_get_post_tags($post->ID);
-          $is_editor_pick = false;
-          $is_events_post = false;
-          $is_watson_tshirt = false;
-          foreach ($allTags as $key => $value) {
-            // print_r($value->name);
-            if($value->name == 'editor_pick'){
-              $is_editor_pick = true;
-            }
-            else if($value->name == 'events_post') {
-                $is_events_post = true;
-            }
-            else if($value->name == 'watson_tshirt') {
-                $is_watson_tshirt = true;
-            }
-          }
-
-
-
-
 
         //calculates the facebook counts and linkedin counts and sets it to a variable to reuse.
-        $urltogetcount = get_permalink(); 
+        // $urltogetcount = get_permalink(); 
         $fbCount=0; $lnCount = 0;
-        $fbCount = do_shortcode("[facebook-share url='".$urltogetcount."']");
-        $lnCount = do_shortcode("[linkedin-share url='".$urltogetcount."']"); 
+        // $fbCount = do_shortcode("[facebook-share url='".$urltogetcount."']");
+        // $lnCount = do_shortcode("[linkedin-share url='".$urltogetcount."']"); 
 
 
         // size helper -- Single Post Template modified by Ryan Sebade
@@ -102,62 +57,62 @@ if(isset($nc_source) && is_array($nc_source)){
         }
 
         // get csv data
-        $csv_data = get_field('csv_data');
-        $fullwidth_choice = get_field('full_width');
-        $socialshare_choice = get_field('social_share');
-        if($socialshare_choice == 'Yes'){
-            $socialshare = true;
-        }
-        elseif($socialshare_choice == 'No'){
-            $socialshare = false;
-        }
-        else{
-            if(esc_attr(get_option( 'force_all_posts_to_social_share', '' )) == "on"){
-                $socialshare = true;
-            }
-            else{
-                $socialshare = false;
-            }
-        }
+        // // $csv_data = get_field('csv_data');
+        // $fullwidth_choice = get_field('full_width');
+        // $socialshare_choice = get_field('social_share');
+        // if($socialshare_choice == 'Yes'){
+        //     $socialshare = true;
+        // }
+        // elseif($socialshare_choice == 'No'){
+        //     $socialshare = false;
+        // }
+        // else{
+        //     if(esc_attr(get_option( 'force_all_posts_to_social_share', '' )) == "on"){
+        //         $socialshare = true;
+        //     }
+        //     else{
+        //         $socialshare = false;
+        //     }
+        // }
 
-        if($socialshare_choice == ''){
-            if(esc_attr(get_option( 'force_all_posts_to_social_share', '' )) == "on"){
-                $socialshare = true;
-            }
-            else{
-                $socialshare = false;
-            }
-        }
-        if($fullwidth_choice == 'Yes'){
-            $socialshare = true;
-        }
-        elseif($fullwidth_choice == 'No'){
-            $socialshare = false;
-        }
-        else{
-            if(esc_attr(get_option( 'force_all_posts_to_full_width', '' )) == "on"){
-                $fullwidth = true;
-            }
-            else{
-                $fullwidth = false;
-            }
-        }
+        // if($socialshare_choice == ''){
+        //     if(esc_attr(get_option( 'force_all_posts_to_social_share', '' )) == "on"){
+        //         $socialshare = true;
+        //     }
+        //     else{
+        //         $socialshare = false;
+        //     }
+        // }
+        // if($fullwidth_choice == 'Yes'){
+        //     $socialshare = true;
+        // }
+        // elseif($fullwidth_choice == 'No'){
+        //     $socialshare = false;
+        // }
+        // else{
+        //     if(esc_attr(get_option( 'force_all_posts_to_full_width', '' )) == "on"){
+        //         $fullwidth = true;
+        //     }
+        //     else{
+        //         $fullwidth = false;
+        //     }
+        // }
 
-        if($fullwidth_choice == ''){
-            if(esc_attr(get_option( 'force_all_posts_to_full_width', '' )) == "on"){
-                $fullwidth = true;
-            }
-            else{
-                $fullwidth = false;
-            }
-        }
+        // if($fullwidth_choice == ''){
+        //     if(esc_attr(get_option( 'force_all_posts_to_full_width', '' )) == "on"){
+        //         $fullwidth = true;
+        //     }
+        //     else{
+        //         $fullwidth = false;
+        //     }
+        // }
 
-        if(esc_attr(get_option( 'hide_author_from_posts', '' )) == "on"){
-                $hideauthor = true;
-            }
-            else{
-                $hideauthor = false;
-            }
+        // if(esc_attr(get_option( 'hide_author_from_posts', '' )) == "on"){
+        //         $hideauthor = true;
+        //     }
+        //     else{
+        //         $hideauthor = false;
+        //     }
 
 
 
@@ -191,8 +146,42 @@ if(isset($nc_source) && is_array($nc_source)){
         }
 
         // SIdebar Links to Collections through Ads
-        $allcatids = array_map(create_function('$o', 'return $o->name;'), $categories) ;
-        $ads_group_ids = get_ad_group_id($allcatids);
+        // $allcatids = array_map(create_function('$o', 'return $o->name;'), $categories) ;
+        
+        $collection_group_id = '';
+if ( post_is_in_descendant_category( NH_EMAILMARKETING ) ) {
+    $collection_group_id = post_is_in_descendant_category( NH_EMAILMARKETING);
+    ?><script type="text/javascript">console.log('cat is <?php  echo $collection_group_id; ?>');</script><?php
+}
+elseif ( post_is_in_descendant_category( NH_MARKETING ) ) {
+    $collection_group_id = post_is_in_descendant_category( NH_MARKETING);
+    ?><script type="text/javascript">console.log('cat is <?php  echo $collection_group_id; ?>');</script><?php
+}
+elseif ( post_is_in_descendant_category( NH_DATA_ANALYTICS ) ) {
+    $collection_group_id = post_is_in_descendant_category( NH_DATA_ANALYTICS);
+    ?><script type="text/javascript">console.log('cat is <?php  echo $collection_group_id; ?>');</script><?php
+}
+elseif ( post_is_in_descendant_category( NH_CAMPAIGN ) ) {
+    $collection_group_id = post_is_in_descendant_category( NH_CAMPAIGN);
+    ?><script type="text/javascript">console.log('cat is <?php  echo $collection_group_id; ?>');</script><?php
+}
+       
+
+        $allTags = wp_get_post_tags($post->ID);
+        $is_regular_post = true;
+        $is_video_post = false;
+        $is_image_post = false;
+        foreach ($allTags as $key => $value) {
+          if($value->name == 'video_post'){
+            $is_video_post = true;
+            $is_regular_post = false;
+          }else if($value->name == 'image_post'){
+            $is_image_post = true;
+            $is_regular_post = false;
+          }
+        }
+
+        // $ads_group_ids = get_ad_group_id($allcatids);
 
         $imgobjfromnc= wp_get_attachment_image_src( get_post_thumbnail_id(), 'large_size' );
         //Required for Events page to show watson generated image. 
@@ -215,19 +204,11 @@ if(isset($nc_source) && is_array($nc_source)){
         }else if(!empty($imgobjfromnc)){
           $sImg = $imgobjfromnc[0];
         }
-        $pageURL = 'http';
-        if( isset($_SERVER["HTTPS"]) ) {
-          if ($_SERVER["HTTPS"] == "on") {$pageURL .= "s";}
-        }
-        $pageURL .= "://";
-        if ($_SERVER["SERVER_PORT"] != "80") {
-          $pageURL .= $_SERVER["SERVER_NAME"].":".$_SERVER["SERVER_PORT"].$_SERVER["REQUEST_URI"];
-        } else {
-          $pageURL .= $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
-        }
 
 
-        $loginurl = "https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=".$pageURL;
+
+        // $loginurl = "https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=".$pageURL;
+        $loginurl = "https://idaas.iam.ibm.com/idaas/mtfim/sps/authsvc?PolicyId=urn:ibm:security:authentication:asf:basicldapuser&Target=".get_permalink();
 
         $email_body = urlencode("\r\n")."You might enjoy reading this article from THINK Marketing: " . rawurlencode($post->post_title) . urlencode("\r\n\r\n") . get_permalink();
       ?>
@@ -236,13 +217,11 @@ if(isset($nc_source) && is_array($nc_source)){
           <div class="ibm-col-6-4 ibm-padding-top-1">
             <?php echo NH_renderArticleTopMeta($post, "content-page"); ?>
             <div class="nh-card-article-title">
-              <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?> ibm-bold" itemprop="headline" rel="bookmark">
-                  <?php echo widont(get_the_title()); ?></h2>
+              <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?> ibm-bold" itemprop="headline" rel="bookmark">
+                  <?php echo widont(get_the_title()); ?></h1>
             </div>
             <div class="nh-card-author">
-              <span> <?php if(isset($postauthor) && $postauthor != ""){ echo 'By '.$postauthor ; }?></span>, 
-              <span><?php  echo get_the_time(get_option('date_format'), $post->ID); ?></span>
-              <!-- <span><?php //echo do_shortcode("[est_time]").' read'; ?></span> -->
+              <?php echo NH_renderAuthorDateLine($post); ?>
             </div>
             <div class="nh-tags nh-card-meta-color-changer nh-card-meta-data">
               <?php echo NH_renderArticleCategories($post, 'content-page'); ?>
@@ -252,10 +231,10 @@ if(isset($nc_source) && is_array($nc_source)){
                 <div class="nh-social-share-icon-count">
                     <a href="https://twitter.com/intent/tweet?original_referer=<?php the_permalink(); ?>&amp;text=<?php  echo widont(get_the_title()); ?>&amp;hashtags=THINKmarketing&amp;url=<?php the_permalink(); ?>" target="_blank" class="ibm-twitter-link ibm-small ibm-inlinelink nh-social-icon">&nbsp;</a>                
                     <a class="ibm-facebook-link ibm-small ibm-inlinelink nh-social-icon" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" target="_blank">
-                        <span class="ibm-textcolor-gray-40"><?php echo $fbCount; ?>&nbsp;</span>
+                        <span class="ibm-textcolor-gray-40 nh-facebook-count"><?php echo $fbCount; ?>&nbsp;</span>
                     </a>
                     <a class="ibm-linkedin-link ibm-small ibm-inlinelink nh-social-icon" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo( 'name' ); ?>" target="_blank">
-                        <span class="ibm-textcolor-gray-40"><?php echo $lnCount; ?>&nbsp;</span>
+                        <span class="ibm-textcolor-gray-40 nh-linkedin-count"><?php echo $lnCount; ?>&nbsp;</span>
                     </a>
                     <a class="nh-card-social-icon nh-social-icon-email ibm-small" href="mailto:?subject=THINK Marketing: <?php echo rawurlencode($post->post_title); ?>&body=<?php echo $email_body; ?>" style=" padding-left: 0;position:relative;top: 4px;">
 
@@ -278,7 +257,7 @@ if(isset($nc_source) && is_array($nc_source)){
         </div>
         <div class="ibm-columns">
           <div class="ibm-col-6-4 nh-card-article-body">
-            <?php if(isset($sImg)): ?> 
+            <?php if(!$is_video_post  && isset($sImg)): ?> 
               <img alt="post_thumb" src="<?php echo $sImg; ?>" class="ibm-resize" /> 
             <?php endif; ?>
             <?php the_content(); ?>
@@ -287,10 +266,10 @@ if(isset($nc_source) && is_array($nc_source)){
                 <div class="nh-social-share-icon-count">
                     <a href="https://twitter.com/intent/tweet?original_referer=<?php the_permalink(); ?>&amp;text=<?php  echo widont(get_the_title()); ?>&amp;hashtags=NewWaytoEngage&amp;tw_p=tweetbutton&amp;url=<?php the_permalink(); ?><?php echo isset( $twitter_user ) ? '&amp;via='.$twitter_user : '&amp;via=IBMforMarketing'; ?>" target="_blank" class="ibm-twitter-link ibm-small ibm-inlinelink nh-social-icon">&nbsp;</a>                
                     <a class="ibm-facebook-link ibm-small ibm-inlinelink nh-social-icon" href="http://www.facebook.com/sharer.php?u=<?php the_permalink();?>&amp;t=<?php the_title(); ?>" target="_blank">
-                        <span class="ibm-textcolor-gray-40"><?php echo $fbCount; ?>&nbsp;</span>
+                        <span class="ibm-textcolor-gray-40 nh-facebook-count"><?php echo $fbCount; ?>&nbsp;</span>
                     </a>
                     <a class="ibm-linkedin-link ibm-small ibm-inlinelink nh-social-icon" href="http://www.linkedin.com/shareArticle?mini=true&amp;url=<?php the_permalink(); ?>&amp;title=<?php the_title(); ?>&amp;source=<?php bloginfo( 'name' ); ?>" target="_blank">
-                        <span class="ibm-textcolor-gray-40"><?php echo $lnCount; ?>&nbsp;</span>
+                        <span class="ibm-textcolor-gray-40 nh-linkedin-count"><?php echo $lnCount; ?>&nbsp;</span>
                     </a>
                     <a class="nh-card-social-icon nh-social-icon-email ibm-small" href="mailto:?subject=THINK Marketing: <?php echo rawurlencode($post->post_title); ?>&body=<?php echo $email_body; ?>" style=" padding-left: 0;position:relative;top: 4px;">
 
@@ -321,9 +300,10 @@ if(isset($nc_source) && is_array($nc_source)){
 ?>
               <div class="ibm-col-6-4">
                 <p class="ibm-textcolor-gray-40 ibm-bold ibm-padding-top-30 ibm-padding-bottom-30">
-              Please note that DISQUS operates this forum. By commenting, you are accepting the 
-              <a class="nh-link-color-restore" href="/think/marketing/ibm-commenting-guidelines" target="_blank">IBM commenting guidelines</a> and the 
-              <a class="nh-link-color-restore" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service" target="_blank">DISQUS terms of service</a>.
+                <?php $my_theme = wp_get_theme(); _e("Please note that DISQUS operates this forum. By commenting, you are accepting the", $my_theme->get( 'Name' )); ?>
+               
+              <a class="nh-link-color-restore" href="/think/marketing/ibm-commenting-guidelines" target="_blank"><?php $my_theme = wp_get_theme(); _e("IBM commenting guidelines", $my_theme->get( 'Name' )); ?></a> and the 
+              <a class="nh-link-color-restore" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service" target="_blank"><?php $my_theme = wp_get_theme(); _e("DISQUS terms of service", $my_theme->get( 'Name' )); ?></a>.
               </p>
             </div>
              <?php if(!is_user_logged_in()): ?>
@@ -336,6 +316,49 @@ if(isset($nc_source) && is_array($nc_source)){
               }
             ?>
           </div>
+          <script type="text/javascript">
+            jQuery(document).ready(function($){
+              var admin_ajax_url = "<?php echo admin_url('admin-ajax.php'); ?>";
+
+                $.ajax({
+                        type : "POST",
+                        url: admin_ajax_url,
+                        data : {
+                                  'action':"get_social_counts",
+                                  'media':'facebook',
+                                  'urltogetcount' : "<?php echo get_permalink(); ?>"
+                                },
+                        success: function(data){
+                          // console.log(data);
+                          $(".nh-facebook-count").text(data);
+                        },
+                        error : function(req,textStatus,error) {
+                          console.log(error);
+                          $(".nh-facebook-count").text('0');
+                        }
+                  });
+
+                $.ajax({
+                        type : "POST",
+                        url: admin_ajax_url,
+                        data : {
+                                  'action':"get_social_counts",
+                                  'media':'linkedin',
+                                  'urltogetcount' : "<?php echo get_permalink(); ?>"
+                                },
+                        success: function(data){
+                          // console.log(data);
+                          $(".nh-linkedin-count").text(data);
+                        },
+                        error : function(req,textStatus,error) {
+                          console.log(error);
+                          $(".nh-linkedin-count").text('0');
+                        }                          
+                  }); 
+            });
+
+          </script>
+
           <div class="ibm-col-6-2">
             <?php include('_includes/v18_sidebar.php'); ?> 
           </div>
@@ -414,20 +437,7 @@ if(isset($nc_source) && is_array($nc_source)){
 
     </div>
 
-    <div class="ibm-common-overlay ibm-overlay-alt-three nh-card-large nh-card-wrap nh-card-wrap-height" data-widget="overlay" id="overlayExampleXl">
-            <?php
-                  $params_single_post = 'groups=-1&limit=1&orderby=random&order=DESC&container_class=nh-promo-card-holder';
-                  echo dfads($params_single_post);   
-             ?>
-    </div>
-    <script>
-        function showOverlayAd(){
-            IBMCore.common.widget.overlay.show('overlayExampleXl');
-        }
-        jQuery(document).ready(function($){
-            // setTimeout(showOverlayAd, 5000);
-        });
-    </script>
+
 
     <?php get_template_part('_includes/v18_content_main_end'); ?>
 

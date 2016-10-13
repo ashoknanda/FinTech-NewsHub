@@ -4,7 +4,20 @@ if (!function_exists('add_action')) die();
 
 global $usp_options;
 
-$current_user = wp_get_current_user();
+$require_login = $usp_options['logged_in_users'];
+
+if ($require_login && !is_user_logged_in()) :
+
+	$require_login_message = '<p>'. esc_html__('Please', 'usp') .' <a href="'. wp_login_url() .'">'. esc_html__('log in', 'usp') .'</a> '. esc_html__('to submit content!', 'usp') .'</p>';
+	$require_login_message = apply_filters('usp_require_login', $require_login_message);
+
+	echo $require_login_message;
+
+else : 
+
+$user_url = 'http://example.com/';
+$current_user  = wp_get_current_user();
+if (!empty($current_user->user_url)) $user_url = $current_user->user_url;
 
 if ($usp_options['disable_required']) {
 	$required = ''; 
@@ -32,45 +45,45 @@ if ($usp_options['disable_required']) {
 		if (($usp_options['usp_name'] == 'show' || $usp_options['usp_name'] == 'optn') && ($usp_options['usp_use_author'] == false)) { ?>
 		
 		<fieldset class="usp-name">
-			<label for="user-submitted-name"><?php _e('Your Name', 'usp'); ?></label>
-			<input name="user-submitted-name" type="text" value="" placeholder="<?php _e('Your Name', 'usp'); ?>"<?php if (usp_check_required('usp_name')) echo $required; ?> class="usp-input">
+			<label for="user-submitted-name"><?php esc_html_e('Your Name', 'usp'); ?></label>
+			<input name="user-submitted-name" type="text" value="" placeholder="<?php esc_attr_e('Your Name', 'usp'); ?>"<?php if (usp_check_required('usp_name')) echo $required; ?> class="usp-input">
 		</fieldset>
 		<?php } if (($usp_options['usp_url'] == 'show' || $usp_options['usp_url'] == 'optn') && ($usp_options['usp_use_url'] == false)) { ?>
 		
 		<fieldset class="usp-url">
-			<label for="user-submitted-url"><?php _e('Your URL', 'usp'); ?></label>
-			<input name="user-submitted-url" type="text" value="" placeholder="<?php _e('Your URL', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $required; ?> class="usp-input">
+			<label for="user-submitted-url"><?php esc_html_e('Your URL', 'usp'); ?></label>
+			<input name="user-submitted-url" type="text" value="" placeholder="<?php esc_attr_e('Your URL', 'usp'); ?>"<?php if (usp_check_required('usp_url')) echo $required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_email'] == 'show' || $usp_options['usp_email'] == 'optn') { ?>
 		
 		<fieldset class="usp-email">
-			<label for="user-submitted-email"><?php _e('Your Email', 'usp'); ?></label>
-			<input name="user-submitted-email" type="text" value="" placeholder="<?php _e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $required; ?> class="usp-input">
+			<label for="user-submitted-email"><?php esc_html_e('Your Email', 'usp'); ?></label>
+			<input name="user-submitted-email" type="text" value="" placeholder="<?php esc_attr_e('Your Email', 'usp'); ?>"<?php if (usp_check_required('usp_email')) echo $required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_title'] == 'show' || $usp_options['usp_title'] == 'optn') { ?>
 		
 		<fieldset class="usp-title">
-			<label for="user-submitted-title"><?php _e('Post Title', 'usp'); ?></label>
-			<input name="user-submitted-title" type="text" value="" placeholder="<?php _e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $required; ?> class="usp-input">
+			<label for="user-submitted-title"><?php esc_html_e('Post Title', 'usp'); ?></label>
+			<input name="user-submitted-title" type="text" value="" placeholder="<?php esc_attr_e('Post Title', 'usp'); ?>"<?php if (usp_check_required('usp_title')) echo $required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_tags'] == 'show' || $usp_options['usp_tags'] == 'optn') { ?>
 		
 		<fieldset class="usp-tags">
-			<label for="user-submitted-tags"><?php _e('Post Tags', 'usp'); ?></label>
-			<input name="user-submitted-tags" type="text" value="" placeholder="<?php _e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $required; ?> class="usp-input">
+			<label for="user-submitted-tags"><?php esc_html_e('Post Tags', 'usp'); ?></label>
+			<input name="user-submitted-tags" type="text" value="" placeholder="<?php esc_attr_e('Post Tags', 'usp'); ?>"<?php if (usp_check_required('usp_tags')) echo $required; ?> class="usp-input">
 		</fieldset>
 		<?php } if ($usp_options['usp_captcha'] == 'show') { ?>
 		
 		<fieldset class="usp-captcha">
 			<label for="user-submitted-captcha"><?php echo $usp_options['usp_question']; ?></label>
-			<input name="user-submitted-captcha" type="text" value="" placeholder="<?php _e('Antispam Question', 'usp'); ?>"<?php echo $required; ?> class="usp-input exclude<?php echo $captcha; ?>">
+			<input name="user-submitted-captcha" type="text" value="" placeholder="<?php esc_attr_e('Antispam Question', 'usp'); ?>"<?php echo $required; ?> class="usp-input exclude<?php echo $captcha; ?>">
 		</fieldset>
 		<?php } if (($usp_options['usp_category'] == 'show' || $usp_options['usp_category'] == 'optn') && ($usp_options['usp_use_cat'] == false)) { ?>
 		
 		<fieldset class="usp-category">
-			<label for="user-submitted-category"><?php _e('Post Category', 'usp'); ?></label>
+			<label for="user-submitted-category"><?php esc_html_e('Post Category', 'usp'); ?></label>
 			<select name="user-submitted-category"<?php if (usp_check_required('usp_category')) echo $required; ?> class="usp-select">
-				<option value=""><?php _e('Please select a category..', 'usp'); ?></option>
+				<option value=""><?php esc_html_e('Please select a category..', 'usp'); ?></option>
 				<?php foreach($usp_options['categories'] as $categoryId) { $category = get_category($categoryId); if (!$category) { continue; } ?>
 				
 				<option value="<?php echo $categoryId; ?>"><?php $category = get_category($categoryId); echo sanitize_text_field($category->name); ?></option>
@@ -103,8 +116,8 @@ if ($usp_options['disable_required']) {
 			</div>
 			<?php } else { ?>
 				
-			<label for="user-submitted-content"><?php _e('Post Content', 'usp'); ?></label>
-			<textarea name="user-submitted-content" rows="5" placeholder="<?php _e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $required; ?> class="usp-textarea"></textarea>
+			<label for="user-submitted-content"><?php esc_html_e('Post Content', 'usp'); ?></label>
+			<textarea name="user-submitted-content" rows="5" placeholder="<?php esc_attr_e('Post Content', 'usp'); ?>"<?php if (usp_check_required('usp_content')) echo $required; ?> class="usp-textarea"></textarea>
 			<?php } ?>
 			
 		</fieldset>
@@ -112,7 +125,7 @@ if ($usp_options['disable_required']) {
 		<?php if ($usp_options['max-images'] !== 0) { ?>
 		
 		<fieldset class="usp-images">
-			<label for="user-submitted-image"><?php _e('Upload an Image', 'usp'); ?></label>
+			<label for="user-submitted-image"><?php esc_html_e('Upload an Image', 'usp'); ?></label>
 			<div id="usp-upload-message"><?php echo $usp_options['upload-message']; ?></div>
 			<div id="user-submitted-image">
 			<?php // upload files
@@ -120,7 +133,7 @@ if ($usp_options['disable_required']) {
 			$maxImages = intval($usp_options['max-images']);
 			$addAnother = $usp_options['usp_add_another'];
 			
-			if ($addAnother == '') $addAnother = '<a href="#" id="usp_add-another" class="usp-no-js">' . __('Add another image', 'usp') . '</a>';
+			if ($addAnother == '') $addAnother = '<a href="#" id="usp_add-another" class="usp-no-js">'. esc_html__('Add another image', 'usp') .'</a>';
 			if ($minImages > 0) : ?>
 				<?php for ($i = 0; $i < $minImages; $i++) : ?>
 						
@@ -141,7 +154,7 @@ if ($usp_options['disable_required']) {
 		<?php } ?>
 		
 		<fieldset id="coldform_verify" style="display:none;">
-			<label for="user-submitted-verify"><?php _e('Human verification: leave this field empty.', 'usp'); ?></label>
+			<label for="user-submitted-verify"><?php esc_html_e('Human verification: leave this field empty.', 'usp'); ?></label>
 			<input class="exclude" name="user-submitted-verify" type="text" value="">
 		</fieldset>
 		<div id="usp-submit">
@@ -155,14 +168,14 @@ if ($usp_options['disable_required']) {
 			<?php } ?>
 			<?php if ($usp_options['usp_use_url'] == true) { ?>
 			
-			<input class="usp-hidden exclude" type="hidden" name="user-submitted-url" value="<?php echo $current_user->user_url; ?>">
+			<input class="usp-hidden exclude" type="hidden" name="user-submitted-url" value="<?php echo $user_url; ?>">
 			<?php } ?>
 			<?php if ($usp_options['usp_use_cat'] == true) { ?>
 			
 			<input class="usp-hidden exclude" type="hidden" name="user-submitted-category" value="<?php echo $usp_options['usp_use_cat_id']; ?>">
 			<?php } ?>
 			
-			<input class="exclude" name="user-submitted-post" id="user-submitted-post" type="submit" value="<?php _e('Submit Post', 'usp'); ?>">
+			<input class="exclude" name="user-submitted-post" id="user-submitted-post" type="submit" value="<?php esc_attr_e('Submit Post', 'usp'); ?>">
 			<?php wp_nonce_field('usp-nonce', 'usp-nonce', false); ?>
 		</div>
 		<?php endif; ?>
@@ -171,3 +184,5 @@ if ($usp_options['disable_required']) {
 </div>
 <script>(function(){var e = document.getElementById('coldform_verify'); if(e) e.parentNode.removeChild(e);})();</script>
 <!-- User Submitted Posts @ https://perishablepress.com/user-submitted-posts/ -->
+
+<?php endif; ?>

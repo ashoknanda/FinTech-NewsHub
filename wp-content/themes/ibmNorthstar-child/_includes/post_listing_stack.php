@@ -20,7 +20,7 @@ foreach($pcategories as $pcategory)
   $nc_author = array();
   $nc_author = $custom_fields['nc-author']?$custom_fields['nc-author']:"";
   $nc_source = $custom_fields['nc-source']?$custom_fields['nc-source']:"";
-  if(isset($nc_author)){
+  if(is_object($nc_author)){
     foreach ( $nc_author as $key => $value ) {
       $postauthor = $value;
     }    

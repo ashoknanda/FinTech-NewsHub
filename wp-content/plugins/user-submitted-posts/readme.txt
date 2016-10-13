@@ -3,24 +3,24 @@
 Plugin Name: User Submitted Posts
 Plugin URI: https://perishablepress.com/user-submitted-posts/
 Description: Enables your visitors to submit posts and images from anywhere on your site.
-Tags: community, content, form, forms, front end, front-end, frontend, generated content, images, post, posts, public, publish, share, submission, submissions, submit, submitted, upload, user generated, user submit, user submitted, user-generated, user-submit, user-submitted
+Tags: community, content, form, forms, front end, front-end, frontend, generated content, images, post, posts, public, publish, share, submission, submissions, submit, submitted, upload, user generated, user submit, user submitted, user-generated, user-submit, user-submitted, publishing, frontend publishing, uploader, frontend uploader, frontend content
 Author: Jeff Starr
-Author URI: http://monzilla.biz/
+Author URI: https://plugin-planet.com/
 Donate link: http://m0n.co/donate
 Contributors: specialk
 Requires at least: 4.1
-Tested up to: 4.5
+Tested up to: 4.6
 Stable tag: trunk
-Version: 20160411
+Version: 20160815
 Text Domain: usp
-Domain Path: /languages/
+Domain Path: /languages
 License: GPL v2 or later
 
 Easily submit posts and images from the front-end of your site.
 
 
 
-== Description ==  
+== Description ==
 
 **The #1 Plugin for User-Generated Content!**
 
@@ -52,7 +52,8 @@ USP also enables users to upload multiple images when submitting a post. You con
 **Features**
 
 * Let visitors submit posts from anywhere on your site
-* Option to set submitted images as featured images
+* Option to set submitted images as WP Featured Images
+* NEW! Option to require users to be logged in to use the form
 * Option to use WP's built-in rich text editor for post content
 * Use template tag or shortcode to display the submission form anywhere
 * Includes input validation and customizable captcha and hidden field to stop spam
@@ -63,14 +64,13 @@ USP also enables users to upload multiple images when submitting a post. You con
 * Client-side validation with [Parsley](http://parsleyjs.org/)
 * HTML5 submission form with streamlined CSS styles
 * Option to require unique post titles
-* NEW! Use your own custom form template and stylesheet
-* NEW! 14 action/filter hooks for advanced customization
-* NEW! Make form fields optional or required
-* NEW! Auto Display Custom Fields and Images
-* NEW! Shortcode to display all submitted posts
+* Use your own custom form template and stylesheet
+* 15 action/filter hooks for advanced customization
+* Make form fields optional or required
+* Auto Display Custom Fields and Images
+* Shortcode to display all submitted posts
 
 USP is simple to use and built with clean code via the WP API :)
-
 
 **More Features**
 
@@ -118,17 +118,19 @@ Plus much more! Too many features to list them all :)
 
 User Submitted Posts supports translation into any language. Current translations include:
 
-* Chinese
-* Dutch
-* French
-* German
-* Italian
-* Persian
-* Portuguese
-* Romanian
-* Serbian
-* Spanish (Argentina)
-* Spanish (Spain)
+* ar_AR : Arabic (Argentina)
+* de_DE : German
+* es_ES : Spanish (Spain)
+* fa_IR : Persian
+* fr_FR : French (France)
+* it_IT : Italian
+* nl_NL : Dutch
+* pt_BR : Portuguese (Brazil)
+* ro_RO : Romanian
+* ru_RU : Russian
+* sr_RS : Serbian
+* zh_CN : Chinese (China)
+
 
 
 **Pro Version**
@@ -176,6 +178,7 @@ usp_mail_subject
 usp_mail_message
 usp_new_post
 usp_input_validate
+usp_require_login
 
 Actions
 usp_submit_success
@@ -365,7 +368,7 @@ __Note:__ uninstalling the plugin from the WP Plugins screen results in the remo
 == Screenshots ==
 
 1. USP Settings Screen (panels toggled closed)
-2. USP Plugin Settings (showing default options)
+2. USP Plugin Settings, showing default options (panels toggle open/closed)
 3. USP Form (with all fields enabled)
 4. USP Form (with just a few fields enabled)
 5. Example showing how to display the form on a Page (using a shortcode)
@@ -468,6 +471,13 @@ Or, to go further with unlimited custom forms, [check out USP Pro](https://plugi
 **What about security and spam?**
 
 User Submitted Posts uses the WordPress API to keep everything secure, fast, and flexible. The plugin also features a Challenge Question and hidden anti-spam field to stop automated spam and bad bots.
+
+
+**How do I display success and error messages when the "Redirect URL" setting is enabled?**
+
+Add the following template tag in your theme template, wherever you want to display the success/error messages:
+
+`<?php echo usp_redirect_message(); ?>`
 
 
 **Can I include video?**
@@ -575,6 +585,26 @@ Links, tweets and likes also appreciated. Thanks! :)
 
 
 == Changelog ==
+
+**20160815**
+
+* Fine-tuned the plugin settings page
+* Replaced `_e()` with `esc_html_e()` or `esc_attr_e()`
+* Replaced `__()` with `esc_html__()` or `esc_attr__()`
+* Added plugin icons and larger banner image
+* Improved translation support
+* Added more allowed tags and attributes to relevant plugin settings
+* Removed usp_addNewPostStatus() function (deprecated hook)
+* Fixed bug where required URL field shows error if User Profile URL enabled
+* Added more allowed tags and attributes to submitted post content
+* Refined logic of usp_checkForPublicSubmission() function
+* Added usp_redirect_message() for error messages when Redirect URL enabled 
+* Changed hook priority for usp_checkForPublicSubmission() function
+* Added Russian translation (thanks to [Nick Lysenko](https://twitter.com/unbirth7))
+* Added setting to display form only to logged-in users
+* Fine-tuned default form styles and error messages
+* Generated new translation template
+* Tested on WordPress 4.6
 
 **20160411**
 

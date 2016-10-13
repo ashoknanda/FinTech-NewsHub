@@ -52,13 +52,12 @@ function fwp_infinite_load() {
                 IBMCore.common.widget.selectlist.init($(this));
             });            
             $("#story-space-2[data-widget='masonry']").masonry("reloadItems");
+            // $("#story-space-2[data-widget='masonry']").masonry();
             $("#story-space-2[data-widget='masonry']").imagesLoaded(function(){
                 $("#story-space-2[data-widget='masonry']").masonry();
             });
-            if(twttr && twttr.widgets){
-                twttr.widgets.load();    
-            }
-         });
+         });       
+                
     });
 })(jQuery);
 </script>

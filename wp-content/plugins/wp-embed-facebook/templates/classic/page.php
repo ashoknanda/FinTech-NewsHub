@@ -20,7 +20,7 @@
 						_e($fb_data['category'],'wp-embed-facebook');
 					}
 				?><br>
-				<?php if(isset($fb_data["website"])) : ?>
+				<?php if(isset($fb_data["website"]) && (strip_tags($fb_data["website"]) != '')) :  ?>
 					<a  href="<?php echo WP_Embed_FB::getwebsite($fb_data["website"]) ?>" title="<?php _e('Web Site', 'wp-embed-facebook')  ?>" target="_blank">
 						<?php _e('Web Site','wp-embed-facebook') ?>
 					</a>						
@@ -37,8 +37,8 @@
 				</div>
 			</div>
 	</div>	
-	<?php if(isset($fb_data['posts'])) : global $wp_embed;   ?>
-		<?php foreach($fb_data['posts']['data'] as $fb_post) : ?>
+	<?php if(isset($fb_data['feed'])) : global $wp_embed;   ?>
+		<?php foreach($fb_data['feed']['data'] as $fb_post) : ?>
 			<?php if(isset($fb_post['picture']) || isset($fb_post['message'])) : ?>
 				<?php include('single-post.php') ?>
 			<?php endif; ?>

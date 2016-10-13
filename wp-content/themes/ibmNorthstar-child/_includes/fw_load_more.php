@@ -28,7 +28,6 @@ function fwp_load_more() {
         });
 
         $(document).on('facetwp-loaded', function() {
-            console.log(FWP.settings.pager.total_pages);
             if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
                 if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
                     $('.facetwp-template').parent().after('<p class="ibm-ind-link ibm-padding-top-1"><a href="javascript:void(0);" class="fwp-load-more  ibm-btn-pri ibm-center-position">Load more</a></p>');

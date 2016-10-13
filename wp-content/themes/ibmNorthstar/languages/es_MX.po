@@ -2,14 +2,14 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ibmNorthstarDev\n"
 "POT-Creation-Date: 2016-07-06 08:33-0500\n"
-"PO-Revision-Date: 2016-07-06 08:50-0500\n"
+"PO-Revision-Date: 2016-07-11 10:02-0500\n"
 "Last-Translator: Scott C Farnsworth <scott_farnsworth@us.ibm.com>\n"
 "Language-Team: Scott C Farnsworth <scott_farnsworth@us.ibm.com>\n"
 "Language: es_MX\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7\n"
+"X-Generator: Poedit 1.8.8\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-WPHeader: style.css\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
@@ -22,11 +22,11 @@ msgstr ""
 
 #: 404.php:7
 msgid "Page Not Found"
-msgstr "Nada que hacer, no existe esta página"
+msgstr "No existe esa página"
 
 #: 404.php:8
 msgid "The page you were looking for was not found."
-msgstr ""
+msgstr "La página que buscas no se encontró."
 
 #: 404.php:9
 msgid "Back"
@@ -34,7 +34,7 @@ msgstr "Regresar"
 
 #: _includes/post_featured.php:75
 msgid "Read More"
-msgstr "Leer mas"
+msgstr "Leer más"
 
 #: _includes/post_listing_grid.php:69
 msgid "Continue reading"
@@ -46,15 +46,15 @@ msgstr "Facebook"
 
 #: _includes/post_listing_grid.php:73
 msgid "Twitter"
-msgstr ""
+msgstr "Twitter"
 
 #: _includes/post_listing_grid.php:74 _includes/post_listing_grid.php:75
 msgid "LinkedIn"
-msgstr ""
+msgstr "LinkedIn"
 
 #: _includes/post_listing_stack.php:95
 msgid "read more"
-msgstr "leer mas"
+msgstr "leer más"
 
 #: _includes/post_nextprev.php:6
 msgid "Previous Post"
@@ -66,11 +66,11 @@ msgstr "Siguiente Publicación"
 
 #: _library/acf.php:8
 msgid "Article Fields"
-msgstr ""
+msgstr "Campos de artículo"
 
 #: _library/acf.php:12
 msgid "Full Width?"
-msgstr ""
+msgstr "¿A todo lo ancho?"
 
 #: _library/acf.php:16 _library/acf.php:32 _library/acf.php:48
 msgid "Yes"
@@ -78,44 +78,46 @@ msgstr "Si"
 
 #: _library/acf.php:17 _library/acf.php:33 _library/acf.php:49
 msgid "No"
-msgstr "no"
+msgstr "No"
 
 #: _library/acf.php:18 _library/acf.php:34 _library/acf.php:50
 msgid "Follow the global blog setting"
-msgstr ""
+msgstr "Sigue los ajustes globales de blog."
 
 #: _library/acf.php:23
 msgid ""
 "Select to have the post body span the full width of the page (that is, do "
 "not show the right sidebar)."
 msgstr ""
+"Selecciona para que la entrada cubra todo el ancho de la página (es decir, "
+"sin mostrar la barra lateral derecha)."
 
 #: _library/acf.php:24
 msgid "Post body spans the full page width"
-msgstr ""
+msgstr "La entrada cubre todo el ancho de la página."
 
 #: _library/acf.php:28
 msgid "Allow comments"
-msgstr ""
+msgstr "Permitir comentarios"
 
 #: _library/acf.php:39
 msgid "Select to allow or disable comments for this post."
-msgstr ""
+msgstr "Selecciona para permitir o prohibir comentarios para esta entrada."
 
 #: _library/acf.php:44
 msgid "Display social links to share this post?"
-msgstr ""
+msgstr "¿Mostrar los enlaces sociales para compartir esta entrada?"
 
 #: _library/acf.php:59 _library/acf.php:301 _library/acf.php:499
 #: _library/acf.php:962 _library/acf.php:1183 _library/acf.php:1787
 msgid "Title Size"
-msgstr ""
+msgstr "Tamaño del título"
 
 #: _library/acf.php:62 _library/acf.php:304 _library/acf.php:502
 #: _library/acf.php:531 _library/acf.php:965 _library/acf.php:1186
 #: _library/acf.php:1790 _library/acf.php:1819
 msgid "Select size"
-msgstr ""
+msgstr "Selecciona tamaño"
 
 #: _library/acf.php:64 _library/acf.php:306 _library/acf.php:504
 #: _library/acf.php:533 _library/acf.php:967 _library/acf.php:1008
@@ -132,38 +134,38 @@ msgstr "Más grande"
 #: _library/acf.php:1203 _library/acf.php:1793 _library/acf.php:1807
 #: _library/acf.php:1822 _library/acf.php:1836
 msgid "Normal"
-msgstr "Normale"
+msgstr "Normal"
 
 #: _library/acf.php:66 _library/acf.php:308 _library/acf.php:506
 #: _library/acf.php:535 _library/acf.php:969 _library/acf.php:1010
 #: _library/acf.php:1053 _library/acf.php:1190 _library/acf.php:1794
 #: _library/acf.php:1823
 msgid "Smaller"
-msgstr ""
+msgstr "Más pequeño"
 
 #: _library/acf.php:74 _library/acf.php:316 _library/acf.php:514
 #: _library/acf.php:977 _library/acf.php:1198 _library/acf.php:1802
 msgid "Title Weight"
-msgstr ""
+msgstr "Peso del título"
 
 #: _library/acf.php:78 _library/acf.php:320 _library/acf.php:518
 #: _library/acf.php:547 _library/acf.php:981 _library/acf.php:1022
 #: _library/acf.php:1065 _library/acf.php:1202 _library/acf.php:1806
 #: _library/acf.php:1835
 msgid "Bold"
-msgstr "Bold"
+msgstr "Negritas"
 
 #: _library/acf.php:80 _library/acf.php:322 _library/acf.php:520
 #: _library/acf.php:549 _library/acf.php:983 _library/acf.php:1024
 #: _library/acf.php:1067 _library/acf.php:1204 _library/acf.php:1808
 #: _library/acf.php:1837
 msgid "Thin"
-msgstr "Delgados"
+msgstr "Delgadas"
 
 #: _library/acf.php:88 _library/acf.php:330 _library/acf.php:557
 #: _library/acf.php:1075 _library/acf.php:1845
 msgid "Text Color"
-msgstr "Color de Texto"
+msgstr "Color de texto"
 
 #: _library/acf.php:91 _library/acf.php:333 _library/acf.php:560
 #: _library/acf.php:1078 _library/acf.php:1225 _library/acf.php:1848
@@ -171,60 +173,63 @@ msgid ""
 "View https://www.ibm.com/standards/web/patterns/text for example color "
 "options"
 msgstr ""
+"Ver https://www.ibm.com/standards/web/patterns/text para ejemplos de colores"
 
 #: _library/acf.php:137 _library/acf.php:1271
 msgid "Leadspace Image"
-msgstr ""
+msgstr "Imagen principal"
 
 #: _library/acf.php:140 _library/acf.php:1274
 msgid "Upload the article's main image. Size requirements 1440 × 320"
-msgstr ""
+msgstr "Subir la imagen principal del artículo. El tamaño debe ser 1440 x 320"
 
 #: _library/acf.php:147
 msgid "Card Image"
-msgstr ""
+msgstr "Imagen de la tarjeta"
 
 #: _library/acf.php:150
 msgid "Upload the article's card image. Recommended size is 380 x 190"
 msgstr ""
+"Subir la imagen de la tarjeta para el artículo. Tamaño recomendado es 380 x "
+"190"
 
 #: _library/acf.php:157
 msgid "Add Second Author"
-msgstr ""
+msgstr "Añade segundo autor"
 
 #: _library/acf.php:160 functions.php:264 functions.php:275 functions.php:287
 #: functions.php:310 functions.php:404 functions.php:420 functions.php:435
 #: functions.php:450 functions.php:467
 msgid "Enable"
-msgstr ""
+msgstr "Permitir"
 
 #: _library/acf.php:165
 msgid "Author 2 - Name"
-msgstr ""
+msgstr "Autor 2 - Nombre"
 
 #: _library/acf.php:188
 msgid "Author 2 - Website Link"
-msgstr ""
+msgstr "Autor 2 - Liga al sitio web"
 
 #: _library/acf.php:211
 msgid "Author 2 - Image"
-msgstr ""
+msgstr "Autor 2 - Imagen"
 
 #: _library/acf.php:231
 msgid "Author 2 - Title/Dept"
-msgstr ""
+msgstr "Autor 2 - Título"
 
 #: _library/acf.php:278
 msgid "Profile Picture"
-msgstr ""
+msgstr "Foto de perfil"
 
 #: _library/acf.php:283
 msgid "Image used on author, contributors and article pages."
-msgstr ""
+msgstr "Imagen utilizada para las páginas de autor, colaboradores y artículos."
 
 #: _library/acf.php:288
 msgid "Leadspace Title"
-msgstr ""
+msgstr "Título principal"
 
 #: _library/acf.php:379 _library/acf.php:703
 msgid "Background Image"
@@ -232,65 +237,65 @@ msgstr "Imagen de fondo"
 
 #: _library/acf.php:382
 msgid "leadspace image. Recommended size is 1440 × 320"
-msgstr ""
+msgstr "Imagen principal. Tamaño recomendado de 1440 x 320"
 
 #: _library/acf.php:389
 msgid "Twitter link"
-msgstr ""
+msgstr "Enlace a Twitter"
 
 #: _library/acf.php:401
 msgid "LinkedIn Link"
-msgstr ""
+msgstr "Enlace a LinkedIn"
 
 #: _library/acf.php:413
 msgid "Facebook link"
-msgstr ""
+msgstr "Enlace a Facebook"
 
 #: _library/acf.php:425
 msgid "Job Title"
-msgstr ""
+msgstr "Título del pueso"
 
 #: _library/acf.php:437 _library/acf.php:485 _library/acf.php:1773
 msgid "Post listing style"
-msgstr ""
+msgstr "Estilo de listado de entradas"
 
 #: _library/acf.php:443 _library/acf.php:491 _library/acf.php:1779
 #: functions.php:188 functions.php:204
 msgid "Grid"
-msgstr ""
+msgstr "Red"
 
 #: _library/acf.php:444 _library/acf.php:492 _library/acf.php:1780
 #: functions.php:189 functions.php:205
 msgid "Stack"
-msgstr ""
+msgstr "Pila"
 
 #: _library/acf.php:445 _library/acf.php:493 _library/acf.php:1781
 msgid "Follow global settings"
-msgstr ""
+msgstr "Sigue los ajustes globales"
 
 #: _library/acf.php:475 _library/acf.php:1136 _library/acf.php:1763
 msgid "Main Image"
-msgstr ""
+msgstr "Imagen principal"
 
 #: _library/acf.php:478
 msgid "Leadspace Image Dimensions: 1440 × 320"
-msgstr ""
+msgstr "Dimensiones de la imagen principal: 1440 x 320"
 
 #: _library/acf.php:500
 msgid "leadspace_title_size"
-msgstr ""
+msgstr "tamaño_título_principal"
 
 #: _library/acf.php:528 _library/acf.php:1046 _library/acf.php:1816
 msgid "Description Size"
-msgstr ""
+msgstr "Tamaño de la descripción"
 
 #: _library/acf.php:543 _library/acf.php:1061 _library/acf.php:1831
 msgid "Description Weight"
-msgstr ""
+msgstr "Peso de la descripción"
 
 #: _library/acf.php:627
 msgid "Categories Page"
-msgstr ""
+msgstr "Página de categorías"
 
 #: _library/acf.php:631
 msgid "Columns"
@@ -298,35 +303,35 @@ msgstr "Columnas"
 
 #: _library/acf.php:634
 msgid "Choose 1/2/3 columns"
-msgstr ""
+msgstr "Escoge 1/2/3 columnas"
 
 #: _library/acf.php:667 _library/acf.php:671
 msgid "Footer Band"
-msgstr ""
+msgstr "Banda al pie"
 
 #: _library/acf.php:675
 msgid "Enable Footer Band"
-msgstr ""
+msgstr "Permitir banda al pie"
 
 #: _library/acf.php:680
 msgid "Title"
-msgstr "Titulo"
+msgstr "Título"
 
 #: _library/acf.php:692
 msgid "description"
-msgstr ""
+msgstr "descripción"
 
 #: _library/acf.php:712
 msgid "Text color"
-msgstr ""
+msgstr "Color de texto"
 
 #: _library/acf.php:715
 msgid "Controls the color of the text on the Footer Band Background Image."
-msgstr ""
+msgstr "Controla el color del texto en la imagen de fondo de la banda al pie."
 
 #: _library/acf.php:718
 msgid "Black text (good for light background images)"
-msgstr ""
+msgstr "Texto negro (bueno para imágenes de fondo claras)"
 
 #: _library/acf.php:719
 msgid "White text (good for dark background images)"
@@ -334,121 +339,125 @@ msgstr "Texto blanco (bueno para imágenes de fondo oscuro)"
 
 #: _library/acf.php:725
 msgid "Parallax"
-msgstr "Parallax"
+msgstr "Paralaje"
 
 #: _library/acf.php:728
 msgid "Provides a visually interesting effect as the page scrolls"
 msgstr ""
+"Provee un efecto visualmente interesante al bajar o subir dentro de la "
+"página."
 
 #: _library/acf.php:729
 msgid "Turn Parallax on"
-msgstr ""
+msgstr "Activar paralaje"
 
 #: _library/acf.php:734
 msgid "Number of CTAs"
-msgstr ""
+msgstr "Número de CTAs (call to action)"
 
 #: _library/acf.php:748
 msgid "CTA 1 Text"
-msgstr ""
+msgstr "Texto de CTA 1"
 
 #: _library/acf.php:760
 msgid "CTA 1 url"
-msgstr ""
+msgstr "URL de CTA 1"
 
 #: _library/acf.php:772
 msgid "CTA 2 text"
-msgstr ""
+msgstr "Texto de CTA 2"
 
 #: _library/acf.php:784
 msgid "CTA 2 url"
-msgstr ""
+msgstr "URL de CTA 2"
 
 #: _library/acf.php:796
 msgid "CTA 3 text"
-msgstr ""
+msgstr "Texto de CTA 3"
 
 #: _library/acf.php:808
 msgid "CTA 3 url"
-msgstr ""
+msgstr "URL de CTA 3"
 
 #: _library/acf.php:840
 msgid "Footer Social Links"
-msgstr ""
+msgstr "Enlaces sociales al pie de la página"
 
 #: _library/acf.php:844
 msgid "Social Icons"
-msgstr ""
+msgstr "Iconos de redes sociales"
 
 #: _library/acf.php:847
 msgid "Check box to enable the social links band"
-msgstr "Casilla para habilitar la banda de vínculos sociales"
+msgstr "Casilla para habilitar la banda de enlaces sociales"
 
 #: _library/acf.php:848
 msgid "Enable Social Links Band"
-msgstr ""
+msgstr "Habilita banda de enlaces sociales"
 
 #: _library/acf.php:853
 msgid "Facebook Link"
-msgstr ""
+msgstr "Enlace a Facebook"
 
 #: _library/acf.php:865
 msgid "Twitter Link"
-msgstr ""
+msgstr "Enlace a Twitter"
 
 #: _library/acf.php:877
 msgid "Linkedin Link"
-msgstr ""
+msgstr "Enlace a LinkedIn"
 
 #: _library/acf.php:889
 msgid "Youtube Link"
-msgstr ""
+msgstr "Enlace a YouTube"
 
 #: _library/acf.php:901
 msgid "googleplus link"
-msgstr ""
+msgstr "Enlace a Google+"
 
 #: _library/acf.php:913
 msgid "RSS Link"
-msgstr ""
+msgstr "Enlace a RSS"
 
 #: _library/acf.php:945
 msgid "Home Leadspace"
-msgstr ""
+msgstr "Espacio principal de la página principal"
 
 #: _library/acf.php:949 _library/acf.php:1332
 msgid "Main Title"
-msgstr ""
+msgstr "Título principal"
 
 #: _library/acf.php:952
 msgid ""
 "Please put the name of your blog in this space use sentence case structure. "
 "ie \"The blog\""
 msgstr ""
+"Por favor, pon el nombre de tu blog en este espacio utilizando la estructura "
+"de mayúsculas-minúsculas, por ejemplo: “El Blog”"
 
 #: _library/acf.php:991
 msgid "Sub Title"
-msgstr "Subtitulo"
+msgstr "Subtítulo"
 
 #: _library/acf.php:1003
 msgid "Subtitle Size"
-msgstr ""
+msgstr "Tamaño de subtítulo"
 
 #: _library/acf.php:1018
 msgid "Subtitle Weight"
-msgstr ""
+msgstr "Peso de subtítulo"
 
 #: _library/acf.php:1032 _library/acf.php:1212
 msgid "Description"
-msgstr ""
+msgstr "Descripción"
 
 #: _library/acf.php:1124
 msgid "Text align"
-msgstr ""
+msgstr "Alineación de texto"
 
 #: _library/acf.php:1128
 msgid "Default"
-msgstr ""
+msgstr "Por defecto"
 
 #: _library/acf.php:1129
 msgid "Center"
@@ -456,27 +465,28 @@ msgstr "Centro"
 
 #: _library/acf.php:1131
 msgid "How do you wish to have text aligned?"
-msgstr ""
+msgstr "¿Cómo te gustaría que se alineara el texto?"
 
 #: _library/acf.php:1139
 msgid "Recommended resolution: 1440x320"
-msgstr ""
+msgstr "Resolución recomendada: 1440 x 320"
 
 #: _library/acf.php:1167
 msgid "Page Field Group"
-msgstr ""
+msgstr "Grupo de campos de la página"
 
 #: _library/acf.php:1171
 msgid "Display Title"
-msgstr ""
+msgstr "Título a desplegar"
 
 #: _library/acf.php:1215
 msgid "This content will show up under the main title in the leadspace area"
 msgstr ""
+"Este contenido se mostrará debajo del título principal en el área principal"
 
 #: _library/acf.php:1222
 msgid "Leadspace Text Color"
-msgstr ""
+msgstr "Color del texto principal"
 
 #: _library/acf.php:1281
 msgid "Sidebar"
@@ -488,19 +498,20 @@ msgstr "(No funciona en páginas de archivo o colaboradores)"
 
 #: _library/acf.php:1296
 msgid "Enable Sidebar"
-msgstr ""
+msgstr "Habilitar barra lateral"
 
 #: _library/acf.php:1335
 msgid "Enter the title for the sidebar. Ex: 'Follow the conversation'"
 msgstr ""
+"Ingresa el título para la barra lateral, por ejemplo: “Sigue la conversación”"
 
 #: _library/acf.php:1337
 msgid "Follow the conversation"
-msgstr ""
+msgstr "Sigue la conversación"
 
 #: _library/acf.php:1346
 msgid "Twitter Embed Code"
-msgstr ""
+msgstr "Código de integración de Twitter"
 
 #: _library/acf.php:1349
 msgid ""
@@ -508,112 +519,118 @@ msgid ""
 "com/web/embedded-timelines/user. If you have a twitter account already "
 "follow this link to timeline widget. https://twitter.com/settings/widgets"
 msgstr ""
+"Sigue los ejemplos de código para crear tu propia línea de tiempo de Twitter "
+"https://dev.twitter.com/web/embedded-timelines/user. Si ya tienes una cuenta "
+"de Twitter, sigue este enlace al widget de la línea de tiempo https://"
+"twitter.com/settings/widgets"
 
 #: _library/acf.php:1356
 msgid "First Content Space"
-msgstr ""
+msgstr "Espacio de primer contenido"
 
 #: _library/acf.php:1359
 msgid "Enable First Content Space"
-msgstr ""
+msgstr "Habilita espacio de primer contenido"
 
 #: _library/acf.php:1364
 msgid "First Section Title"
-msgstr ""
+msgstr "Título de la primera sección"
 
 #: _library/acf.php:1387
 msgid "First Section Text Area"
-msgstr ""
+msgstr "Área de texto de la primera sección"
 
 #: _library/acf.php:1409
 msgid "First Section CTA Text"
-msgstr ""
+msgstr "Texto para CTA de la primera sección"
 
 #: _library/acf.php:1432
 msgid "First Section CTA URL"
-msgstr ""
+msgstr "URL para CTA de la primera sección"
 
 #: _library/acf.php:1455
 msgid "Second Content Space"
-msgstr ""
+msgstr "Espacio para el contenido secundario"
 
 #: _library/acf.php:1458
 msgid "Enable Second Content Space"
-msgstr ""
+msgstr "Habilita espacio para contenido secundario"
 
 #: _library/acf.php:1463
 msgid "Second Section Title"
-msgstr ""
+msgstr "Título de sección secundaria"
 
 #: _library/acf.php:1485
 msgid "Second Section Text Area"
-msgstr ""
+msgstr "Área de texto de sección secundaria"
 
 #: _library/acf.php:1508
 msgid "Second Section CTA Text"
-msgstr ""
+msgstr "Texto para CTA de la sección secundaria"
 
 #: _library/acf.php:1531
 msgid "Second Section CTA URL"
-msgstr ""
+msgstr "URL para CTA de la sección secundaria"
 
 #: _library/acf.php:1554
 msgid "RSS Feed"
-msgstr ""
+msgstr "Feed de RSS"
 
 #: _library/acf.php:1557
 msgid "Adds fields for RSS Feed links"
-msgstr ""
+msgstr "Añade campos para los enlaces del feed de RSS"
 
 #: _library/acf.php:1558
 msgid "Enable RSS Feed"
-msgstr ""
+msgstr "Habilita feed de RSS"
 
 #: _library/acf.php:1563
 msgid "RSS Feed Section Title"
-msgstr ""
+msgstr "Título de sección para el feed de RSS"
 
 #: _library/acf.php:1586
 msgid "Page Feed"
-msgstr ""
+msgstr "Feed de página"
 
 #: _library/acf.php:1589
 msgid ""
 "Select this option to add a feed for every page that contains the sidebar. "
 "If this is selected it will replace the first feed."
 msgstr ""
+"Seleccione esta opción para añadir un feed para cada página que contiene la "
+"barra lateral. Si esto se selecciona, reemplazará el primer feed."
 
 #: _library/acf.php:1606
 msgid "RSS Feed 1 Link"
-msgstr ""
+msgstr "Enlace para el feed 1 de RSS"
 
 #: _library/acf.php:1634
 msgid "RSS Feed 1 Title"
-msgstr ""
+msgstr "Título de feed 1 de RSS"
 
 #: _library/acf.php:1663
 msgid "Add Second Feed?"
-msgstr ""
+msgstr "¿Agregar un segundo feed?"
 
 #: _library/acf.php:1683
 msgid "RSS Feed 2 Link"
-msgstr ""
+msgstr "Enlace para el feed 2 de RSS"
 
 #: _library/acf.php:1711
 msgid "RSS Feed 2 Title"
-msgstr ""
+msgstr "Título para el feed 2 de RSS"
 
 #: _library/acf.php:1766
 msgid "Image needs to be 1440 x 320"
-msgstr ""
+msgstr "La imagen debe ser de 1440 x 320"
 
 #: _library/comments.php:25 _library/comments.php:75
 msgid "F jS, Y"
-msgstr ""
+msgstr "F jS, Y"
 
 #: _library/comments.php:34 _library/comments.php:84
 msgid "Your comment is awaiting moderation."
-msgstr ""
+msgstr "El comentario está esperando moderación"
 
 #: _library/comments.php:40 _library/comments.php:90
 msgid "(Edit)"
@@ -622,52 +639,52 @@ msgstr "(Editar)"
 #: _library/site.php:123
 #, php-format
 msgid "Required fields are marked %s"
-msgstr "Los campos requeridos están marcados %s"
+msgstr "Los campos requeridos están marcados con %s"
 
 #: _library/site.php:159
 #, php-format
 msgid "Page %s"
-msgstr ""
+msgstr "Página %s"
 
 #: archive.php:18
 msgid "Archives by Month:"
-msgstr ""
+msgstr "Archivos por mes:"
 
 #: archive.php:23
 msgid "Archives by Subject:"
-msgstr ""
+msgstr "Archivos por tema:"
 
 #: author.php:123
 msgid "Sorry"
-msgstr ""
+msgstr "Lo siento"
 
 #: author.php:126
 msgid "Author has no posts."
-msgstr ""
+msgstr "El autor no tiene entradas."
 
 #: category.php:139 home.php:105 page-archive.php:111 tag.php:132
 msgid "Sorry, no posts matched your criteria."
-msgstr ""
+msgstr "Lo siento, no hay entradas que se ajusten al criterio."
 
 #: category.php:155 home.php:123 page-archive.php:126 tag.php:148
 msgid "<p>Sorry, no posts matched your criteria.</p>"
-msgstr ""
+msgstr "<p>Lo siento, no hay entradas que se ajusten al criterio.</p>"
 
 #: comments-full-width.php:18
 msgid "Add Comment"
-msgstr ""
+msgstr "Añade comentario"
 
 #: comments-full-width.php:18 comments.php:18
 msgid "<span>No</span> Comments"
-msgstr ""
+msgstr "<span>Sin</span> comentarios"
 
 #: comments-full-width.php:18 comments.php:18
 msgid "<span>One</span> Comment"
-msgstr ""
+msgstr "<span>Un</span> comentario"
 
 #: comments-full-width.php:18 comments.php:18
 msgid "<span>%</span> Comments"
-msgstr ""
+msgstr "<span>%</span> comentarios"
 
 #: comments-full-width.php:29 comments.php:29
 msgctxt "noun"
@@ -680,11 +697,11 @@ msgstr "Respuesta"
 
 #: comments-full-width.php:65 comments.php:65
 msgid "&larr; Previous Comments"
-msgstr ""
+msgstr "&larr; Comentarios anteriores"
 
 #: comments-full-width.php:66 comments.php:66
 msgid "More Comments &rarr;"
-msgstr ""
+msgstr "Más comentarios &rarr;"
 
 #: comments-full-width.php:71 comments.php:71
 msgid "Comments are closed."
@@ -697,59 +714,59 @@ msgstr "Bienvenido, %1$s"
 
 #: functions.php:120 functions.php:125 functions.php:130
 msgid "This theme requires you to install the"
-msgstr ""
+msgstr "Este tema requiere que instales el"
 
 #: functions.php:120 functions.php:125 functions.php:130
 msgid "download it from here"
-msgstr ""
+msgstr "descárgalo de aquí"
 
 #: functions.php:120 functions.php:125 functions.php:130
 msgid "or"
-msgstr ""
+msgstr "o"
 
 #: functions.php:120 functions.php:125 functions.php:130
 msgid "click here to install it"
-msgstr ""
+msgstr "da clic aquí para instalarlo"
 
 #: functions.php:165
 msgid "Meta Data"
-msgstr ""
+msgstr "Metadatos"
 
 #: functions.php:166
 msgid "Optional NS Widgets"
-msgstr ""
+msgstr "Widgets NS opcionales"
 
 #: functions.php:174
 msgid "Post Listing Design"
-msgstr ""
+msgstr "Diseño de la lista de entradas"
 
 #: functions.php:181
 msgid "Post listing style for homepage"
-msgstr ""
+msgstr "Estilo de listado de entradas para la página principal"
 
 #: functions.php:197
 msgid "Post listing style for other pages"
-msgstr ""
+msgstr "Estilo de listado de entradas para las otras páginas"
 
 #: functions.php:213
 msgid "Post Listing Image Visibility"
-msgstr ""
+msgstr "Visibilidad de imágenes para el listado de entradas"
 
 #: functions.php:220
 msgid "Always show post images"
-msgstr ""
+msgstr "Muestra siempre imágenes de las entradas"
 
 #: functions.php:221
 msgid "Show post images if available"
-msgstr ""
+msgstr "Muestra imágenes de las entradas si están disponibles"
 
 #: functions.php:222
 msgid "Never show post images"
-msgstr ""
+msgstr "Nunca mostrar imágenes de las entradas"
 
 #: functions.php:230
 msgid "For each article in listing, show"
-msgstr ""
+msgstr "Para cada artículo en la lisa, muestra"
 
 #: functions.php:237
 msgid "Full text"
@@ -761,39 +778,40 @@ msgstr "Resumen"
 
 #: functions.php:246
 msgid "Miscellaneous Overrides"
-msgstr ""
+msgstr "Anulaciones misceláneas"
 
 #: functions.php:258
 msgid "Force all posts to full width"
-msgstr ""
+msgstr "Fuerza todas las entradas a todo el ancho"
 
 #: functions.php:269
 msgid "Display social share icons on all posts"
 msgstr ""
+"Despliega los iconos de compartir en redes sociales en todas las entradas"
 
 #: functions.php:281
 msgid "Hide author from posts"
-msgstr ""
+msgstr "Ocultar al autor de las entradas"
 
 #: functions.php:297
 msgid "Google Analytics"
-msgstr ""
+msgstr "Google Analytics"
 
 #: functions.php:304
 msgid "Include Google Analytics"
-msgstr ""
+msgstr "Incluye Google Analytics"
 
 #: functions.php:315
 msgid "Google Analytics UA"
-msgstr ""
+msgstr "Google Analytics UA"
 
 #: functions.php:331
 msgid "Set up how post lists looks like on the blog"
-msgstr ""
+msgstr "Configura cómo lucen las listas de entradas en el blog"
 
 #: functions.php:384
 msgid "Optional v18 Widgets"
-msgstr ""
+msgstr "Widgets de la versión v18 opcionales"
 
 #: functions.php:389
 msgid "Learn more"
@@ -801,11 +819,11 @@ msgstr "Más información"
 
 #: functions.php:389
 msgid "at official v18 documentation."
-msgstr ""
+msgstr "en la documentación oficial de la v18."
 
 #: functions.php:393
 msgid "Data tables or table widgets"
-msgstr ""
+msgstr "Tablas de datos o widgets de tabla"
 
 #: functions.php:394
 msgid ""
@@ -813,20 +831,27 @@ msgid ""
 "alternate highlight or styles, or any of the table widgets available like "
 "row selector, table scroll, sorting, filtering, pagination, etc."
 msgstr ""
+"Estos se requieren si estás usando tablas de datos en tu página y utilizando "
+"el realce o estilos alternativos, o cualquier widget de tabla disponible, "
+"como seleccionador de filas, navegación en la tabla, orden, filtro, "
+"paginación, etc."
 
 #: functions.php:409
 msgid "Forms or form widgets"
-msgstr ""
+msgstr "Formas o widgets de formas"
 
 #: functions.php:410
 msgid ""
 "If you have any forms on your page, including the \"pull-down navigator\" "
 "select list, these are required for styling and widgets to work."
 msgstr ""
+"Si tienes algunas formas en tu página, incluyendo la lista de selección de "
+"navegador desplegable, éstas se requieren para que funcionen los widgets y "
+"los estilos."
 
 #: functions.php:425
 msgid "Code syntax highlighter"
-msgstr ""
+msgstr "Rotulador de la sintaxis del código"
 
 #: functions.php:426
 msgid ""
@@ -834,10 +859,13 @@ msgid ""
 "(code) and allows you to number the lines, highlight specific lines, and "
 "allow the user to select all and copy the code block."
 msgstr ""
+"Esto permite al widget que codifica el color del  contenido de la pestaña "
+"&lt;pre&gt; y permite enumerar las líneas, resaltar líneas específicas, y "
+"permite al usuario seleccionar todo y copiar el bloque de código."
 
 #: functions.php:440
 msgid "Dynamic tabs"
-msgstr ""
+msgstr "Pestañas dinámicas"
 
 #: functions.php:441
 msgid ""
@@ -845,10 +873,14 @@ msgid ""
 "widget. Enables the tabs to act like a basic show/hide and show the tab "
 "contents of the selected one."
 msgstr ""
+"Requerido para la navegación entre pestañas principales o por el widget de "
+"pestañas dinámicas de contenido. Permite que las pestañas actúen como "
+"muestra/oculta y muestra los contenidos de la pestaña de la que se haya "
+"seleccionado."
 
 #: functions.php:455
 msgid "Mustache"
-msgstr ""
+msgstr "Bigote"
 
 #: functions.php:456
 msgid ""
@@ -857,10 +889,14 @@ msgid ""
 "easy to AJAX an HTML template and replace variables in the template with "
 "content from a data object."
 msgstr ""
+"Esto es una implementación del sistema de plantillas bigote en JavaScript. "
+"Las apps web front-end con configuración del tipo MVC se beneficiarán de "
+"esto. Simplifica usar AJAX en plantillas HTML y reemplazar variables en la "
+"plantilla con contenido de un objeto de datos."
 
 #: functions.php:457
 msgid "Example:"
-msgstr ""
+msgstr "Ejemplo:"
 
 #: functions.php:458
 msgid ""
@@ -868,22 +904,25 @@ msgid ""
 "you are doing a lot of templating or complex replace()s where you need some "
 "logic, this will help you."
 msgstr ""
+"En otras palabras, hacer más sencillo el uso complejo de la función "
+"replace() de JavaScript. Si estás realizando muchas plantillas o replace()s "
+"complejos donde necesitas algo de lógica, esto te ayudará."
 
 #: functions.php:471
 msgid "Save Changes"
-msgstr "Guardar Cambios"
+msgstr "Guardar cambios"
 
 #: functions.php:484
 msgid "Meta Data Setup"
-msgstr ""
+msgstr "Configuración de metadatos"
 
 #: functions.php:488
 msgid "Blog settings"
-msgstr ""
+msgstr "Ajustes del blog"
 
 #: functions.php:490
 msgid "Blog Owner:"
-msgstr ""
+msgstr "Propietario del blog:"
 
 #: functions.php:493
 msgid "Blog Description:"
@@ -895,76 +934,76 @@ msgstr "País: "
 
 #: functions.php:531
 msgid "Tracking settings"
-msgstr ""
+msgstr "Registro de ajustes"
 
 #: functions.php:533
 msgid "Primary Category:"
-msgstr ""
+msgstr "Categoría principal:"
 
 #: functions.php:536
 msgid "Site ID:"
-msgstr ""
+msgstr "ID del sitio:"
 
 #: functions.php:539
 msgid "GBT Tags"
-msgstr ""
+msgstr "Etiquetas GBT"
 
 #: functions.php:541
 msgid "IBM BU:"
-msgstr ""
+msgstr "Unidad de Negocios de IBM:"
 
 #: functions.php:544
 msgid "Product Segment:"
-msgstr ""
+msgstr "Segmento de producto:"
 
 #: functions.php:547
 msgid "Primary Brand:"
-msgstr ""
+msgstr "Marca principal:"
 
 #: functions.php:550
 msgid "Product Family:"
-msgstr ""
+msgstr "Familia de productos:"
 
 #: functions.php:555
 msgid "Update Meta Data"
-msgstr ""
+msgstr "Actualiza metadatos"
 
 #: functions.php:607
 msgid "380px by 380px"
-msgstr ""
+msgstr "380px por 380px"
 
 #: functions.php:608
 msgid "780px by 780px"
-msgstr ""
+msgstr "780px por 780px"
 
 #: functions.php:609
 msgid "1200px by 1200px"
-msgstr ""
+msgstr "1200px por 1200px"
 
 #: functions.php:610
 msgid "1440px by 1440px"
-msgstr ""
+msgstr "1440px por 1440px"
 
 #: functions.php:611
 msgid "2400px by 2400px"
-msgstr ""
+msgstr "2400px por 2400px"
 
 #: functions.php:612
 msgid "2880px by 2880px"
-msgstr ""
+msgstr "2880px por 2880px"
 
 #: functions.php:625
 msgid "600px by 600px"
-msgstr ""
+msgstr "600px por 600px"
 
 #: functions.php:626
 msgid "300px by 300px"
-msgstr ""
+msgstr "300px por 300px"
 
 #: functions.php:680
 #, php-format
 msgid "View all posts by Drew %s"
-msgstr ""
+msgstr "Lee todas las entradas por %s"
 
 #: functions.php:684
 #, php-format
@@ -972,6 +1011,8 @@ msgid ""
 "This entry was posted in %1$s and tagged %2$s on %3$s<span class=\"by-author"
 "\"> by %4$s</span>."
 msgstr ""
+"Esta entrada fue creada en %1$s y etiquetada %2$s en %3$s<span class=“por "
+"autor”> por %4$s</span>."
 
 #: functions.php:686
 #, php-format
@@ -979,11 +1020,13 @@ msgid ""
 "This entry was posted in %1$s on %3$s<span class=\"by-author\"> by %4$s</"
 "span>."
 msgstr ""
+"Esta entrada fue creada en %1$s en %3$s<span class=“por autor\"> por %4$s</"
+"span>."
 
 #: functions.php:688
 #, php-format
 msgid "This entry was posted on %3$s<span class=\"by-author\"> by %4$s</span>."
-msgstr ""
+msgstr "Esta entrada fue creada %3$s<span class=“por autor\"> por %4$s</span>."
 
 #: functions.php:747
 msgid "Previous"
@@ -991,7 +1034,7 @@ msgstr "Anterior"
 
 #: functions.php:748
 msgid "Next"
-msgstr "siguiente"
+msgstr "Siguiente"
 
 #: functions.php:779
 msgid "Tags: "
@@ -1003,7 +1046,7 @@ msgstr "Escrito por:"
 
 #: single.php:286
 msgid "Oops, Post Not Found!"
-msgstr ""
+msgstr "Ups, ¡no se encuentra esa entrada!"
 
 #: single.php:325
 msgid "More"
@@ -1011,7 +1054,7 @@ msgstr "Más"
 
 #: single.php:325
 msgid "Stories"
-msgstr ""
+msgstr "artículos"
 
 #. Theme Name of the plugin/theme
 msgid "ibmNorthstarDev"

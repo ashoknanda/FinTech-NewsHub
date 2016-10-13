@@ -3,7 +3,7 @@
 	<?php get_template_part('_includes/v18_content_main_start');
   $leadspace_title_size = get_field('leadspace_title_size');
     if(!$leadspace_title_size){
-      $leadspace_title_size = 'ibm-h2';
+      $leadspace_title_size = 'ibm-h1';
     } ?>
 
 
@@ -27,28 +27,11 @@
       <div id="ibm-leadspace-body">
           <div class="ibm-columns ibm-padding-top-3 ibm-padding-bottom-3">
               <div class="ibm-col-1-1"> <!-- ibm-center -->
-                <h2 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php echo get_field('display_title'); ?></h2>
+                <h1 class="<?php echo $leadspace_title_size; ?> <?php the_field('leadspace_title_weight'); ?>"><?php echo get_field('display_title'); ?></h1>
                 <p class="<?php the_field('leadspace_description_size'); ?> <?php the_field('leadspace_description_weight'); ?>"><?php echo the_field('description'); ?></p>
               </div>
           </div>
       </div>
-			<div id="ibm-leadspace-social">
-				<div class="ibm-columns" style="padding: 10px 0 0px;">
-					<div class="ibm-col-1-1">
-						<div class="ibm-leadspace-social-links">
-							<div>
-								<p class="ibm-textcolor-white-core">Follow Us</p>
-								<p class="ibm-ind-link ibm-alternate">
-									<a class="ibm-twitter-encircled-link" href="http://www.twitter.com/ibm" target="blank"><span>Follow us on Twitter</span></a>
-									<a class="ibm-linkedin-encircled-link" href="http://www.linkedin.com/company/ibm" target="blank"><span>Join us on Linkedin</span></a>
-									<a class="ibm-facebook-encircled-link" href="http://www.facebook.com/ibm" target="blank"><span>Visit our Facebook page</span></a>
-									<a class="ibm-youtube-encircled-link" href="http://www.youtube.com/ibm" target="blank"><span>Watch our YouTube channel</span></a>
-								</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
   </div>
 
 	<div id="content" class="ibm-blog__postgrid">
@@ -118,9 +101,9 @@ while (have_posts()):
     <div class="inner">
             <div class="ibm-blog__post-author-thumb ibm-blog__contributor-thumb">
             <?php if($uavatar != ""){ ?>
-                <div><img src="<?php echo $uavatar; ?>" alt="user icon" /></div>
+                <div><a href="<?php echo $ulink ?>"><div style="background-image:url('<?php echo $uavatar; ?>'); background-size:cover; background-position:center center;" ></div></a></div>
                 <?php } else { ?>
-                <div><?php echo get_avatar($user_info->user_email); ?></div>
+                <div><a href="<?php echo $ulink ?>"><?php echo get_avatar($user_info->user_email); ?></a></div>
                 <?php } ?>
             </div>
       <h3 class="ibm-padding-bottom-0"><a href="<?php echo $ulink; ?>"><?php echo $uname; ?></a></h3>
