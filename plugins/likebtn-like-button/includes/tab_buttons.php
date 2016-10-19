@@ -744,7 +744,30 @@ function likebtn_admin_buttons()
                                                         </td>
                                                     </tr>
                                                     <tr valign="top">
-                                                        <th scope="row"><label><?php _e('User authorization check', LIKEBTN_I18N_DOMAIN); ?></label>
+                                                        <th scope="row"><label><?php _e('Identify voters by', LIKEBTN_I18N_DOMAIN); ?></label>
+                                                        </th>
+                                                        <td>
+                                                            <label>
+                                                                <input type="radio" class="radio_voter_by" name="likebtn_voter_by_<?php echo $entity_name; ?>" value="" <?php checked(LIKEBTN_VOTER_BY_IP, get_option('likebtn_voter_by_' . $entity_name)) ?> /><?php _e('IP + Device + Cookie', LIKEBTN_I18N_DOMAIN); ?>
+                                                            </label>
+                                                            <br/>
+                                                            <label>
+                                                                <input type="radio" class="radio_voter_by" name="likebtn_voter_by_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_VOTER_BY_USER; ?>" <?php checked(LIKEBTN_VOTER_BY_USER, get_option('likebtn_voter_by_' . $entity_name)) ?> /><?php _e('Username', LIKEBTN_I18N_DOMAIN); ?>
+                                                            </label>
+                                                            <div class="param_voter_by_alert hidden">
+                                                                <p class="notice update-nag">
+                                                                    ●  <?php _e('Only registered users will be able to vote', LIKEBTN_I18N_DOMAIN); ?><br/>
+                                                                    ●  <?php echo strtr(
+                                                                    __('<a href="%url_interval%">IP address vote interval</a> parameter has an effect only if "How often visitor can vote" is set on "Voting" tab', LIKEBTN_I18N_DOMAIN), 
+                                                                    array('%url_interval%'=>"javascript:likebtnPopup('".__('http://likebtn.com/en/', LIKEBTN_I18N_DOMAIN)."customer.php/websites');void(0);")
+                                                                ); ?>
+                                                                </p>
+                                                            </div>
+                                                            
+                                                        </td>
+                                                    </tr>
+                                                    <tr valign="top">
+                                                        <th scope="row"><label><?php _e('Who can vote', LIKEBTN_I18N_DOMAIN); ?></label>
                                                         </th>
                                                         <td>
                                                             <label>
@@ -756,19 +779,19 @@ function likebtn_admin_buttons()
                                                             </label>
                                                             <br/>
                                                             <label>
-                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_NO; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_NO, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show to <strong>non-logged in</strong> users only', LIKEBTN_I18N_DOMAIN); ?>
+                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_NO; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_NO, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show to <strong>guests</strong> only', LIKEBTN_I18N_DOMAIN); ?>
                                                             </label>
                                                             <br/>
                                                             <label>
-                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_ALERT; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_ALERT, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>message</strong> asking to login instead of the button to non-logged in users', LIKEBTN_I18N_DOMAIN); ?>
+                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_ALERT; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_ALERT, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>message</strong> asking to login instead of the button to guests', LIKEBTN_I18N_DOMAIN); ?>
                                                             </label>
                                                             <br/>
                                                             <label>
-                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_ALERT_BTN; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_ALERT_BTN, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>message</strong> asking to login <strong>and the button</strong> to non-logged in users', LIKEBTN_I18N_DOMAIN); ?>
+                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_ALERT_BTN; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_ALERT_BTN, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>message</strong> asking to login <strong>and the button</strong> to guests', LIKEBTN_I18N_DOMAIN); ?>
                                                             </label>
                                                             <br/>
                                                             <label>
-                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_MODAL; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_MODAL, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>modal window</strong> with the message asking to login when non-logged in user votes', LIKEBTN_I18N_DOMAIN); ?>
+                                                                <input type="radio" name="likebtn_user_logged_in_<?php echo $entity_name; ?>" value="<?php echo LIKEBTN_USER_LOGGED_IN_MODAL; ?>" class="user_logged_in_radio" <?php checked(LIKEBTN_USER_LOGGED_IN_MODAL, get_option('likebtn_user_logged_in_' . $entity_name)) ?> /><?php _e('Show a <strong>modal window</strong> with the message asking to login when guest votes', LIKEBTN_I18N_DOMAIN); ?>
                                                             </label>
                                                             <p class="notice update-nag param_user_logged_in_notice"><?php echo strtr(
            __('Make sure not to disable anonymous access to %admin_ajax%, otherwise votes from anonymous visitors will not be accepted.', LIKEBTN_I18N_DOMAIN), 
@@ -995,7 +1018,7 @@ function likebtn_admin_buttons()
                                                         </td>
                                                     </tr>
                                                     <tr valign="top">
-                                                        <th scope="row"><label><?php _e('Voting frequency', LIKEBTN_I18N_DOMAIN); ?></label>
+                                                        <th scope="row"><label><?php _e('How often visitor can vote', LIKEBTN_I18N_DOMAIN); ?></label>
                                                         </th>
                                                         <td>
                                                             <select name="likebtn_settings_voting_frequency_<?php echo $entity_name; ?>">

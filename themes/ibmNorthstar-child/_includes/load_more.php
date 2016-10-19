@@ -199,7 +199,11 @@ function home_page_layout($my_current_section, $offset_position = 0) {
           );
 
           $postslist = get_terms('dfads_group', $ads_args);
-          $all_ids = array_map(create_function('$o', 'return $o->term_id;'), $postslist);
+          $all_ids = array();
+          if ( is_array($postslist) )
+          {
+          	$all_ids = array_map(create_function('$o', 'return $o->term_id;'), $postslist);
+          }
           return implode(',',$all_ids);
   }
 

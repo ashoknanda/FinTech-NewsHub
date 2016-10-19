@@ -23,7 +23,7 @@
                         <form id="ibm-search-form"  action="<?php bloginfo('url'); ?>" method="get">
                           <p>
                             <label for="q"></label>
-                            <input type="text" maxlength="100" value="" placeholder="Search THINK Marketing" name="s" id="q" aria-label="Search" />
+                            <input type="text" maxlength="100" value="" placeholder="Search FinTech Hub" name="s" id="q" aria-label="Search" />
                             <input type="hidden" value="18" name="v" />
                             <input type="hidden" value="utf" name="<?php
                             $temp = strtolower(substr(get_option('meta_country'), 0, strpos(get_option('meta_country'), "-")));

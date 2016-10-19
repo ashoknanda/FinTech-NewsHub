@@ -298,9 +298,10 @@ elseif ( post_is_in_descendant_category( NH_CAMPAIGN ) ) {
              if(isset($json_2) && $json_2['registry_country_code'] != 'AT'){
                
 ?>
-              <div class="ibm-col-6-4">
-                <p class="ibm-textcolor-gray-40 ibm-bold ibm-padding-top-30 ibm-padding-bottom-30">
-                <?php $my_theme = wp_get_theme(); _e("Please note that DISQUS operates this forum. By commenting, you are accepting the", $my_theme->get( 'Name' )); ?>
+              <div>
+                <p class="ibm-textcolor-gray-40 ibm-bold ibm-padding-top-30 ibm-padding-bottom-30" style="font-size: 0.875em;">
+                <?php $my_theme = wp_get_theme(); _e("Please note that DISQUS operates this forum. When you sign in to comment, IBM will provide your email, first name and last name to DISQUS. That information, along with your comments, will be governed by ", $my_theme->get( 'Name' )); ?>
+                <a class="" href="https://help.disqus.com/customer/en/portal/articles/466259-privacy-policy" target="_blank"><?php $my_theme = wp_get_theme(); _e("DISQUS’ privacy policy", $my_theme->get( 'Name' )); ?></a><?php $my_theme = wp_get_theme(); _e(". By commenting, you are accepting the", $my_theme->get( 'Name' )); ?>
                
               <a class="nh-link-color-restore" href="/think/marketing/ibm-commenting-guidelines" target="_blank"><?php $my_theme = wp_get_theme(); _e("IBM commenting guidelines", $my_theme->get( 'Name' )); ?></a> and the 
               <a class="nh-link-color-restore" href="https://help.disqus.com/customer/portal/articles/466260-terms-of-service" target="_blank"><?php $my_theme = wp_get_theme(); _e("DISQUS terms of service", $my_theme->get( 'Name' )); ?></a>.

@@ -48,7 +48,7 @@
 			color:#FDD329;
 			font-size:2.25em;
 		}
-	}
+	}	
 
 	.nh-right-rail-list-ellipsis{
 		max-height:42px;
@@ -111,20 +111,138 @@
 				}
 
 				.meta{
-					
 				}
+			}
+		}
+	}
+
+	&.nh-watson-articles{
+		/*height: 356px;*/
+		/*height: 166px;*/
+		height:auto;
+		overflow: hidden;
+		color: #000;
+		padding-bottom:0;
+		a{
+			color: #5A5A5A;
+			&:hover{
+				color: #c7c7c7;
+				text-decoration: underline;
+			}
+			&:visited{
+				color: #5A5A5A;
+			}
+		}
+
+		.tagged-list{
+			li {
+				padding: 28px 0;
+				margin-bottom: 0;
+				border-bottom: 1px solid #C7C7C7;
+				align-items: center;
+				.custom_post_list_content{
+					overflow:visible;
+					/*max-height: 6em;*/
+					height: 6.5em;
+					width:calc(100% - 48px);
+					display: flex;
+					flex-direction: column;
+					.nh-ccre-type{
+						height: 1.5em;
+					}
+					div.ibm-small{
+						margin:0;
+						color: #5A5A5A;
+					}
+					a.custom_post_label{
+						overflow: hidden;
+						text-overflow: ellipsis !important;					
+						max-height: 2.5em;
+						height: auto;
+						.nh-right-rail-list-ellipsis{
+							max-height: 2.5em;
+						}
+					}
+					.meta{
+						height: calc(100% - 50);
+						overflow: hidden;
+						text-overflow: ellipsis !important;
+						line-height: 1.2em;
+						font-size: 0.875em;
+						height: 2.5em;
+					}
+				}
+
+				&.nh-extra-card{
+
+				}
+
+				&.nh-hide{
+					display: none;
+				}
+
+				.nh-card-hover-chevron{
+					display: flex;
+					align-items: center;
+					position: relative;
+					font-size: 2.5em;
+					opacity: 0;
+
+					&:HOVER {
+						text-decoration: none !important;
+					}
+				}
+
+				&:HOVER .nh-card-hover-chevron{
+					opacity: 1;
+					padding: 0;
+					padding-left:1em;
+					overflow:hidden;
+					line-height:130%;	
+					float: right;		
+				}
+
+				.custom_post_list_image{
+					border: 1px solid #c7c7c7;
+				}				
 			}
 
 		}
 	}
+
+	&.nh-watson-articles.expanded{
+		height: auto;
+	}	
 }
 
 @media only screen and (max-width:799px){
 	
 	.nh-custom_post_list{
-
 		&.nh-right-rail-lists{
 			height:auto;
-		}	
+		}
+
+		&.nh-watson-articles{
+			.tagged-list{
+				li {
+
+					.custom_post_list_content{
+						width:calc(100% - 35px);
+						.meta{
+
+						}
+					}		
+					.nh-card-hover-chevron{
+						display: none;
+						position: relative;
+						font-size: 1.75em;
+
+						&:HOVER {
+							text-decoration: none !important;
+						}
+					}
+				}
+			}
+		}
 	}
 }

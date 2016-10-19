@@ -147,7 +147,7 @@ class WMP_Widget extends WP_Widget {
 		  $nc_source_group = $custom_fields['nc-source-group'] ? $custom_fields['nc-source-group'] : array();
 		  $nc_source_abbrev = 'T';
 		  
-		  if(is_object($nc_author)){
+		  if(isset($nc_author)){
 		    foreach ( $nc_author as $key => $value ) {
 		      $postauthor = $value;
 		    }    

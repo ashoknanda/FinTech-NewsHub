@@ -73,4 +73,42 @@ function NH_renderArticleCategories($this_post, $context){
 	return $ret.'</div></div>';
 }
 
+function NH_renderArticleCategoriesTitle($this_post, $context){
+	switch($context){
+		case 'content-page':{
+			$logoInverseClass = 'nh-article-categories-logo-inverse';
+			break;
+		}
+	}
+
+	$args = array(
+			"fields" => "all"
+	);
+	$this_postCategories = wp_get_post_categories($this_post->ID, $args);
+	$categories = $this_postCategories;
+
+	$catcountvalue = 0;
+	$ret = '<div style="border: 2px solid #E3A20B; margin:-20px;width: 125px;height: 25px; font-weight: bold; padding: 10px; -webkit-border-radius: 0px 0px 51px 0px;-moz-border-radius: 0px 0px 51px 0px;border-radius: 0px 0px 51px 0px;background-color:#E3A20B;">'. '<div class="nh-article-categoriesDummy '.$logoInverseClass.'">
+
+        <div class="content-wrap">'
+			;
+			foreach($categories as $key => $value) {
+
+				if($value->name != '' && $value->name != 'uncategorized'){
+					if($catcountvalue > 0){
+						$ret = $ret.'<span>,</span> ';
+					}
+					$categoryId = get_cat_ID( $value->name );
+					$categoryLink = get_category_link( $categoryId );
+					$ret = $ret."$value->name";
+					$catcountvalue +=1;
+					if($catcountvalue >= 1){
+						break;
+					}
+				}
+			}
+			return $ret.'</div></div></div>';
+}
+
+
 ?>

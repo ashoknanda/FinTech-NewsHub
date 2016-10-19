@@ -60,7 +60,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
     <form class="ibm-row-form" method="post" action="__REPLACE_ME__">
         <p>
             <label style="display:inline-block;padding-right: 10px;">Filter:</label>
-            <?php// echo facetwp_display( 'facet', 'categories' ); ?>
+            <?php echo facetwp_display( 'facet', 'categories' ); ?>
         </p>
     </form>
 </div>    

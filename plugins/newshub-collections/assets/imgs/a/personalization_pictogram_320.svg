@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="320px" viewBox="0 0 320 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>Personalization_320</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 272.171073 272.172727 272.171073 272.172727 0 0 0"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Personalization_320">
+            <g id="Page-1" transform="translate(25.000000, 25.000000)">
+                <path d="M136.086033,164.728696 C151.878669,164.728696 164.679887,151.924169 164.679887,136.129878 C164.679887,120.335587 151.878669,107.534369 136.086033,107.534369 C120.293396,107.534369 107.492178,120.335587 107.492178,136.129878 C107.492178,151.924169 120.293396,164.728696 136.086033,164.728696 L136.086033,164.728696 Z" id="Stroke-1" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round"></path>
+                <polygon id="Stroke-3" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" points="32.3162509 107.534204 3.72239636 164.725222 60.9101055 164.725222"></polygon>
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Clip-6"></g>
+                <polygon id="Stroke-5" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="211.262291 164.724891 268.45 164.724891 268.45 107.533873 211.262291 107.533873"></polygon>
+                <path d="M268.45,239.852836 C268.45,224.058545 255.645473,211.257327 239.852836,211.257327 C224.0602,211.257327 211.258982,224.058545 211.258982,239.852836 C211.258982,255.647127 224.0602,268.448345 239.852836,268.448345 C255.645473,268.448345 268.45,255.647127 268.45,239.852836 L268.45,239.852836 Z" id="Stroke-7" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="0,16.64850061261654" mask="url(#mask-2)"></path>
+                <polygon id="Stroke-8" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="136.086364 211.256831 107.492509 268.447849 164.680218 268.447849"></polygon>
+                <polygon id="Stroke-9" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="3.72272727 268.448345 60.9104364 268.448345 60.9104364 211.257327 3.72272727 211.257327"></polygon>
+                <path d="M32.3160855,60.9173855 C48.1087218,60.9173855 60.90994,48.1128582 60.90994,32.3185673 C60.90994,16.5242764 48.1087218,3.72305818 32.3160855,3.72305818 C16.5234491,3.72305818 3.72223091,16.5242764 3.72223091,32.3185673 C3.72223091,48.1128582 16.5234491,60.9173855 32.3160855,60.9173855 L32.3160855,60.9173855 Z" id="Stroke-10" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)"></path>
+                <polygon id="Stroke-11" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="239.856476 3.72289273 211.262622 60.9139109 268.450331 60.9139109"></polygon>
+                <polygon id="Stroke-12" stroke="#FFFFFF" stroke-width="7.42500016" stroke-linecap="round" stroke-linejoin="round" mask="url(#mask-2)" points="107.492509 60.9137455 164.680218 60.9137455 164.680218 3.72272727 107.492509 3.72272727"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

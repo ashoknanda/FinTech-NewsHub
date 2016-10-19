@@ -347,12 +347,12 @@ class LikeBtnLikeButtonMostLiked {
             $query_post_types = "'" . implode("','", $instance['entity_name']) . "'";
 
             $query_include_categories = '';
-            if (count($instance['include_categories'])) {
+            if (is_array($instance['include_categories']) && count($instance['include_categories'])) {
                 $query_include_categories = "'" . implode("','", $instance['include_categories']) . "'";
             }
 
             $query_exclude_categories = '';
-            if (count($instance['exclude_categories'])) {
+            if (is_array($instance['exclude_categories']) && count($instance['exclude_categories'])) {
                 $query_exclude_categories = "'" . implode("','", $instance['exclude_categories']) . "'";
             }
 

@@ -46,7 +46,7 @@ $pimages          = get_field('main_image', $current_category->taxonomy . '_' . 
                       echo facetwp_display( 'facet', 'category_level_2' );
                     }
 
-                // echo facetwp_display( 'facet', 'category_level_2' ); 
+                 echo facetwp_display( 'facet', 'category_level_2' ); 
                 ?>
         </form>
     </div>    

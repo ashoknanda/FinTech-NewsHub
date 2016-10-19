@@ -26,7 +26,7 @@ The **Like Button Voting & Rating** plugin allows you to add a cool looking full
 <a href="http://wordpress.likebtn.com/wordpress-like-button-plugin/" target="_blank" title="wordpress like button demo">Like Button Voting & Rating Demo</a>
 
 = Features =
-*   More than 80 parameters, 28 themes, 33 languages.
+*   More than 80 parameters, 28 themes, 37 languages.
 *   Custom themes and images.
 *   Works on websites fully cached with WP Super Cache, Quick Cache, CloudFlare, etc.
 *   Google Rich Snippets providing five star rating in Google search results. (<a href="https://likebtn.com/en/faq#rich_snippets" target="_blank" title="Google Rich Snippets Five Star Rating">Learn more</a>)
@@ -38,6 +38,7 @@ The **Like Button Voting & Rating** plugin allows you to add a cool looking full
 *   Shortcodes <code>[likebtn_likes]</code> and <code>[likebtn_dislikes]</code> to display number of likes and dislikes.
 *   Shortcode <code>[likebtn_most_liked]</code> and widget with customizable template to display the most liked content. (PRO/VIP/ULTRA)
 *   Shortcode <code>[likebtn_off]</code> to disable the Like button in a post or page.
+*   Anonymous voting tracked by IP+Device+Cookie and registered users voting tracked by users.
 *   Like box displaying users who liked an item.
 *   Compatible with <a href="https://wordpress.org/plugins/mycred/" target="_blank">myCRED</a> points management system.
 *   BuddyPress notifications for authors when authenticated users like or dislike author's content.

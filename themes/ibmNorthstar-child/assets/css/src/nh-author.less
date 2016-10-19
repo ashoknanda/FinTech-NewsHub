@@ -1,0 +1,161 @@
+.author{
+	.nh-author-heading{
+		margin-top:2.6em;
+
+		.nh-author-heading-inner{
+			display:flex;
+			flex-direction:column;
+			align-items:center;
+			padding-bottom:1.5em;
+			border-bottom:solid 1px #e8e8e8;
+
+			.nh-author-avatar-wrap{
+				max-width: 330px;
+			    margin-left: auto;
+			    width: 100%;
+			}
+
+			.nh-author-heading-content-wrap{
+
+			}
+
+			.nh-author-name-title-wrap{
+				text-align:left;
+			}
+
+			.nh-author-title{
+				padding-bottom:0;
+			}
+
+			.author-name-social-wrap{
+				display:flex;
+				flex-direction:row;
+				align-items:flex-end;
+				margin-bottom:1em;
+
+				.nh-author-name{
+					font-size:2.5em;
+					line-height:1em;
+				}
+
+				.nh-author-social-wrap{
+					display:flex;
+					flex-direction:row;
+					align-items:flex-end;
+				}
+
+				.nh-social-heading{
+					margin-left:2em;
+					padding-bottom:0.15em;
+				}
+
+				.nh-author-social{
+					padding-bottom:0;
+					display:flex;
+					flex-direction:row;
+					margin-left:0.5em;
+					line-height:inherit;
+
+					li{
+						padding-top:0;
+						padding-left:0.3em;
+
+						a{
+							padding-left:0;
+							position:relative;
+							top:0.5em;
+						}
+					}
+				}
+			}
+
+			.nh-author-bio{
+				line-height:140%;
+			}
+		}
+	}
+
+	.filter-container{
+		padding-bottom:1.5em;
+	}
+
+	.nh-author-posts-heading{
+		padding-top:2em;
+
+		.nh-author-name-filter-flexer{
+			padding:0 20px;padding: 0 20px;display: flex;flex-direction: row;justify-content: space-between;
+
+			.select2-selection__rendered{
+				padding-left:0;
+			}
+		}
+
+		.ibm-h3{
+			padding-bottom:0;
+			padding-left:20px;
+		}
+	}
+	
+	.avatar-wrap{
+		text-align:center;
+
+		img{
+			border-radius:50%;
+			overflow:hidden;
+			width:226px;
+			height:226px;
+		}
+	}
+}
+
+@media only screen and (max-width:799px){
+	.author{
+
+		.nh-author-hide-under-799{
+			display:none;
+		}
+
+		.nh-author-heading{
+			
+			.nh-author-heading-inner{
+				padding-bottom:0;
+
+				.nh-author-heading-content-wrap{
+					padding-bottom:0;
+					padding:0;
+				}
+
+				.avatar-wrap{
+					.nh-author-avatar-wrap{
+						margin:auto;
+					}
+				}
+
+				.author-name-social-wrap{
+					flex-direction:column;
+					align-items:center;
+
+					.nh-author-name-title-wrap{
+						text-align:center;
+					}
+
+					.nh-social-heading{
+						margin:0;
+					}
+				}
+			}
+		}
+
+		.nh-author-posts-heading{
+			padding-top:1em;
+
+			.ibm-h3{
+				padding-left:0;
+			}
+
+			.ta-col-12-4{
+				display:none;
+			}
+		}
+	}	
+}

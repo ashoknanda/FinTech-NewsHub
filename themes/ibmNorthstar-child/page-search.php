@@ -25,71 +25,60 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 ?>
 
 <div id="search-content" class="ibm-background-white-core">   <!-- Dummy div start -->
-    <div class="ibm-columns ibm-padding-top-3">
-        <div class="ibm-x-col-6-6"> 
-            <div class="nh-content-width-control">
-                <h1 class="ibm-h1 nh-search-heading ">Search THINK <span>Marketing</span></h1>
+    <div class="nh-content-width-control nh-narrow ibm-padding-top-3">
+      <h1 class="ibm-h1 nh-search-heading ">Search <span>FinTech Hub</span></h1>
+      
+      <div class="ibm-padding-bottom-1">
+            <div id="ibm-search-module" style="float:none;margin-right:20px;" role="search" aria-labelledby="ibm-search-page">
+                <form class="ibm-row-form ibm-row-form--line" id="ibm-search-form" action="<?php bloginfo('url'); ?>" method="get">
+                    <label for="search_input"></label>
+                    <input type="text" maxlength="100" value="<?php the_search_query(); ?>" placeholder="Search FinTech Hub" name="s" id="search_input" aria-label="Search" />
+                    <input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit" />
+                </form>
             </div>
-        </div>
-    </div>
-
-    <div class="ibm-columns ibm-padding-bottom-1">
-        <div class="ibm-x-col-6-6"> <!-- ibm-center -->
-            <div class="nh-content-width-control">
-                <div id="ibm-search-module" style="float:none;margin-right:20px;" role="search" aria-labelledby="ibm-search-page">
-                    <form class="ibm-row-form ibm-row-form--line" id="ibm-search-form" action="<?php bloginfo('url'); ?>" method="get">
-                        <label for="search_input"></label>
-                        <input type="text" maxlength="100" value="<?php the_search_query(); ?>" placeholder="Search Think Marketing" name="s" id="search_input" aria-label="Search" />
-                        <input type="submit" id="ibm-search" class="ibm-btn-search" value="Submit" />
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>  
+      </div>
 
 
-    <div id="content" class="ibm-columns">
-        <div class="ibm-x-col-6-6">
-            <div class="nh-content-width-control">
-                <div class="ibm-padding-bottom-1">
-                    <?php if(have_posts()): ?>
-                        <div class="ibm-columns filter-container" style="padding-left:10px;">
-                            <form class="ibm-row-form" method="post" action="__REPLACE_ME__">
-                                <span>
-                                    <label>Filter by:</label>
-                                    <?php echo facetwp_display( 'facet', 'categories' ); ?>
-                                    <?php //echo facetwp_display( 'facet', 'topics' ); ?>
-                                </span>
-                                <div style="display:inline-block; float:left;">
-                                    <?php echo do_shortcode('[facetwp counts="true"]'); ?>    
-                                </div>
-                                <div style="display:inline-block; float:right;padding-right:20px;">
-                                    <?php echo do_shortcode('[facetwp sort="true"]'); ?>    
-                                    <?php //facetwp_display('facet', 'sort'); ?>
-                                </div>
-                            </form>
-                        </div>    
-                    <?php endif; ?>
-                    <div id="story-space-2" class="ibm-columns ibm-cards" data-widget="masonry" data-items=".post">
-                        <div class="facetwp-template search-listing-display">
-                            <?php if (have_posts()): ?>
+      <div id="content" class="">
+            <div class="ibm-padding-bottom-1">
+                <?php if(have_posts()): ?>
+                        <form class="ibm-row-form" method="post" action="__REPLACE_ME__">
+                          <div class="filter-container nh-search-list-heading-flexer" style="padding-left:10px;">
+                            <div class="nh-result-count">
+                                <?php echo do_shortcode('[facetwp counts="true"]'); ?>    
+                            </div>
+                            <div style="display:inline-block; float:right;padding-right:20px;">
+                              <!--span>
+                                <label>Filter by:</label>
+                                <?php echo facetwp_display( 'facet', 'categories' ); ?>
+                                <?php //echo facetwp_display( 'facet', 'topics' ); ?>
+                            </span-->
+                                <?php echo do_shortcode('[facetwp sort="true"]'); ?>    
+                                <?php //facetwp_display('facet', 'sort'); ?>
+                            </div>
+                          </div>  
+                        </form>
+                      
+                <?php endif; ?>
+                <div id="story-space-2" class="ibm-cards" data-widget="x-masonry" data-items=".post">
+                    <div class="facetwp-template search-listing-display">
+                        <?php if (have_posts()): ?>
+                            
+                                    <?php while (have_posts()): ?>
+                                        <?php the_post(); ?>
+                                        <?php include('_includes/post_listing_stack2.php'); ?>
+                                    <?php endwhile; ?>
                                 
-                                        <?php while (have_posts()): ?>
-                                            <?php the_post(); ?>
-                                            <?php include('_includes/post_listing_stack2.php'); ?>
-                                        <?php endwhile; ?>
-                                    
-                            <?php else: ?>
-                                <?php 
-                                    $my_theme = wp_get_theme();
-                                    include('_includes/search_no_result.php');    
-                                ?>
-                            <?php endif; ?>
-                        </div>
+                        <?php else: ?>
+                            <?php 
+                                $my_theme = wp_get_theme();
+                                include('_includes/search_no_result.php');    
+                            ?>
+                        <?php endif; ?>
                     </div>
-                </div> 
-            </div>
-        </div>
+                </div>
+            </div> 
+          </div>
         <?php
         /*
         <div class="ibm-col-6-2 ibm-padding-top-2 nh-search-page">
@@ -101,7 +90,7 @@ $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
         </div>
         */
         ?>
-    </div>
+    
 </div><!-- End dummy div -->
 
 <?php if(have_posts()): ?>

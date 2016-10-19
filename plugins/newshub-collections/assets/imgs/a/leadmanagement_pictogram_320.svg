@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="320px" viewBox="0 0 320 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>LeadManagement_320</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="LeadManagement_320" stroke="#FFFFFF" stroke-width="8.16750035">
+            <g id="Page-1" transform="translate(15.000000, 8.000000)">
+                <polyline id="Stroke-1" stroke-linejoin="round" points="259.712652 116.03771 259.712652 35.1008958 178.797335 35.1008958"></polyline>
+                <polyline id="Stroke-2" stroke-linejoin="round" points="114.187014 35.101624 33.2716969 35.101624 33.2716969 116.038438"></polyline>
+                <polyline id="Stroke-3" stroke-linejoin="round" points="33.2724248 180.666108 33.2724248 261.602922 114.187742 261.602922"></polyline>
+                <polyline id="Stroke-4" stroke-linejoin="round" points="178.798063 261.602012 259.71338 261.602012 259.71338 180.665198"></polyline>
+                <g id="Group-13" transform="translate(0.000000, 0.910180)">
+                    <path d="M292.530108,163.342841 L259.712288,115.126984" id="Stroke-5"></path>
+                    <path d="M130.595742,301.724551 L178.798791,260.691832" id="Stroke-7"></path>
+                    <path d="M0.454968944,131.540618 L33.2727888,179.756474" id="Stroke-9"></path>
+                    <path d="M162.389335,1.36526946 L114.186286,34.1918084" id="Stroke-11"></path>
+                </g>
+                <polygon id="Stroke-14" stroke-linejoin="round" points="114.186286 180.665198 178.797335 180.665198 178.797335 116.036982 114.186286 116.036982"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

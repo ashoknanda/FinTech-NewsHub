@@ -1,30 +1,35 @@
 .ccre_widget {
   min-height: 50px;
-  background-color: #562F72;
-  color: #fff;
-  padding: 40px 30px 30px;
+  /*background-color: #562F72;
+  color: #fff;*/
+  padding: 20px 20px 10px 20px;
 }
 .ccre_widget .ccre_widget_head {
-  display: block;
+  display: inline-flex;
   overflow: auto;
+  width: 100%;
+  border-bottom: 1px solid #dedede;
+  margin-bottom: 5px;
 }
 .ccre_widget .ccre_widget_head .postgrid-title {
-  width: 65%;
-  display: inline-block;
+  max-width: 85%;
+  display: inline-flex;
   float: left;
-  font-size: 24px;
+  font-size: 15px;
+  line-height: 40px;
+  padding-left: 5px;
 }
 .ccre_widget .ccre_widget_head div {
   padding: 0 0 0 5px;
   display: inline-block;
-  width: 30%;
+  width: 10%;
   float: right;
 }
 .ccre_widget .ccre_widget_head div img {
   max-width: 100%;
 }
 .ccre_widget .ccre_widget_entries {
-  margin-top: 20px;
+  /*margin-top: 20px;*/
 }
 .ccre_widget .ccre_widget_entries li {
   font-size: 14px;
@@ -37,4 +42,8 @@
 .ccre_widget .ccre_widget_entries li p.ibm-ind-link a {
   font-size: 14px;
   color: #fff;
+}
+
+.ccre-placeholder{
+  border:none;
 }

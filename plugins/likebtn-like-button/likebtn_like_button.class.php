@@ -676,7 +676,7 @@ class LikeBtnLikeButton {
     }
 
     /**
-     * Styles plan function.
+     * Sync plan function.
      */
     public function syncPlan() {
         $response = $this->apiRequest('plan');
@@ -701,6 +701,29 @@ class LikeBtnLikeButton {
             if (isset($response['response']['expires_on'])) {
                 update_option('likebtn_plan_expires_on', $response['response']['expires_on']);
             }
+        }
+
+        return $response;
+    }
+
+    /**
+     * Go free.
+     */
+    public function goFree() {
+        $url = "value=0";
+        $response = $this->apiRequest('plan', $url);
+
+        if (isset($response['result']) && $response['result'] == 'success' && isset($response['response']) && count($response['response'])) {
+            if (isset($response['response']['plan'])) {
+                update_option('likebtn_plan', LIKEBTN_PLAN_FREE);
+
+                // Show notice on plan downgrade
+                update_option('likebtn_notice_plan', -1);
+                update_option('likebtn_last_plan_successfull_sync_time', time());
+            }
+
+            update_option('likebtn_plan_expires_in', 0);
+            update_option('likebtn_plan_expires_on', '');
         }
 
         return $response;

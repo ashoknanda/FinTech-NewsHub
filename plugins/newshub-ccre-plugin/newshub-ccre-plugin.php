@@ -9,6 +9,9 @@
  * License: IBM
  **/
 
+	include_once(__DIR__.'/../../themes/ibmNorthstar-child/_includes/NH_renderArticleSource.function.php');
+	include_once __DIR__.'/../../themes/ibmNorthstar-child/_includes/NH_trim_text.function.php';
+	include_once __DIR__.'/../../themes/ibmNorthstar-child/_includes/NH_getCardBgColor.function.php';
 	define( 'NHCCRE_PATH', dirname(__FILE__) . '/' );
 
 
@@ -112,7 +115,7 @@
 
 			$context = stream_context_create(array(
 				'http' => array(
-					'timeout' => 6,
+					'timeout' => 10,
 					'method' => 'POST',
 					'header' => 'Content-Type: application/json',
 					'content' => $xml
@@ -134,34 +137,79 @@
 				$count_items_shown = 0;
 				$article_count = 0;
 				$marketplace_count = 0;
-				$all_articles = "";
-				$all_marketplace = "";
+				$all_articles = '';
+				$all_marketplace = '';
+
+
 				foreach ($json_2 as $item) {
-					if($item['SCORE'] > 0.1 && $item["DOCID"] != $post_id ){
-						// print_r($item['CONTENT_TYPE']);
+					if($item['SCORE'] > 0.5 && $item["DOCID"] != $post_id ){
+						// print_r($item);						
 						if($item['CONTENT_TYPE'] == 'newscred' && $article_count < 3){
-							
-							if($article_count == 0){
-								$all_articles = $all_articles.'<li class="ccre_container_item"><p class="ibm-h4 ibm-bold">Articles</p></li>';
+							$bgColor = NH_getCardBgColor();
+
+							$bckImg = $item['IMAGE_URL'] ? $item['IMAGE_URL']:'';
+
+							$classtoadd = "nh-show-item";
+							if($article_count >= 2){
+								$classtoadd = "nh-extra-card nh-hide";
 							}
-							$all_articles = $all_articles.'<li class="ccre_container_item">
-												<p class="ibm-ind-link">
-													<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
-													'</a>
-												</p>
-											  </li>';
+							$modified_title = trim_text($item["TITLE"], 107, true, true);
+		                    $all_articles = $all_articles.'
+		                    <li class="'.$classtoadd.'">	                    
+		                      <div class="custom_post_list_image" style="background-color:'.$bgColor.'; background-image:url('.$bckImg.');">
+		                      </div>
+		                      <div class="custom_post_list_content">
+		                      	<div class="ibm-small ibm-bold nh-ccre-type">Article</div>
+		                        <a href="'.$item["URL"].'" class="ibm-textcolor-gray-80 ibm-bold custom_post_label"  data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" data-type="article">
+		                          <div class="nh-right-rail-list-ellipsis">'.$item["TITLE"].'</div>
+		                        </a>
+		                      </div>
+		                      <a class="nh-card-hover-chevron ibm-chevron-right-light-link ibm-blog__header-link nh-transition-triggerer" href= "#" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'"></a>
+		                    </li>';		
+		                    //OLD Layout					
+							// $all_articles = $all_articles.'<li class="ccre_container_item">
+							// 					<p class="ibm-ind-link">
+							// 						<a style="color:#000;" class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
+							// 						'</a>
+							// 					</p>
+							// 				  </li>';
 							$article_count += 1; 
 
 						}elseif($item['CONTENT_TYPE'] == 'marketplace' && $marketplace_count < 5){
-							if($marketplace_count == 0){
-								$all_marketplace = $all_marketplace.'<li class="ccre_container_item"><p class="ibm-h4 ibm-bold">Offerings & courses</p></li>';
+							$bgColor = NH_getCardBgColor();
+
+							$bckImg = plugins_url( 'img/product-icon.jpg', __FILE__ );
+
+							$type_content = 'Offering';
+							if(stripos($item["TITLE"], 'Course') !== false){
+								$type_content = 'Course';
+								$bckImg = plugins_url( 'img/courses-icon.jpg', __FILE__ );
 							}
-							$all_marketplace = $all_marketplace.'<li class="ccre_container_item">
-												<p class="ibm-ind-link">
-													<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
-													'</a>
-												</p>
-											  </li>';
+
+							$classtoadd = "nh-show-item";
+							if($marketplace_count >= 2){
+								$classtoadd = "nh-extra-card nh-hide";
+							}
+
+		                    $all_marketplace = $all_marketplace.'<li class="'.$classtoadd.'">
+		                      <div class="custom_post_list_image" style="background-color:'.$bgColor.'; background-image:url('.$bckImg.');">
+		                      </div>
+		                      <div class="custom_post_list_content">
+		                      	<div class="ibm-small ibm-bold">'.$type_content.'</div>
+		                        <a href="#" class="ibm-textcolor-gray-80 ibm-bold custom_post_label"  data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'">
+		                          <div class="nh-right-rail-list-ellipsis">'.$item["TITLE"].'</div>
+		                        </a>
+		                        <div class="meta ibm-small ibm-textcolor-gray-50 ">'.$item["ABSTRACT"].'</div>
+		                      </div>
+        						<a class="nh-card-hover-chevron ibm-chevron-right-light-link ibm-blog__header-link nh-transition-triggerer" href= "#" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'"></a>		                      
+		                    </li>';	
+
+							// $all_marketplace = $all_marketplace.'<li class="ccre_container_item">
+							// 					<p class="ibm-ind-link">
+							// 						<a class="'.$className.'" data-score="'.$item["SCORE"].'" data-docid="'.$item["DOCID"].'" data-url="'.$item["URL"].'" onclick="linkClicked(this);" href="#">'.$item["TITLE"].
+							// 						'</a>
+							// 					</p>
+							// 				  </li>';
 							$marketplace_count += 1;
 						}
 
@@ -172,17 +220,27 @@
 						}
 						
 					}
-				}			
+				}	
+
+
+				// $all_articles = $all_articles.'</ul></li>';		
+				// $all_marketplace = $all_marketplace.'</ul></li>';		
 
 				if($count_items_shown == 0){
-					echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned.</p>";
+					echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned1.</p>";
 				}else {
+					echo '<ul>';
 					echo $all_articles;
 					echo $all_marketplace;
+					echo '</ul>';
+					if($count_items_shown > 4){
+						echo '<a href="#" class="nh-show-more ibm-small ibm-bold">SHOW MORE +</a>';
+						echo '<a href="#" style="display:none;" class="nh-show-less ibm-small ibm-bold">SHOW LESS -</a>';
+					}
 				}
 
 			}else{
-				echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned.</p>";
+				echo "<p>I'm still learning and don't have a suggestion yet. Stay tuned2.</p>";
 			}
 
 			// var_dump($json_2[0]);

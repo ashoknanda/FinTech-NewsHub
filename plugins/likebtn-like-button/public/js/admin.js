@@ -1062,6 +1062,56 @@ function refreshPlan(msg_error, msg_success)
     });
 }
 
+// Switch to FREE plan
+function goFree(msg_text, msg_error, msg_success)
+{
+    var value = prompt(msg_text);
+    if (!value || value.toLowerCase() != 'free') {
+        return;
+    }
+
+    jQuery('#likebtn_refresh_trgr').hide();
+    jQuery('#likebtn_refresh_ldr').show();
+    jQuery("#likebtn_refresh_msg_wr").hide();
+    jQuery("#likebtn_refresh_error").hide();
+    jQuery("#likebtn_refresh_success").hide();
+
+    jQuery.ajax({
+        type: 'POST',
+        dataType: "json",
+        url: ajaxurl,
+        data: {
+            action: 'likebtn_go_free'
+        },
+        success: function(response) {
+            if (typeof(response.reload) != "undefined" && response.reload) {
+                location.reload(false);
+                return;
+            } else if (typeof(response.html) != "undefined" && response.html) {
+                jQuery("#likebtn_plan_wr").html(response.html);
+                jQuery("#likebtn_refresh_success").html(msg_success).show();
+                jQuery("#likebtn_refresh_msg_wr").show();
+            } else if (typeof(response.message) != "undefined" && response.message) {
+                jQuery("#likebtn_refresh_error").html(response.message).show();
+                jQuery("#likebtn_refresh_msg_wr").show();
+            } else {
+                jQuery("#likebtn_refresh_error").html(msg_error).show();
+                jQuery("#likebtn_refresh_msg_wr").show();
+            }
+            jQuery('#likebtn_refresh_trgr').show();
+            jQuery('#likebtn_refresh_ldr').hide();
+
+            likebtnApplyTooltips();
+        },
+        error: function(response) {
+            jQuery("#likebtn_refresh_error").html(msg_error).show();
+            jQuery("#likebtn_refresh_msg_wr").show();
+            jQuery('#likebtn_refresh_trgr').show();
+            jQuery('#likebtn_refresh_ldr').hide();
+        }
+    });
+}
+
 // Apply tipsy tooltips
 function likebtnApplyTooltips()
 {
@@ -1817,6 +1867,26 @@ function likebtnOptionChange(event)
             jQuery("#settings_form .param_like_box").addClass('hidden');
         } else {
             jQuery("#settings_form .param_like_box").removeClass('hidden');
+        }
+    }
+    if (!target || target.hasClass('radio_voter_by')) {
+        var voter_by = jQuery('#settings_form .radio_voter_by:checked').val();
+
+        if (voter_by == 'user') {
+            var who_can_1 = jQuery("#settings_form .user_logged_in_radio[value='']");
+            var who_can_2 = jQuery("#settings_form .user_logged_in_radio[value='0']");
+            if (who_can_1.is(':checked') || who_can_2.is(':checked')) {
+                jQuery("#settings_form .user_logged_in_radio[value='1']").attr('checked', 'checked');
+            }
+            who_can_1.attr('disabled', 'disabled');
+            who_can_2.attr('disabled', 'disabled');
+
+            jQuery("#settings_form .param_voter_by_alert:first").removeClass('hidden');
+        } else {
+            jQuery("#settings_form .user_logged_in_radio[value='']").removeAttr('disabled');
+            jQuery("#settings_form .user_logged_in_radio[value='0']").removeAttr('disabled');
+
+            jQuery("#settings_form .param_voter_by_alert:first").addClass('hidden');
         }
     }
     if (!target || target.hasClass('user_logged_in_radio')) {

@@ -342,11 +342,22 @@ ul[role=menu]{
     z-index:@z-index-ibm-sitenav-menu-list-menu;
   }
 
-.nh-content-width-control{
-  max-width:900px;
-  width:100%;
+.nh-page-width-control{
+  max-width:1440px;
   margin:auto;
 }
+.nh-content-width-control{
+  max-width:1200px;
+  width:100%;
+  margin:auto;
+  box-sizing:border-box;
+  padding:0 20px;
+
+  &.nh-narrow{
+      max-width:1080px;
+  }
+}
+
 /*hack for checkbox in search typeahead*/
 #q{
   font-size:14px;
@@ -407,3 +418,6 @@ lb-fi-thmb5-u likebtn-icon lb-like-icon lb-fi{
 @import './nh-article-source.less';
 @import './nh-article-categories.less';
 @import './nh-article-top-meta.less';
+@import './new_grid.less';
+@import './nh-author.less';
+@import './nh-social-icon.less';

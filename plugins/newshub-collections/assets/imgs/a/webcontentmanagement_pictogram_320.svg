@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="320px" height="320px" viewBox="0 0 320 320" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>WebContentManagement_320</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="WebContentManagement_320" stroke="#FFFFFF" stroke-width="7.42500016">
+            <g id="Page-1" transform="translate(41.000000, 24.000000)">
+                <polygon id="Stroke-1" points="236.585553 204.674699 118.499539 272.762048 0.413525 204.674699 0.413525 68.5 118.499539 0.412650602 236.585553 68.5"></polygon>
+                <polyline id="Stroke-3" points="187.828939 77.5489325 204.526953 87.1768964 204.526953 106.432824"></polyline>
+                <polyline id="Stroke-4" points="101.801525 127.310799 118.499539 136.938763 118.499539 156.19469"></polyline>
+                <polyline id="Stroke-5" points="204.460346 166.520364 204.513235 185.776292 187.843318 195.450472"></polyline>
+                <polyline id="Stroke-6" points="101.801525 45.2192434 118.529289 35.6424482 135.197553 45.3215807"></polyline>
+                <g id="Group-17" transform="translate(1.652778, 37.138554)">
+                    <path d="M155.399621,99.4487952 C155.399621,120.713506 138.139662,137.950747 116.846926,137.950747 C95.5541903,137.950747 78.2942319,120.713506 78.2942319,99.4487952 C78.2942319,78.1840843 95.5541903,60.9468434 116.846926,60.9468434 C138.139662,60.9468434 155.399621,78.1840843 155.399621,99.4487952 L155.399621,99.4487952 Z" id="Stroke-7"></path>
+                    <path d="M152.783439,119.70928 L200.594994,147.35687" id="Stroke-9"></path>
+                    <path d="M113.939525,101.468142 L0.851511111,166.845202" id="Stroke-11"></path>
+                    <path d="M199.894878,51.7470458 L151.328003,79.8303952" id="Stroke-13"></path>
+                    <path d="M116.846596,60.9465133 L116.846596,1.18810361" id="Stroke-15"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -77,36 +77,52 @@ if($imgobjfromnc && (get_option('post_listing_image_visibility') !== "post_listi
     }
   }
 
+// let's grab body classes
+$bodyClasses = get_body_class();
+$classStr = "";
+foreach($bodyClasses as $classes) {
+  $classStr .= $classes . " ";
+}
+$classStr = rtrim($classStr," ");
 
-
-
+$isAuthorPage = strpos($classStr, 'author') !== false;
 ?>
-<div class="nh-search-result-item post <?php echo $post->post_type; ?>" data-post-id="<?php the_ID(); ?>" style="display:flex;">
-  <div class="nh-image-wrap"><a href="<?php the_permalink() ?>">
-        <!-- <div class="custom_post_list_image" style="background-image:url(<?php echo $pimages['sizes']['large']; ?>);min-height:<?php echo $pimages['sizes']['large-height']; ?>px;min-width:<?php echo $pimages['sizes']['large-width']-100; ?>px;"></div> -->
-      <?php //var_dump($pimages); ?>
-      <img class="ibm-downsize ibm-padding-top-1" src="<?php echo $background_image; ?>" alt="" />
-    </a>
-  </div>
-
-  <div class="nh-content-wrap ibm-card__content search-card-content">
-    <div class="nh-card-content-wrap">
-      <div class="nh-card-content search-card-content">
-        <?php echo NH_renderArticleTopMeta($post, "search-result"); ?>
-      </div>
-    </div>
-    <div class="nh-content ibm-bold ibm-h4">
-      <a href="<?php the_permalink(); ?>">
-        <?php the_title(); ?>
+<div class="nh-search-result-item" data-post-id="<?php the_ID(); ?>">
+  <div class="ta-grids">
+    <div class="nh-image-wrap ta-col-12-<?php if ($isAuthorPage){echo('4');}else{echo('2');}?>"><a class="nh-search-result-anchor-image" href="<?php the_permalink() ?>" style="background-image:url(<?php echo $background_image; ?>);">
+          <!-- <div class="custom_post_list_image" style="background-image:url(<?php echo $pimages['sizes']['large']; ?>);min-height:<?php echo $pimages['sizes']['large-height']; ?>px;min-width:<?php echo $pimages['sizes']['large-width']-100; ?>px;"></div> -->
+        <?php //var_dump($pimages); ?>
+        <!--img class="ibm-downsize ibm-padding-top-1" src="<?php echo $background_image; ?>" alt="" /-->
       </a>
     </div>
-    <div class="nh-card-author">
-      <?php echo NH_renderAuthorDateLine($post); ?>
-    </div>
-    <div class="nh-tags nh-card-meta-color-changer nh-card-meta-data">
-      <div class="nh-card-categories search-card-content">
-         <?php echo NH_renderArticleCategories($post, "search-results"); ?>
+
+    <div class="nh-content-wrap ibm-card__content search-card-content ta-col-12-<?php if ($isAuthorPage){echo('8');}else{echo('9');}?>">
+      <div class="nh-card-content-wrap">
+        <div class="nh-card-content search-card-content">
+          <?php echo NH_renderArticleTopMeta($post, "search-result"); ?>
+        </div>
+      </div>
+      <div class="nh-content ibm-bold ibm-h4">
+        <a href="<?php the_permalink(); ?>">
+          <?php the_title(); ?>
+        </a>
+      </div>
+      <div class="nh-card-author">
+        <?php echo NH_renderAuthorDateLine($post); ?>
+      </div>
+      <div class="nh-tags nh-card-meta-color-changer nh-card-meta-data">
+        <div class="nh-card-categories search-card-content">
+           <?php echo NH_renderArticleCategories($post, "search-results"); ?>
+        </div>
       </div>
     </div>
+  </div>
+  <div class="ta-grids">
+    <?php 
+      if ($isAuthorPage){
+        echo('<div class="ta-col-12-1">&nbsp;</div><div class="nh-serach-results-underliner ta-col-12-11">&nbsp;</div>');
+      }else{
+        echo('<div class="nh-serach-results-underliner ta-col-12-12">&nbsp;</div>');
+      }?>
   </div>
 </div>
