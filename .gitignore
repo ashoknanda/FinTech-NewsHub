@@ -1,28 +1,7 @@
-.DS_Store
-wp-config.php
-wp-comments-post.php
-wp-login.php
-index.php
-wp-mail.php
-license.txt
-wp-settings.php
-readme.html
-wp-cron.php
-wp-signup.php
-wp-activate.php
-wp-includes
-wp-snapshots
-wp-admin
-wp-links-opml.php
-wp-trackback.php
-wp-blog-header.php
-wp-load.php
 debug.log
 node_modules
 uploads
 uploads/*
 uploads/wp-clone/*
-
-
 
 
